@@ -1,0 +1,126 @@
+\textbf{Ejercicio 28.} Calcular el volumen de la región limitada por
+\[
+x^2 + y^2 = 4x, \quad z = x, \quad z = 3x.
+\]
+
+Comenzamos reescribiendo la ecuación
+\[
+x^2 + y^2 = 4x \;\;\Longleftrightarrow\;\; x^2 - 4x + y^2 = 0
+\]
+\[
+(x - 2)^2 + y^2 = 4.
+\]
+
+
+La región queda entonces descripta como un cilindro de radio \(2\) centrado en \((2,0)\), intersectado por los planos
+\[
+z = x \quad \text{y} \quad z = 3x.
+\]
+
+\bigskip
+
+\begin{figure}[htbp]
+    \centering
+    \tikzsetnextfilename{ejercicio28_figura} 
+    
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={135}{30}, % Ajustado para ver bien la inclinación de los planos
+            width=12cm,
+            height=10cm,
+            grid=major,
+            xmin=-1, xmax=6,
+            ymin=-3, ymax=3,
+            zmin=0, zmax=13,
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            axis lines=center,
+            ticklabel style={font=\small},
+        ]
+
+        % Plano g: z = x (Violeta)
+        \addplot3[
+            surf,
+            domain=0:4,
+            y domain=-2:2,
+            samples=2,
+            color=purple!40,
+            opacity=0.4,
+            faceted color=purple!60!black,
+        ] {x};
+
+        % Plano h: z = 3x (Rojo)
+        \addplot3[
+            surf,
+            domain=0:4,
+            y domain=-2:2,
+            samples=2,
+            color=red!40,
+            opacity=0.4,
+            faceted color=red!60!black,
+        ] {3*x};
+
+        % Cilindro f: (x-2)^2 + y^2 = 4 (Verde)
+        % Parametrización: x = 2 + 2*cos(t), y = 2*sin(t)
+        \addplot3[
+            surf,
+            domain=0:360, % ángulo t
+            y domain=0:12, % altura z (hasta el máximo de 3x)
+            samples=40,
+            samples y=2,
+            color=green!50,
+            opacity=0.5,
+            faceted color=green!70!black,
+        ]
+        ({2 + 2*cos(x)}, {2*sin(x)}, {y});
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Representación de la región pedida.  \href{https://www.geogebra.org/m/uhgycge3}{Ver en GeoGebra}}
+\end{figure}
+
+Para describir la región, utilizamos coordenadas cilíndricas trasladadas:
+\[
+x = 2 + r\cos\theta, \quad y = r\sin\theta,
+\]
+con
+\[
+0 \leq r \leq 2, \qquad 0 \leq \theta \leq 2\pi.
+\]
+
+En estas coordenadas, las cotas para \(z\) resultan:
+\[
+z = 2 + r\cos\theta, \qquad z = 3(2 + r\cos\theta),
+\]
+es decir,
+\[
+2 + r\cos\theta \leq z \leq 6 + 3r\cos\theta.
+\]
+
+El jacobiano del cambio de variables es
+\[
+dV = r \, dz \, dr \, d\theta.
+\]
+
+Luego, el volumen se expresa como
+\[
+V = \int_0^{2\pi} \int_0^2 \int_{2 + r\cos\theta}^{6 + 3r\cos\theta} r \, dz \, dr \, d\theta.
+\]
+
+
+\[
+V = \int_0^{2\pi} \int_0^2 r \big(4 + 2r\cos\theta\big) \, dr \, d\theta,
+\]
+\[
+V = \int_0^{2\pi} \int_0^2 \big(4r + 2r^2\cos\theta\big) \, dr \, d\theta.
+\]
+
+\[
+V = \int_0^{2\pi} \left(8 + \frac{16}{3}\cos\theta\right) d\theta.
+\]
+
+Finalmente,
+\[
+\boxed{V = 16\pi}
+\]
