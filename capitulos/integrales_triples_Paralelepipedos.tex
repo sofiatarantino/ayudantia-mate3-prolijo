@@ -1,0 +1,49 @@
+\begin{definition} \textbf{Paralelepípedo rectangular .}  Al conjunto $P  \subseteq  \mathbb{R}^3$ dado por
+\[
+P = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\; a \leq x \leq b,\; c \leq y \leq d,\; e \leq z \leq f \right\}
+\] 
+se lo llama paralelepípedo rectangular . 
+\end{definition}
+
+
+\begin{definition} \textbf{Partici\'on regular.} 	Sea \( P  \subseteq  \mathbb{R}^3 \) un paralelepípedo.  Una partición regular de $B$ es un conjunto de pequeños paralelepípedos disjuntos (salvo tal vez por sus caras)  de igual volumen que  generan una subdivisi\'on de $P$.  Es decir, si $P = [a, b] \times [c, d] \times [e, f]$,  esto se logra dividiendo:
+
+\begin{itemize}
+    \item el intervalo \( [a, b] \) en \( l \) subintervalos \( [x_i, x_{i+1}] \)  con $0 \leq  i \leq l-1$ cada uno de ancho \( \Delta x \),
+    \item el intervalo \( [c, d] \) en \( p \) subintervalos \( [y_j, y_{j+1}] \)  con $0 \leq  p \leq p-1$, cada uno de ancho \( \Delta y \),
+    \item el intervalo \( [e, f] \) en \( m \) subintervalos \( [z_k, z_{k+1}] \)  con $0 \leq  k \leq m-1$, cada uno de ancho \( \Delta z \).
+\end{itemize}
+y tomando los sub paralelepípedos $P_{ijk}$ tales que
+	\[
+	P_{ijk} = [x_i, x_{i+1}] \times [y_j, y_{j+1}] \times [z_k, z_{k+1}]
+	\]  El volumne de $ P_{ijk}$ la notaremos por $\Delta P_{ijk}$ 
+\end{definition}
+
+
+%\input{figs/conjunto_B.tex}
+
+
+\begin{definition}
+Dada una funci\'on $f:P\to\R$, donde $P\subset \Rn{3}$ es un paralelep\'ipedo rectangular, se define la \emph{suma de Reimann}  de $f$ sobre $P$ a
+\[
+    S_{l,p,m}=\sum_{i=0}^{l-1}\sum_{j=0}^{p-1}\sum_{k=0}^{m-1}f(c_{ijk})\Delta P_{ijk},
+\]  
+donde $\{ P_{ijk}\}_{( 1 \leq i \leq l, 1 \leq j \leq p, 1 \leq k \leq m  )}$ es una partici\'on regular de $P$ y  $c_{ijk}\in P_{ijk}  \: \forall \: 1 \leq i \leq l, 1 \leq j \leq p, 1 \leq k \leq m.$ 
+\end{definition}
+
+\begin{definition} 
+Sea $f: P=[a,b]\times[c,d]\times[e,f] \to\R$ una funci\'on.    Diremos que $f$ es integrable sobre $P$ si existe y es finito el  l\'imite $\lim_{(l,p,m)\to(\infty,\infty,\infty)} S_{l,p,m}$, en tal caso  el valor de dicho l\'imite  se llama \emph{integral triple} de $f$ sobre $P$ y se nota 
+    \[
+          \iiint_P f\:dV  \: \mbox{ o } \:  \iiint_P f(x,y,z)\:dxdydz.
+    \]
+\end{definition}
+
+
+
+
+
+
+\begin{obs}
+Para la existencia del límite anterior, se requiere $f$ acotada en $U$ y continua, excepto, tal vez, en la unión finita de gráficas de funciones 
+contínuas, es decir, superficies.
+\end{obs}
