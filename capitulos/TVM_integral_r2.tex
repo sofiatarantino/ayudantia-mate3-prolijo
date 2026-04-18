@@ -1,0 +1,84 @@
+
+\begin{theorem}
+    \textbf{Teorema del valor medio para integrales dobles.}   Sea $f:D\subseteq\Rn{2}\to\R$ continual.  Entonces existe $(x_0,y_0)$ en $D$ tal que
+    \[
+        \int_D f(x,y)\:dA=f(x_0,y_0)\text{A}(D).
+    \]
+\end{theorem}
+
+\begin{definition}
+    Sea $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$ un campo $\mathcal{C}^1(A)$ y sea $\boldsymbol{D}_\mathbf{F}$ (\autoref{def:mat_dif}) su matriz diferencial.  Se define el \emph{jacobiano}, o \emph{determinante jacobiano}, y se lo nota $J_\mathbf{F}$ a 
+    \[
+        J_\mathbf{F}=\text{det}(\boldsymbol{D}_\mathbf{F}).
+    \]
+\end{definition}
+
+
+\begin{example}  Calcular $J_\mathbf{F}$ siendo  \( \mathbf{F}(r, \theta) = (r\cos\theta, r\sin\theta) \).
+
+ Primero, calculamos su la matriz diferencial.
+       \[
+       \boldsymbol{D}_{\mathbf{F}}(r, \theta) 
+       =
+       \begin{bmatrix}
+       \cos\theta & -r\sin\theta \\
+       \sin\theta & r\cos\theta
+       \end{bmatrix}
+       \]
+       Entonces, el jacobiano es
+       \[
+       J_{\mathbf{F}}(r, \theta) = \det(\boldsymbol{D}_{\mathbf{F}})(r, \theta) = 
+      r(\cos^2\theta + \sin^2\theta) = r.
+       \]
+   \end{example}
+   
+   \begin{example}  Calcular $J_\mathbf{F}$   siendo   \( \mathbf{F}(r, \theta, z) = (r\cos\theta, r\sin\theta, z) \).
+        
+  Primero, calculamos su la matriz diferencial.
+   \[
+    \boldsymbol{D}_{\mathbf{F}} (r, \theta,  z)=
+    \begin{bmatrix}
+   \cos\theta & -r\sin\theta & 0 \\
+   \sin\theta & r\cos\theta & 0 \\
+   0 & 0 & 1
+   \end{bmatrix}
+   \]   
+    Entonces, el jacobiano es 
+   
+   \[
+   J_\mathbf{F} (r, \theta, z) = \det(D_F)(r, \theta, z)  = 
+   \begin{vmatrix}
+   \cos\theta & -r\sin\theta & 0 \\
+   \sin\theta & r\cos\theta & 0 \\
+   0 & 0 & 1
+   \end{vmatrix}
+   = r
+   \]
+   \end{example}
+   
+   \begin{example}  Calcular $J_\mathbf{F}$   siendo  \( \mathbf{F}(\rho, \theta, \phi)  = (\rho\sin\phi\cos\theta, \rho\sin\phi\sin\theta, \rho\cos\phi) \). 
+   
+   
+    Primero, calculamos su la matriz diferencial.
+   
+    \[
+    \boldsymbol{D}_{\mathbf{F}}(\rho, \theta, \phi) 
+    =
+    \begin{bmatrix}
+    \sin\phi \cos\theta & -\rho \sin\phi \sin\theta & \rho \cos\phi \cos\theta \\
+    \sin\phi \sin\theta & \rho \sin\phi \cos\theta & \rho \cos\phi \sin\theta \\
+    \cos\phi & 0 & -\rho \sin\phi
+    \end{bmatrix}
+    \]
+     Entonces, el jacobiano es 
+    
+    \[
+    J_\mathbf{F}(\rho, \theta, \phi)  = \det(\boldsymbol{D}_{\mathbf{F}})(\rho, \theta, \phi)  = \begin{vmatrix}
+        \sin\phi \cos\theta & -\rho \sin\phi \sin\theta & \rho \cos\phi \cos\theta \\
+        \sin\phi \sin\theta & \rho \sin\phi \cos\theta & \rho \cos\phi \sin\theta \\
+        \cos\phi & 0 & -\rho \sin\phi
+        \end{vmatrix}=\rho^2 \sin\phi
+    \]
+    
+    
+    \end{example}

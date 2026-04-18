@@ -1,0 +1,79 @@
+
+\begin{theorem}  \label{col:fubini} \textbf{Teorema de Fubini} en $\mathbb{R}^{2}.$  Sea $f:D\to\R$ continua sobre  $D\subseteq\Rn{2}$  un conjunto elemental   (\ref{conj_elem}) 
+   
+\begin{enumerate} 
+        \item  Si $D$ es de tipo 1   entonces la integral doble de $f$ sobre $D$ se puede calcular
+        \[
+            \iint_D f=\int_a^b\left(\int_{\phi_1(x)}^{\phi_2(x)}f(x,y)\:dy\right)dx.  
+        \]
+       
+        \item   Si $D$ es de tipo 2   entonces la integral doble de $f$ sobre $D$ se puede calcular
+        \[
+            \iint_D f=\int_a^b\left(\int_{\psi_1(y)}^{\psi_2(y)}f(x,y)\:dx\right)dy.  
+        \]
+       
+        \item Si $D$ es de tipo 3   entonces la integral doble de $f$ sobre $D$ se puede calcular  
+         \[
+            \iint_D f=\int_a^b\left(\int_{y=\phi_1(x)}^{y=\phi_2(x)}f(x,y)\:dy\right)dx=\int_a^b\left(\int_{x=\psi_1(y)}^{x=\psi_2(y)}f(x,y)\:dx\right)dy. 
+        \]
+    \end{enumerate}
+\end{theorem}
+
+
+\begin{obs} La \'unica manera de demostrar que un conjunto es elemental es dando su descripci\'on  impl\'icita.
+\end{obs}
+
+
+\begin{example}
+     Sean $f(x,y)=x^2y$ y  $D$ es la regi\'on del plano encerrada por $y=x^3$, $y=x^2$  con $x\in[0,1]$,  calcular,  $$\iint_D f \:dA.$$  
+
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = middle,
+            xmin = 0, xmax = 1.5,
+            ymin = 0, ymax = 1.5,
+            xlabel = {$x$},
+            ylabel = {$y$},
+            domain = 0:1.25,
+            samples = 100,
+            xtick={0.5,1},
+            ytick={0.5,1},
+            clip=false,
+            ]
+        
+            % Define the curves
+            \addplot[name path=A, blue, thick, domain=0:1.22] {x^2} node[pos=0.75, right] {$y=x^2$};
+            \addplot[name path=B, red, thick, domain=0:1.15] {x^3} node[pos=0.3, below right] {$y=x^3$};
+        
+            % Fill the area between the curves
+            \addplot[orange!50, fill opacity=0.5] fill between[of=A and B, soft clip={domain=0:1}];
+        
+            % Label the enclosed area as D
+            \node at (axis cs:0.6,0.29) {$D$};
+        
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+ $D$ puede ser descripto de la siguiente manera
+    \[
+        D=\{(x,y)\in\Rn{2}:0\leq x\leq1;\;x^3\leq y\leq x^2\},  
+    \]
+ luego $D$ es elemetal de tipo 1 y  por el \autoref{col:fubini}
+    \begin{gather*}
+        \iint_D x^2y\:dA=\int_0^1\left(\int_{x^3}^{x^2}\:dy\right)dx=\int_0^1\left(x^2\frac{1}{2}y^2\Big\lvert_{x^3}^{x^2}\right)dx\\
+        =\int_0^1\frac{1}{2}x^2\left((x^2)^2-(x^3)^2\right)=\int_0^1\frac{1}{2}x^6-\frac{1}{2}x^8\;dx\\=\frac{1}{14}x^7-\frac{1}{18}x^9\Big\lvert_0^1=\frac{1}{14}-\frac{1}{18}=\frac{1}{63}.
+    \end{gather*}
+\end{example}
+
+\begin{tarea}Calcular  $$ \int_{0}^{1}\int_{y}^{1} e^{x^{2}} \:\: dx\:dy $$
+\end{tarea}
+
+
+
+\begin{definition}  Sea $D\subset\Rn{2}$,  se define el \'area de $D$,  y se nota $\text{A}(D)$,  a  
+    \[
+        \text{A}(D)=\iint_D1\:dA.
+    \]
+\end{definition}
