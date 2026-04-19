@@ -1,7 +1,7 @@
-\textbf{Ejercicio 30.} Calcular el volumen del sólido limitado por la esfera $x^2 + y^2 + z^2 \leq 1$ y el interior del cono $x^2 + y^2 \leq z^2$.
+\textbf{Ejercicio:} Calcular el volumen del sólido limitado por la esfera $x^2 + y^2 + z^2 \leq 1$ y el interior del cono $x^2 + y^2 \leq z^2$.
 
 \vspace{0.3cm}
-\textbf{1. Análisis de la región y simetría}
+\textbf{Análisis de la región y simetría}
 
 La región $W \subseteq \mathbb{R}^3$ está definida por el interior de la esfera de radio 1 y el interior del cono. Matemáticamente, lo expresamos como:
 \[
@@ -85,24 +85,24 @@ Observamos que el sólido es simétrico respecto al plano $xy$ ($z=0$). Para sim
 
 Gracias a dicha simetría podemos calcular el volumen total sabiendo que es el doble del volumen de la región superior: $\text{Vol}(W) = 2 \, \text{Vol}(W_s)$. 
 
-A su vez, de acuerdo con la \textbf{Definición 2.5.6}, el volumen de un sólido se calcula mediante la integral triple de la función constante $1$. Combinando ambas ideas, planteamos:
+A su vez, de acuerdo con la definición~\ref{def:vol_solido}, el volumen de un sólido se calcula mediante la integral triple de la función constante $1$. Combinando ambas ideas, planteamos:
 \[
     \text{Vol}(W) = 2 \iiint_{W_s} 1 \, dV
 \]
 
-\textbf{2. Cambio de variables a coordenadas esféricas \footnote{El planteo completo de este sistema de coordenadas y la deducción de su jacobiano se encuentran disponibles en el Anexo.}}  
+\textbf{Cambio de variables a coordenadas esféricas \footnote{El planteo completo de este sistema de coordenadas y la deducción de su jacobiano se encuentran disponibles en la sección~\ref{sec:coordenadas_esfericas}.}}  
 
-Para resolver la integral, aplicamos el \textbf{Teorema 2.5.2} utilizando la transformación a esféricas:
+Para resolver la integral, aplicamos el Teorema~\ref{teo:cambio_variable} utilizando la transformación a esféricas:
 \begin{align*}
     x &= \rho \sin \phi \cos \theta \\
     y &= \rho \sin \phi \sin \theta \\
     z &= \rho \cos \phi
 \end{align*}
 
-Tal como se demuestra en el \textbf{Ejemplo 2.4.5}, el valor absoluto del determinante jacobiano es $|J_{\mathbf{T}}| = \rho^2 \sin \phi$.
+Tal como se demuestra en el ejemplo~\ref{ej:jacobiano_esferico}, el valor absoluto del determinante jacobiano es $|J_{\mathbf{T}}| = \rho^2 \sin \phi$.
 
 \vspace{0.3cm}
-\textbf{3. Nuevos parámetros en $W^*$}
+\textbf{Nuevos parámetros en $W^*$}
 
 Definimos el conjunto $W^*$ analizando las restricciones sobre nuestra región $W_s$:
 
@@ -146,7 +146,7 @@ Planteamos la relación trigonométrica según el esquema anterior:
 Como el ángulo nace en el eje $z$ (que es positivo en $W_s$), los límites son $0 \leq \phi \leq \frac{\pi}{4}$.
 
 \vspace{0.3cm}
-\textbf{4. Cálculo del Volumen}
+\textbf{Cálculo del Volumen}
 
 Planteamos primero la integral triple para $W_s$. Debido a que los límites son constantes, podemos separar la expresión en el producto de tres integrales simples:
 
