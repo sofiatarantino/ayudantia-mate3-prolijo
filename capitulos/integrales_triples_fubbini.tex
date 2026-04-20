@@ -1,0 +1,56 @@
+\begin{theorem} \label{teo:fubini_r3} \textbf{Teorema de Fubini en $\mathbb{R}^3$.} 
+Sea $f: P \to \mathbb{R}$ una función continua en un paralelepípedo $P = [a, b] \times [c, d] \times [e, f]$. Entonces:
+\[
+    \iiint_P f(x,y,z) \, dV = \int_a^b \left( \int_c^d \left( \int_e^f f(x,y,z) \, dz \right) dy \right) dx.
+\]
+El resultado es independiente del orden en que se realicen las integraciones (existen $3! = 6$ órdenes posibles).
+\end{theorem}
+
+\begin{obs}
+Para regiones $W$ que no son paralelepípedos, utilizamos la \autoref{def:caja-que-contiene} para extender $f$ a una función $f^*$ definida en una caja $P \supseteq W$. Si $W$ es una región de tipo 1, el teorema se traduce en:
+\[
+    \iiint_W f(x,y,z) \, dV = \iint_D \left( \int_{\phi_1(x,y)}^{\phi_2(x,y)} f(x,y,z) \, dz \right) dA.
+\]
+\end{obs}
+
+\begin{example}
+Sea $W$ el sólido limitado por el cilindro parabólico $y = x^2$ y los planos $z = 0$, $z = 4$ y $y = 1$. Calcular $\iiint_W yz \: dV$.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        view={120}{30},
+        axis lines=center,
+        xlabel=$x$, ylabel=$y$, zlabel=$z$,
+        xmin=-1.5, xmax=1.5, ymin=0, ymax=1.5, zmin=0, zmax=4.5,
+        ticks=none,
+        clip=false
+    ]
+        % Superficie lateral y=x^2. Nota: (x, y, z) -> (x, x^2, z)
+        \addplot3[surf, opacity=0.3, blue, domain=-1:1, y domain=0:4, samples=25, samples y=2] (x, {x^2}, y);
+        
+        % Tapa superior en z=4
+        \addplot3[surf, opacity=0.2, orange, domain=-1:1, samples=25] (x, {x^2 + (1-x^2)*y}, 4);
+        
+        % Líneas de contorno para dar definición
+        \addplot3[thick, blue, domain=-1:1, samples=50] (x, {x^2}, 0);
+        \addplot3[thick, blue, domain=-1:1, samples=50] (x, {x^2}, 4);
+        \draw[thick, blue] (axis cs:-1,1,0) -- (axis cs:1,1,0);
+        \draw[thick, blue] (axis cs:-1,1,4) -- (axis cs:1,1,4);
+        
+        \node at (axis cs:0,0.5,2) {$W$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+La región $W$ puede describirse como:
+\[
+    W = \{ (x,y,z) \in \Rn{3} : -1 \leq x \leq 1; \; x^2 \leq y \leq 1; \; 0 \leq z \leq 4 \}.
+\]
+Aplicando el Teorema de Fubini:
+\begin{gather*}
+    \iiint_W yz \: dV = \int_{-1}^{1} \int_{x^2}^{1} \int_{0}^{4} yz \: dz \, dy \, dx = \int_{-1}^{1} \int_{x^2}^{1} y \left[ \frac{z^2}{2} \right]_0^4 dy \, dx \\
+    = \int_{-1}^{1} \int_{x^2}^{1} 8y \: dy \, dx = 8 \int_{-1}^{1} \left[ \frac{y^2}{2} \right]_{x^2}^1 dx = 4 \int_{-1}^{1} (1 - x^4) \: dx \\
+    = 4 \left[ x - \frac{x^5}{5} \right]_{-1}^1 = 4 \left( \left( 1 - \frac{1}{5} \right) - \left( -1 + \frac{1}{5} \right) \right) = 4 \left( \frac{4}{5} + \frac{4}{5} \right) = \frac{32}{5}.
+\end{gather*}
+\end{example}
