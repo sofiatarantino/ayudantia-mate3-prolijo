@@ -1,0 +1,18 @@
+
+\begin{definition}\textbf{Integral de trayectoria de campos escalares.}
+    Sea $\boldsymbol{\sigma}:I=[a,b]\to\Rn{n}$ una trayectoria de clase $\mathcal{C}^1(\interior{I})$ y sea $f$ un campo escalar tal que este bien definida y sea continua   la funci\'on $f\circ\boldsymbol{\sigma}$.  Se define la \emph{integral de trayectoria}, o \emph{integral de} $f$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se la nota $\int_{\boldsymbol{\sigma}}f\:ds$, a
+    \[
+        \int_{\boldsymbol{\sigma}}f\:ds=\int_a^b (f\circ\boldsymbol{\sigma})(t)  \|\boldsymbol{\sigma}'(t)\|\:dt.
+    \]
+\end{definition}
+
+Si $\boldsymbol{\sigma}(t)$ es de clase $\mathcal{C}^1$ a trozos, se define $\int_{\boldsymbol{\sigma}}f\:ds$  de la siguiente manera:  
+\begin{definition}   Sea $\boldsymbol{\sigma}:I=[a,b]\to\Rn{n}$ una trayectoria de clase $\mathcal{C}^1$ a trozos   y  sea $f$ un campo escalar tal que este bien definida y sea continua   la funci\'on $f\circ\boldsymbol{\sigma}$.  Se define la \emph{integral de trayectoria}  o \emph{integral de} $f$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se  nota $\int_{\boldsymbol{\sigma}}f\:ds$, a
+  
+    \[
+       \int_{\boldsymbol{\sigma}}f\:ds =\sum_{i=1}^{m}\int_{I_i}f\circ\boldsymbol{\sigma}(t)\|\boldsymbol{\sigma}'(t)\|\:dt,  
+    \]
+    donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\lvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m-1}$  es una partici\'on de $I$.
+\end{definition}
+
+
