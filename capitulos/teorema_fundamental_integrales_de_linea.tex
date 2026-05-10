@@ -1,0 +1,54 @@
+\begin{theorem} \label{thm:t1}
+
+    Sea $A\subseteq\Rn{n}$ un conjuto abierto y arcoconexo (\ref{def:conjuntoconexo_simp})   y  sea $f:A\subseteq\Rn{n}\to\R$ un campo de clase $\mathcal{C}^1(A)$, adem\'as sea $\boldsymbol{\sigma}:[a,b]\to A\subseteq\Rn{n}$ es una trayectoria de clase $C^{1}$ a trozos,  entonces   
+    \[
+       \int_{\boldsymbol{\sigma}}\grad f\cdot d\mathbf{s}=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a)).
+    \]    
+
+
+    \textit{Demostración.} Demostraremos el caso en el cual $\boldsymbol{\sigma}$   es una trayectoria de clase $C^{1}$ y se deja al lector probar el caso m\'as general.   Definamos la funci\'on escalar $g(t)=f \circ \boldsymbol{\sigma}(t)$ con $t \in [a,b].$ Sabemos que $g$ resulta derivable  y por regla de la cadena obtenemos
+    \begin{equation*}
+        g'(t)=(f\circ\boldsymbol{\sigma})'(t)=\grad{f } \circ \boldsymbol{\sigma}(t)\cdot\boldsymbol{\sigma}'(t)
+    \end{equation*}
+   Por el teorema fundamental del cálculo de una variable sabemos que:
+    \begin{equation*}
+        \int_{a}^{b}g'(t)dt=g(b)-g(a)=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a)).
+    \end{equation*}
+    Por consiguiente,
+    \begin{align*}
+        \int_{\boldsymbol{\sigma}}\grad f\cdot d\mathbf{s}&=\int_{a}^{b}\grad{f(\boldsymbol{\sigma}(t))}\cdot\boldsymbol{\sigma}'(t)dt\\
+        &=\int_{a}^{b}g'(t)dt=g(b)-g(a)\\
+        &=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a)).
+    \end{align*}
+\end{theorem}
+
+\begin{tarea} Sea  $\boldsymbol{\sigma}:[0,2]\to A\subseteq\Rn{3}\; : \; \sigma(t) = (t^{3}+1, t^{2}, t^{3})$  calcular  $$ \int_{\sigma}  (y, x, 0)  \cdot d\mathbf{s} $$
+\end{tarea}
+
+
+\begin{corollary}\label{tmh:c1}
+    Sean $A\subseteq\Rn{n}$ un conjuto abierto y arcoconexo y  $f:A\subseteq\Rn{n}\to\R$ un campo de clase $\mathcal{C}^1(\interior{A})$.  Si  $\boldsymbol{\sigma}_1:[a_1,b_1]\to A_1\subseteq\Rn{n}$ y $\boldsymbol{\sigma}_2:[a_2,b_2]\to A_2\subseteq\Rn{n}$ son dos trayectorias  de clase $C^{1}$ a trozos tales que $\boldsymbol{\sigma}_1(a_1)=\boldsymbol{\sigma}_2(a_2)\;\land\;\boldsymbol{\sigma}_1(b_1)=\boldsymbol{\sigma}_2(b_2)$, entonces
+    \[
+    \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}.
+    \]
+    
+ Es decir,  $\int_{\boldsymbol{\sigma}}\grad f\cdot d\mathbf{s}$  s\'olo depende de los puntos inicial y final de la trayectoria.
+
+\textit{Demostración.}  Demostraremos el caso en el cual $\boldsymbol{\sigma}_1$ y $\boldsymbol{\sigma}_2$    son trayectorias de clase $C^{1}$ y se deja al lector probar el caso m\'as general.  Usando el Teorema \ref{thm:t1}, se tiene que
+\begin{align*}
+    \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}&=f(\boldsymbol{\sigma}_1(b_1))-f(\boldsymbol{\sigma}_1(a_1))\\
+    \int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}&=f(\boldsymbol{\sigma}_2(b_2))-f(\boldsymbol{\sigma}_2(a_2)).
+\end{align*}
+Como $\boldsymbol{\sigma}_1(a_1)=\boldsymbol{\sigma}_2(a_2)\;\land\;\boldsymbol{\sigma}_1(b_1)=\boldsymbol{\sigma}_2(b_2)$, entonces
+\begin{equation*}
+    f(\boldsymbol{\sigma}_1(a_1))=f(\boldsymbol{\sigma}_2(a_2))\;\land\;f(\boldsymbol{\sigma}_1(b_1))=f(\boldsymbol{\sigma}_2(b_2))
+\end{equation*}
+luego,
+\begin{equation*}
+    f(\boldsymbol{\sigma}_1(b_1))-f(\boldsymbol{\sigma}_1(a_1))=f(\boldsymbol{\sigma}_2(b_2))-f(\boldsymbol{\sigma}_2(a_2)) 
+\end{equation*}
+lo que demuestra que:
+\begin{equation*}
+    \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}.
+\end{equation*}
+\end{corollary}
