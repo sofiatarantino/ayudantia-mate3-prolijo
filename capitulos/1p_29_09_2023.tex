@@ -48,12 +48,12 @@
 
     Como   $h:\Rn{2}\to\R$ es diferenciable en todo su dominio por ser composición de funciones diferenciables,  la ecuaci\'on de su plano tangente en el punto $(1,0)$ est\'a dada por
     \begin{equation}
-        z= h(1,0) + \grad h(1,0) (x-1,y),  \label{eq:zNabla}
+        z= h(1,0) + \grad h(1,0) (x-1,y),  \label{eq:zNabla4}
     \end{equation}   luego ser\'a  suficente con encontar $ h(1,0)$ y $\grad h(1,0).$
 
     Por un lado,      $h(1,0)= f\circ g (1,0) =  f(0,0)$  y por otro lado,  como $f$ y $g$ son ambas diferenciables,  por la regla de la cadena,  tenemos que
     \begin{equation}
-        \grad h(1,0)=\grad (f\circ g)(1,0)=\grad f(g(1,0)) \:\boldsymbol{D}_g(1,0) = \grad f (0,0) \:\boldsymbol{D}_g(1,0),  \label{eq:hNabla}
+        \grad h(1,0)=\grad (f\circ g)(1,0)=\grad f(g(1,0)) \:\boldsymbol{D}_g(1,0) = \grad f (0,0) \:\boldsymbol{D}_g(1,0),  \label{eq:hNabla5}
     \end{equation}    donde $\boldsymbol{D}_g$ es la matriz diferencial o  jacobiana de $g$.
 
     \noindent  Hallemos $\boldsymbol{D}_g$
@@ -107,7 +107,7 @@
 \begin{solution}
     Dado que $f$ es de clase  $\mathcal{C}^2(\mathbb{R}^2)$,  se definine  el polinomio de Taylor de segundo orden centrado en $(0,0)$ de $f$, que noateremos por $P_2[f,(0,0)]$ como,
     \begin{equation}
-        P_2[f,(0,0)](x,y)=f(0,0)+\grad f(0,0)\cdot(x,y)+\frac{1}{2}(x,y)\boldsymbol{H}_f(0,0)\begin{pmatrix}x\\y\end{pmatrix}, \label{eq:polTay2}
+        P_2[f,(0,0)](x,y)=f(0,0)+\grad f(0,0)\cdot(x,y)+\frac{1}{2}(x,y)\boldsymbol{H}_f(0,0)\begin{pmatrix}x\\y\end{pmatrix}, \label{eq:polTay2.3}
     \end{equation}
     donde $\boldsymbol{H}_f$ es la matriz hessiana de $f$.
 
