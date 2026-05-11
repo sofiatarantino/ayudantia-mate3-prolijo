@@ -1,0 +1,46 @@
+\begin{theorem}
+   Sea  $\mathbf{F}:A\subseteq\Rn{n} \to \Rn{n}$ continuo con  $A$ abierto y arcoconexo.  Son equivalentes:
+    \begin{enumerate}
+        \item $\mathbf{F}$ es conservativo. 
+        \item La integral de $\mathbf{F}$ es independiente del camino en $A$. 
+        \item $\oint_C\mathbf{F}\cdot d\mathbf{s}=0$ para toda curva cerrada simple orientada $C$ en $A$.
+    \end{enumerate}
+
+    \textit{Demostración.} 
+    \begin{itemize}
+\item[] ($1 \Rightarrow 2.)$  Ver \ref{tmh:c2}
+\item[] ($2 \Rightarrow 3.)$ Sea $C^{+}$ una curva simple, cerrada y orientada en $A$. Pensemos que a dicha curva la podemos ver como la uni\'on de  dos curvas   simples orientadas en $A$,  $C_1$ , $C_2$,  cuyas orientaciones son heredadas de $C$,   con los mismos puntos extremos,  tal como muestra la figura. 
+    \begin{figure}[H]
+        \begin{center}
+            \begin{tikzpicture}[scale=2, >=stealth]
+
+                % Puntos A y B
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (3,0);
+
+                % Primer camino: curva hacia arriba (gamma_1)
+                \draw[thick, blue, ->, decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+                    postaction={decorate}] 
+                    (A) .. controls (1,1.5) and (2,1.5) .. (B) node[midway, above] {$C_1$};
+
+                % Segundo camino: curva hacia abajo (gamma_2)
+                \draw[thick, red, ->, decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+                    postaction={decorate}] 
+                    (B) .. controls (1,-1.5) and (2,-1.5) .. (A) node[midway, below] {$C_2$};
+
+                % Nombres de los puntos
+                \filldraw (A) circle(0.03) node[below left] {$A$};
+                \filldraw (B) circle(0.03) node[below right] {$B$};
+
+            \end{tikzpicture}
+            \caption{Curvas $C_1$ y $C_2$.}
+        \end{center}
+    \end{figure}
+   Es decir,  $C^{+}=C_1^{+} \cup C_2^{-}$.  Así:
+    \begin{align*}
+        \oint_{C^{+}} \mathbf{F}\cdot d\mathbf{s}&=\int_{C_1^{+}}\mathbf{F}\cdot d\mathbf{s}+\int_{C_2^{-}}\mathbf{F}\cdot d\mathbf{s}\\
+        &=\int_{C_1^{+}}\mathbf{F}\cdot d\mathbf{s}-\int_{C_2^{+}}\mathbf{F}\cdot d\mathbf{s} =0 \ 
+          \end{align*}
+   \item[] ($3 \Rightarrow 1$.) Queda a cargo del lector.   
+\end{itemize}
+\end{theorem}

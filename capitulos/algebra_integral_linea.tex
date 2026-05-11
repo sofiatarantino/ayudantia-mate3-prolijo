@@ -1,0 +1,51 @@
+
+
+
+  \begin{propertie} \textbf{Algebra de Integral de l\'inea.}\label{alge} Sea $C^{+}$ una curva simple, orientada y suave a trozos, adem\'as,  sean  $\mathbf{F}$ y $\mathbf{G}$ campos vectoriales continuos con dominios tales que incluyen a la curva $C$, entonces: 
+\begin{itemize}
+\item[1.]  \[
+        \int_{C^{+}}(\mathbf{F} + \mathbf{G})  \cdot d\mathbf{s}=  \int_{C^{+}} \mathbf{F} \cdot d\mathbf{s}  +  \int_{C^{+}} \mathbf{G}  \cdot d\mathbf{s} 
+    \]
+
+\item[2.]  \[
+        \int_{C^{+}} k \mathbf{F}  \cdot d\mathbf{s}= k \int_{C^{+}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\item[3.]  \[
+        \int_{C^{+}} k \mathbf{F}  \cdot d\mathbf{s}= - \int_{C^{-}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\item[3.]  Si $C = \cup_{i=1}^{n} C_{i},$ entonces \[
+        \int_{C^{+}}  \mathbf{F}  \cdot d\mathbf{s}=  \sum_{i=1}^{n}  \int_{C_{i}^{+}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\end{itemize}
+ \end{propertie}
+
+
+
+ \begin{tarea} Sea $C$ la curva simple dada por la uni\'on de los segmentos que unen los puntos $(0,0)$,  $(0,3)$ y $(0,2)$. Calcular, indicando la orientaci\'on elegida para $C$  $$ \int_{C}  (y^{2}, 2xy +1)  \cdot d\mathbf{s} $$
+ \end{tarea}
+
+ \begin{tarea} Mismo ejercicio con la orientaci\'on para $C$ contraria  a la elegida. 
+ \end{tarea}
+
+\begin{tarea}Reescribir  (\ref{alge})  para campos escalares. 
+\end{tarea}
+
+
+\begin{definition}
+    Si $C$  es una curva simple cerrada,  se suele notar a la integral como
+    \[
+        \oint_{C}\mathbf{F}\cdot d\mathbf{s},  
+    \]  y se la llama integral de circulaci\'on de $\mathbf{F}$ sobre $\Gamma$.
+\end{definition}
+
+
+ \begin{nota}\label{not_int} Sean  $\mathbf{F}=(f_1, f_2)$ y $\mathbf{G}=(g_1, g_2, g_3)$ campos vectoriales, notaremos $$ \int_{C_1}\mathbf{F}\cdot d\mathbf{s} =  \int_{ C_1}f_1\:dx+ f_2 \:dy$$ 
+  $$ \int_{C_2}\mathbf{G}\cdot d\mathbf{s} =  \int_{C_2} g_1\:dx+g_2\:dy+g_3\:dz.$$
+ \end{nota}
+ 
+ \begin{nota} 
+  $\int_{\boldsymbol{\sigma}}\mathbf{F}\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}}\mathbf{F}\cdot{\mathbf{t}}\:ds$,  donde ${\mathbf{t}}$ es versor tangencial a la curva  $\Gamma = Img(\boldsymbol{\sigma}).$
+ \end{nota}

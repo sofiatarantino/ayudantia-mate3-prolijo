@@ -1,0 +1,37 @@
+
+
+\begin{definition}\label{int_cv} \textbf{Integral de l\'inea para campos vectoriales.}
+  Sea $C^{+} \subseteq  \Rn{n}$  una curva simple,  suave a trozos  (\ref{param}) orientada (\ref{orien})  y sea $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular de $C$ que preserva su orientaci\'on  (\ref{orien_pre}). Sea $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$ un campo vectorial continuo sobre $C  \subseteq  A.$  Se define la \emph{integral de} $\mathbf{F}$ \emph{sobre la curva} $\boldsymbol{C}^{+}$ como
+    \[
+        \int_{C^{+}}\mathbf{F}\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}}\mathbf{F}\cdot d\mathbf{s} 
+    \]
+\end{definition}
+
+\begin{obs} Bajo las condiciones de \ref{int_cv}, si $\boldsymbol{\beta}$ es una parametrizaci\'on regular de $C$ que no  preserva (o invierte) su orientaci\'on entonces: 
+ \[
+        \int_{C^{+}}\mathbf{F}\cdot d\mathbf{s}= - \int_{\boldsymbol{\beta}}\mathbf{F}\cdot d\mathbf{s} 
+    \]
+\end{obs}
+
+
+
+
+
+
+
+\begin{definition} \textbf{Trabajo de un campo de fuerzas sobre una trayectoria.}
+Sea un objeto que se mueve a lo largo de una curva suave y orientada $C$ bajo la acci\'on de un campo de fuerzas $\mathbf{F}$. 
+Se define el     \emph{trabajo realizado por el campo sobre el objeto} como la integral de línea:
+\[
+W = \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}
+\]
+
+Si la curva $C$ está parametrizada por $\boldsymbol{\sigma}(t)$ con $t \in [a,b]$, entonces:
+\[
+W = \int_a^b \mathbf{F}(\boldsymbol{\sigma}(t)) \cdot \boldsymbol{\sigma}(t)'(t) \: dt.
+\]
+\end{definition}
+
+
+
+
