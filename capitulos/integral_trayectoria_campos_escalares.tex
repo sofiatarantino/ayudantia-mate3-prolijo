@@ -6,7 +6,34 @@
     \]
 \end{definition}
 
- \begin{example} \textcolor{red}{Ejemplo sencillo}
+ \begin{example} 
+ Sea $\boldsymbol{\sigma} : [0, 3\pi] \to \mathbb{R}^2$ / 
+$\boldsymbol{\sigma}(t) = (\cos t,\, \sen t)$. Calcular $\displaystyle\int_{\boldsymbol{\sigma}} f\, ds$,
+donde $f(x,y) = xy$.
+\[
+    f(\boldsymbol{\sigma}(t)) = \cos t \cdot \sen t.
+\]
+\[
+    \boldsymbol{\sigma}'(t) = (-\sen t,\, \cos t)
+    \implies
+    \|\boldsymbol{\sigma}'(t)\| = \sqrt{\sen^2 t + \cos^2 t} = 1.
+\]
+\[
+    \int_{\boldsymbol{\sigma}} f\, ds
+    = \int_0^{3\pi} f(\boldsymbol{\sigma}(t))\,\|\boldsymbol{\sigma}'(t)\|\, dt
+    = \int_0^{3\pi} \cos t \cdot \sen t \, dt.
+\]
+Resolvemos:
+\[
+    \int_0^{3\pi} \cos t \cdot \sen t\, dt
+    = \int_0^{3\pi} \frac{\sen 2t}{2}\, dt
+    = \left[ -\frac{\cos 2t}{4} \right]_0^{3\pi}
+    = -\frac{\cos 6\pi}{4} + \frac{\cos 0}{4}
+    = -\frac{1}{4} + \frac{1}{4}.
+\]
+\[
+    \boxed{\int_{\boldsymbol{\sigma}} f\, ds = 0.}
+\]
  \end{example}
 
 

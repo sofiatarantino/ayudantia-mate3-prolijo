@@ -13,11 +13,105 @@
     \]
 \end{obs}
 
+\begin{example}
+Calcular $\displaystyle\oint_{\omega} xy\,dx + y^2\,dy$,
+con $\omega$ orientada en sentido $(+)$ y $(-)$, delimitada por $y = x$ e $y = 6x - x^2$.
+
+\[
+    x = 6x - x^2 \implies x^2 - 5x = 0 \implies x(x-5) = 0,
+\]
+los puntos de intersección son $(0,0)$ y $(5,5)$.
+
+La curva cerrada se divide en dos tramos. La orientación $(+)$ (antihoraria)
+recorre $C_1$ de $(0,0)$ a $(5,5)$ por $y=x$, y $C_2$ de $(5,5)$ a $(0,0)$
+por $y = 6x-x^2$. La orientación $(-)$ (horaria) recorre los mismos tramos
+en sentido opuesto.
+
+\textbf{Tramo $C_1$: sobre $y = x$, de $(0,0)$ a $(5,5)$.}
+
+\[
+    \boldsymbol{\sigma}_1(t) = (t,\, t), \quad t \in [0,5], \qquad
+    dx = dt, \quad dy = dt.
+\]
+\[
+    \int_{C_1} xy\,dx + y^2\,dy
+    = \int_0^5 \left(t^2 + t^2\right)dt
+    = \int_0^5 2t^2\,dt
+    = \left[\frac{2t^3}{3}\right]_0^5
+    = \frac{250}{3}.
+\]
 
 
-\begin{example} \textcolor{red}{Ejemplo sencillo para mostrar la dependencia del signo y la orientacion}
+\textbf{Tramo $C_2$: sobre $y = 6x - x^2$, de $(5,5)$ a $(0,0)$.}
+
+\[
+    \boldsymbol{\sigma}_2(t) = (t,\, 6t-t^2), \quad t \in [5,0], \qquad
+    dx = dt, \quad dy = (6-2t)\,dt.
+\]
+\[
+    \int_{C_2} xy\,dx + y^2\,dy
+    = \int_5^0 \left[t(6t-t^2) + (6t-t^2)^2(6-2t)\right]dt.
+\]
+
+Desarrollamos cada término:
+\[
+    t(6t-t^2) = 6t^2 - t^3,
+\]
+\[
+    (6t-t^2)^2(6-2t) = t^2(6-t)^2 \cdot 2(3-t)
+    = 2t^2(108 - 72t + 15t^2 - t^3)
+    = 216t^2 - 144t^3 + 30t^4 - 2t^5.
+\]
+
+El integrando completo es:
+\[
+    6t^2 - t^3 + 216t^2 - 144t^3 + 30t^4 - 2t^5
+    = -2t^5 + 30t^4 - 145t^3 + 222t^2.
+\]
+\[
+    \int_{C_2}
+    = \int_5^0\left(-2t^5 + 30t^4 - 145t^3 + 222t^2\right)dt
+    = -\left[-\frac{t^6}{3} + 6t^5 - \frac{145t^4}{4} + 74t^3\right]_0^5
+\]
+\[
+    = -\left(-\frac{15625}{3} + 18750 - \frac{90625}{4} + 9250\right)
+    = -\frac{-62500 + 225000 - 271875 + 111000}{12}
+    = -\frac{1625}{12}.
+\]
+
+Al invertir la orientación de un tramo, la integral cambia de signo:
+\[
+    \int_{-C} = -\int_{C}.
+\]
+Por lo tanto, para la curva completa:
+\[
+    \oint_{\omega^-} = -\oint_{\omega^+}.
+\]
+
+\medskip
+\textbf{Orientación positiva $(+)$: $C_1(0\to5) + C_2(5\to 0)$.}
+\[
+    \oint_{\omega^+} xy\,dx + y^2\,dy
+    = \int_{C_1} + \int_{C_2}
+    = \frac{250}{3} - \frac{1625}{12}
+    = \frac{1000 - 1625}{12}.
+\]
+\[
+    \boxed{\oint_{\omega^+} xy\,dx + y^2\,dy = -\frac{625}{12}.}
+\]
+
+\medskip
+\textbf{Orientación negativa $(-)$: $-C_1$ y $-C_2$.}
+\[
+    \oint_{\omega^-} xy\,dx + y^2\,dy
+    = -\int_{C_1} - \int_{C_2}
+    = -\frac{250}{3} + \frac{1625}{12}
+    = \frac{-1000 + 1625}{12}.
+\]
+\[
+    \boxed{\oint_{\omega^-} xy\,dx + y^2\,dy = \frac{625}{12}.}
+\]
 \end{example}
-
 
 \begin{definition} \textbf{Trabajo de un campo de fuerzas sobre una trayectoria.}
 Sea un objeto que se mueve a lo largo de una curva suave y orientada $C$ bajo la acci\'on de un campo de fuerzas $\mathbf{F}$. 
@@ -32,7 +126,61 @@ W = \int_a^b \mathbf{F}(\boldsymbol{\sigma}(t)) \cdot \boldsymbol{\sigma}(t)'(t)
 \]
 \end{definition}
 
-
-\begin{example} \textcolor{red}{Calcular un trabajo}
+\begin{example}
+    Hallar el trabajo del campo $\mathbf{F}=(x^2y,\,x-y)$
+al mover una partícula sobre la poligonal
+$(0,0)\to(2,3)\to(4,2)\to(0,0)$.
+ 
+ 
+El trabajo es $W = \int_C x^2y\,dx + (x-y)\,dy$, que dividimos en tres tramos.
+ 
+ 
+\textbf{Tramo $AB$: $(0,0)\to(2,3)$.}
+Tomamos $x=2t$, $y=3t$, $t\in[0,1]$, con $dx=2\,dt$, $dy=3\,dt$:
+\[
+  W_{AB}
+  = \int_0^1 \bigl[(2t)^2(3t)\cdot 2 + (2t-3t)\cdot 3\bigr]\,dt
+  = \int_0^1 (24t^3 - 3t)\,dt
+  = \left[6t^4 - \tfrac{3}{2}t^2\right]_0^1
+  = 6 - \tfrac{3}{2} = \frac{9}{2}.
+\]
+ 
+ 
+\textbf{Tramo $BC$: $(2,3)\to(4,2)$.}
+Tomamos $x=2+2t$, $y=3-t$, $t\in[0,1]$, con $dx=2\,dt$, $dy=-dt$:
+\begin{align*}
+  P\,dx &= (2+2t)^2(3-t)\cdot 2\,dt = 8(1+t)^2(3-t)\,dt
+         = (24+40t+8t^2-8t^3)\,dt,\\
+  Q\,dy &= \bigl[(2+2t)-(3-t)\bigr](-dt) = (1-3t)\,dt.
+\end{align*}
+\[
+  W_{BC}
+  = \int_0^1 (25 + 37t + 8t^2 - 8t^3)\,dt
+  = \left[25t + \tfrac{37}{2}t^2 + \tfrac{8}{3}t^3 - 2t^4\right]_0^1
+  = 25 + \tfrac{37}{2} + \tfrac{8}{3} - 2
+  = \frac{265}{6}.
+\]
+ 
+ 
+\textbf{Tramo $CA$: $(4,2)\to(0,0)$.}
+Tomamos $x=4-4t$, $y=2-2t$, $t\in[0,1]$, con $dx=-4\,dt$, $dy=-2\,dt$:
+\begin{align*}
+  P\,dx &= (4-4t)^2(2-2t)\cdot(-4)\,dt = -128(1-t)^3\,dt,\\
+  Q\,dy &= \bigl[(4-4t)-(2-2t)\bigr](-2)\,dt = -4(1-t)\,dt.
+\end{align*}
+\[
+  W_{CA}
+  = \int_0^1 \bigl[-128(1-t)^3 - 4(1-t)\bigr]\,dt
+  = \left[\frac{128(1-t)^4}{4} + \frac{4(1-t)^2}{2}\right]_0^1 - \left[\frac{128}{4}+\frac{4}{2}\right]
+  = 0 - (32 + 2) = -34.
+\]
+ 
+ 
+Sumando los tres tramos:
+\[
+  W = \frac{9}{2} + \frac{265}{6} - 34
+    = \frac{27 + 265 - 204}{6}
+    = \boxed{\dfrac{44}{3}}.
+\]
 \end{example}
 

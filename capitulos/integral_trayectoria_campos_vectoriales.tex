@@ -22,9 +22,40 @@ donde
     \item Si \(\theta = 90^\circ\), el trabajo es cero: la fuerza no realiza trabajo sobre el objeto.
 \end{itemize}
 
-\textcolor{red}{dibujocclasico de fisica 1}
+% ==========================================
+% DIAGRAMA FÍSICO DEL TRABAJO MECÁNICO
+% ==========================================
+\begin{center}
+\begin{tikzpicture}[scale=1.2, >=stealth, Cartesian/.style={colortbl}]
+    
+    % Piso / Superficie de apoyo
+    \draw[line width=1pt] (-1,0) -- (6,0);
+    \foreach \x in {-0.8,-0.5,...,5.8}
+        \draw (\x,0) -- (\x-0.15,-0.15);
 
-\begin{example} Sencillio
+    % Bloque/Objeto
+    \draw[thick, fill=gray!20] (0,0) rectangle (2,1.2);
+    % Centro de masa para el origen de los vectores
+    \coordinate (CM) at (1,0.6);
+    \fill[black] (CM) circle (1.5pt);
+
+    % Vector Desplazamiento (Dirección del movimiento)
+    \draw[->, ultra thick, blue] (CM) -- (4.5,0.6) node[midway, below=3pt] {$\mathbf{\Delta r}$};
+    
+    % Vector Fuerza F
+    \draw[->, ultra thick, red] (CM) -- (3.5,2.1) node[above right] {$\mathbf{F}$};
+
+    % Ángulo theta
+    \draw[thick, black, ->] (2.2,0.6) arc (0:42:1.2);
+    \node at (2.4,0.9) {$\theta$};
+
+    % Línea auxiliar horizontal punteada detrás del vector para mayor claridad
+    \draw[dashed, black!60] (CM) -- (5,0.6);
+
+\end{tikzpicture}
+\end{center}
+
+\begin{example}\textcolor{red} {Sencillio}
 \end{example}
 
 

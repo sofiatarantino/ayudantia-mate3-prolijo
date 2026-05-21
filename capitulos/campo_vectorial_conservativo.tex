@@ -3,7 +3,72 @@
 
 
 \begin{example}
-\textcolor{red}{Ejemplo de calcular una funcion potencial.  Dado una campo $F$ calculemos, si existe, su funci\'on potencial}
+Determinar si $\mathbf{F}(x,y,z) = (z\cos xz,\; z,\; y + x\cos xz)$
+admite función potencial. En caso afirmativo, hallarla.
+
+Un campo vectorial $\mathbf{F} = (P, Q, R)$
+de clase $\mathcal{C}^1$ en un abierto simplemente conexo admite función potencial
+si y sólo si $\nabla \times \mathbf{F} = \mathbf{0}$, es decir:
+\[
+    \frac{\partial R}{\partial y} = \frac{\partial Q}{\partial z}, \qquad
+    \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}, \qquad
+    \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}.
+\]
+con $P = z\cos xz$, $Q = z$, $R = y + x\cos xz$.
+
+\[
+    \frac{\partial R}{\partial y} = 1, \qquad
+    \frac{\partial Q}{\partial z} = 1
+\]
+
+\[
+    \frac{\partial P}{\partial z} = \cos xz + z \cdot (-x\sin xz) = \cos xz - xz\sin xz,
+\]
+
+\[
+    \frac{\partial R}{\partial x} = \cos xz + x \cdot (-z\sin xz) = \cos xz - xz\sin xz
+\]
+
+\[
+    \frac{\partial Q}{\partial x} = 0, \qquad
+    \frac{\partial P}{\partial y} = 0
+\]
+
+Las tres condiciones se satisfacen, luego $\mathbf{F}$ \textbf{admite función potencial}.
+
+\medskip
+\textbf{Hallamos $\varphi$ tal que $\nabla\varphi = \mathbf{F}$.} Es decir:
+\[
+    \frac{\partial \varphi}{\partial x} = z\cos xz, \qquad
+    \frac{\partial \varphi}{\partial y} = z, \qquad
+    \frac{\partial \varphi}{\partial z} = y + x\cos xz.
+\]
+
+\[
+    \varphi(x,y,z)
+    = \int z\cos xz\, dx
+    = z \cdot \frac{\sin xz}{z} + g(y,z)
+    = \sin xz + g(y,z).
+\]
+
+\[
+    \frac{\partial \varphi}{\partial y} = \frac{\partial g}{\partial y} = z
+    \implies g(y,z) = yz + h(z).
+\]
+Luego:
+\[
+    \varphi(x,y,z) = \sin xz + yz + h(z).
+\]
+
+\[
+    \frac{\partial \varphi}{\partial z} = x\cos xz + y + h'(z) = y + x\cos xz
+    \implies h'(z) = 0 \implies h(z) = C.
+\]
+
+\textbf{Función potencial:}
+\[
+    \boxed{\varphi(x,y,z) = \sin xz + yz + C.}
+\]
 \end{example}
 
 
