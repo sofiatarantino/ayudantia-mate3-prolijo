@@ -1,0 +1,54 @@
+
+\begin{definition}\textbf{Trabajo realizado por una fuerza constante sobre un objeto que se mueve en l\'inea recta.}  
+Sea un objeto que se desplaza desde un punto $A$ hasta un punto $B$ por el segmento que los une y  bajo la acci\'on de una fuerza \(\mathbf{F}\) constante. 
+Se define el     \emph{trabajo realizado por la fuerza sobre el objeto} como:
+\[
+W = \mathbf{F} \cdot \mathbf{d} = |\mathbf{F}| \, |\mathbf{d}| \, \cos\theta,
+\]
+donde
+\begin{itemize}
+    \item \(\mathbf{d} = \mathbf{r}_B - \mathbf{r}_A\) es el vector de desplazamiento del objeto,
+    \item \(|\mathbf{F}|\) es la magnitud de la fuerza,
+    \item \(|\mathbf{d}|\) es la magnitud del desplazamiento, y
+    \item \(\theta\) es el ángulo entre la fuerza y el desplazamiento.
+\end{itemize}
+\end{definition}
+
+
+\textbf{Interpretaci\'on:} el trabajo representa la cantidad de energ\'ia transferida al objeto por la fuerza en la direcci\'on del desplazamiento. 
+\begin{itemize}
+    \item Si \(0 \leq \theta < 90^\circ\), el trabajo es positivo: la fuerza ayuda al movimiento.
+    \item Si \(90^\circ < \theta \leq 180^\circ\), el trabajo es negativo: la fuerza se opone al movimiento.
+    \item Si \(\theta = 90^\circ\), el trabajo es cero: la fuerza no realiza trabajo sobre el objeto.
+\end{itemize}
+
+\textcolor{red}{dibujocclasico de fisica 1}
+
+\begin{example} Sencillio
+\end{example}
+
+
+\begin{obs} \textcolor{red}{Aca hay que poner la construccion de la integral de trabajo.  La doy en clase y esta bien escrita en el Tromba}
+\end{obs}
+
+
+\begin{definition}\textbf{Integral de trayectoria de campos vectoriales.} Sea $\boldsymbol{\sigma}:[a,b]\to A\subseteq\Rn{n}$ una trayectoria $\mathcal{C}^1$  y sea $F$ un campo vectorial   $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$   tal que este bien definido y sea continuo el campo $\mathbf{F}\circ\boldsymbol{\sigma}$. Se define la \emph{integral de trayectoria del campo vecorial} $\mathbf{F}$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se nota, $ \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}$, a como
+    \[
+        \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}=\int_a^b\mathbf{F}\circ\boldsymbol{\sigma}(t)\cdot\boldsymbol{\sigma}'(t)\:dt. 
+    \]
+\end{definition}
+
+Si $\boldsymbol{\sigma}(t)$ es de clase $\mathcal{C}^1$ a trozos, se define $ \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}$  de la siguiente manera:  
+
+\begin{definition}   Sea $\boldsymbol{\sigma}:I=[a,b]\to\Rn{n}$ una trayectoria de clase $\mathcal{C}^1$ a trozos   y  sea $F$ un campo vectorial tal que este bien definida y sea continua   la funci\'on $F\circ\boldsymbol{\sigma}$.  Se define la \emph{integral de trayectoria del campo vecorial} $\mathbf{F}$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se  nota $ \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}$, como
+  
+    \[
+       \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}  =\sum_{i=1}^{m}\int_{I_i}\mathbf{F} \circ\boldsymbol{\sigma}(t) \cdot \boldsymbol{\sigma}'(t) \:dt,  
+    \]
+    donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\lvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m-1}$  es una partici\'on de $I$.
+\end{definition}
+
+
+ \begin{tarea}Sean $\mathbf{F}(x,y) =  (y, 2xy +1) $  y  $\boldsymbol{\sigma}: [-1,1]\to\Rn{2}\;  : \sigma(t) = ( t^{2}, t^{2})$,  calcular,   $$\int_{\sigma}\mathbf{F}\cdot d\mathbf{s}$$
+\end{tarea}
+

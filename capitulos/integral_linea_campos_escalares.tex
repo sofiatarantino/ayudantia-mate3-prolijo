@@ -1,0 +1,64 @@
+
+
+\begin{definition}\label{def:int_de_linea}\textbf{Integral de l\'inea para campos escalares.}
+    Sea $C\subset \Rn{n}$  una curva simple y suave a trozos  (\ref{param})  y sea $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular de $C$.   Sea $f:A\subseteq\Rn{n}\to\R$ continua con $C  \subseteq  A$.   Se define la \emph{integral de l\'inea del campo $f$ sobre la curva} $C$, y se nota por $\int_{C}f\:ds$ a
+    \[
+        \int_{C}f\:ds= \int_{\boldsymbol{\sigma}}f\:ds. 
+    \]
+   
+
+
+\end{definition}
+
+\begin{obs}\label{obs:param} La definici\'on anterior no depende de la parametrizaci\'on elegido para la curva $C$.
+\end{obs} 
+
+ 
+
+\begin{example}  Sean el campo $f: \mathbb{R}^{2}\to\R$ tal que $f(x,y)=x$ y la curva simple $C$  dada por el segmento que uno los puntos $(0.0)$ y $(1,1)$.  Calcular la integral de l\'inea del campo $f$ sobre la curva $C$.
+   
+   Por un lado,  es sencillo ver que    $\boldsymbol{\sigma}_1(t)=(t,t)$ con $t\in[0,1]$ es una parametrización suave y regular  de $C$.  Siguiendo  \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre $C$ es
+    \[
+        \int_C f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_1(t)\|\boldsymbol{\sigma}_1'(t)\|\:dt.
+    \]
+    Como
+    \[
+        f\circ\boldsymbol{\sigma}_1(t)=f(t,t)=t 
+    \]
+    y
+    \[
+        \boldsymbol{\sigma}_1'(t)=(1,1)\implies\|\boldsymbol{\sigma}_1'(t)\|=\sqrt{1^2+1^2}=\sqrt{2};
+    \]
+    se llega a 
+    \[
+        \int_C f\;ds=\int_0^1t\sqrt{2}\;dt=\frac{\sqrt{2}}{2}.
+    \]
+
+    Por otro lado, tambi\'en es sencillo ver que  $\boldsymbol{\sigma}_2(t)=(t^2,t^2)$ con $t\in[0,1]$ es una parametrización  suave y regular  de $C$.  Siguiendo   \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre $C$ es
+    \[
+        \int_C f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_2(t)\|\boldsymbol{\sigma}_2'(t)\|\:dt,
+    \]
+    Como 
+    \[
+        f\circ\boldsymbol{\sigma}_2(t)= f(t^{2},t^{2}) = t^2
+    \]
+    y
+    \[
+        \boldsymbol{\sigma}_2'(t)=(2t,2t)\implies\|\boldsymbol{\sigma}_2'(t)\|=\sqrt{(2t)^2+(2t)^2}=2t\sqrt{2};
+    \]
+     se llega a 
+    \[
+        \int_C f\;ds=\int_0^1t^22t\sqrt{2} \;dt =2\sqrt{2}\int_0^1t^3\;dt=\frac{\sqrt{2}}{2}.
+    \]
+    
+   Queda ilustrado lo dicho en la Observaci\'on \ref{obs:param}, es decir, bajo las hip\'otesis enunciadas, se cumple que: 
+
+
+ $$ \int_C f\;ds =  \int_{\boldsymbol{\sigma_1}}f\:ds =\int_{\boldsymbol{\sigma_2}}f\:ds. $$
+  \end{example}  
+
+\begin{obs} 
+ Sea $f:A\subseteq\Rn{2} \to\R$   tal que  $f(x,y)>0 \; \forall (x,y) \in A$ y   sea $C  \subseteq  A$  una curva simple en $\Rn{2}$.   La integral de l\'inea de $f$ sobre $C$  se puede interpretar geom\'etricamente como el ``\'area de la valla de base $C$  y altura $f$". 
+\end{obs}
+
+

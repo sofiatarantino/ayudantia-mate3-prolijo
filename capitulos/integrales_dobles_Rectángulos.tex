@@ -1,0 +1,40 @@
+\begin{definition}  \textbf{Rect\'angulo.} Al conjunto \( B  \subseteq  \mathbb{R}^2 \) dado por
+	\[
+	B = [a, b] \times [c, d] = \{(x, y) \in \mathbb{R}^2 \mid a \leq x \leq b, \; c \leq y \leq d\}
+	\]
+	se lo llama rect\'angulo.   
+\end{definition}	
+
+\begin{definition} \textbf{Partici\'on regular.} 	Sea \( B  \subseteq  \mathbb{R}^2 \) un rect\'angulo.  Una partición regular de $B$ es un conjunto de pequeños rectángulos disjuntos (salvo tal vez por sus bordes)  de igual \'area que  generan una subdivisi\'on de $B$.  Es decir, si $B = [a, b] \times [c, d]$,  esto se logra dividiendo:
+	
+	\begin{itemize}
+		\item el intervalo \( [a, b] \) en \( n \) subintervalos \( [x_i, x_{i+1}] \) con $0 \leq  i \leq n-1$, cada uno de ancho \( \Delta x \),
+		\item el intervalo \( [c, d] \) en \( m \) subintervalos \( [y_j, y_{j+1}] \) con $0 \leq  j \leq m-1$, cada uno de ancho \( \Delta y \).
+	\end{itemize}
+y tomando los subrect\'angulos $B_{ij}$ tales que
+	\[
+	B_{ij} = [x_i, x_{i+1}] \times [y_j, y_{j+1}], 
+	\]  El \'area de $ B_{ij}$ la notaremos por $\Delta B_{ij}$ 
+\end{definition}
+
+
+\begin{definition}
+Dada una funci\'on $f:B\to\R$, donde $B$ es un rect\'angulo en $\Rn{2}$, se define la suma de Reimann de $f$ sobre $B$ a 
+\[
+    S_{n,m}=\sum_{i=0}^{n-1}\sum_{j=0}^{m-1} f(c_{ij})\Delta B_{ij},
+\]  
+donde $\{ B_{ij}\}_{( 1 \leq i \leq n, 1 \leq j \leq m )}$ es una partici\'on regular de $B$ y  $c_{ij}\in B_{ij} \: \forall \: 1 \leq i \leq n, 1 \leq j \leq m$. 
+\end{definition}
+
+\begin{definition} 
+    Sea $f:B=[a,b]\times[c,d]\to\R$ una funci\'on. Diremos que $f$ es integrable sobre $B$ si  el l\'imite $\lim_{(n,m)\to (\infty,\infty)}S_{n,m}$  existe y es finito, en tal caso el valor de dicho  l\'imite  se llama \textbf{integral doble} de $f$ sobre $B$ y se nota 
+    \[
+          \iint_B f\:dA  \mbox{ o } \iint_B f(x,y)\:dxdy.
+    \]
+\end{definition}
+
+\begin{obs}
+Para que exista el límite,  es suficiente que $f$ sea acotada sobre el rectángulo $B$, y el conjunto de puntos de (posibles) discontínuidades  sea la unión finita de gráficas
+de funciones continuas. Es decir, $f$ contínua, excepto, tal vez, sobre curvas.
+\end{obs}
+

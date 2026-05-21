@@ -1,0 +1,39 @@
+\begin{corollary}\label{tmh:c2}  Sean $A\subseteq\Rn{n}$ abierto y arcoconexo y $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$  un campo vectorial conservativo entonces para todo par de curvas $C_1$ , $C_2$ simples en $A$, con los mismos puntos extremos y misma orientaci\'on, se tiene que
+    \[
+    \int_{C_1}\mathbf{F}\cdot d\mathbf{s}=\int_{C_2}\mathbf{F}\cdot d\mathbf{s}. 
+    \]
+    Dada esta igualdad, se dice que la integral de línea de un campo conservativo tiene \textit{independencia del camino}.
+
+    \textit{Demostración.}   Sean $\boldsymbol{\sigma}_1:[a_1,b_1]\to A$  y $\boldsymbol{\sigma}_2:[a_2,b_2]\to A$  parametrizaciones de  $C_1$ y $C_2$ respectivamente que preservan sus orientaciones y sea  $f$ un funci\'on potencial de $\mathbf{F}$. Por definici\'on  (\ref{int_cv}) se tiene que:
+    \begin{align*}
+        \int_{C_1}\mathbf{F}\cdot d\mathbf{s}&=\int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}\\
+        \int_{C_2}\mathbf{F}\cdot d\mathbf{s}&=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}
+    \end{align*}
+    Además, como $C_1$ y $C_2$ tienen lo mismos puntos extremos, entonces $\boldsymbol{\sigma}_1(a_1)=\boldsymbol{\sigma}_2(a_2)\;\land\;\boldsymbol{\sigma}_1(b_1)=\boldsymbol{\sigma}_2(b_2)$.
+    Por lo tanto,  por el Corolario \ref{tmh:c1}:
+    $$  \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s} $$
+     lo que demuestra que:   $$ \int_{C_1}\mathbf{F}\cdot d\mathbf{s}=\int_{C_2}\mathbf{F}\cdot d\mathbf{s}$$
+   
+\end{corollary}
+
+
+
+\begin{corollary}\label{tmh:c3} Sean $A\subseteq\Rn{n}$ abierto y conexo y $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$  un campo vectorial conservativo entonces  entonces, para toda curva $C$ simple cerrada contenida en $A$ se cumple que
+    $$\oint_C\mathbf{F}\cdot d\mathbf{s}=0.$$
+    
+
+    \textit{Demostración.}S  $f$ un funci\'on potencial de $\mathbf{F}$  y sea $\boldsymbol{\sigma}:[a,b]\to A$  una  parametrizaci\'on de  $C$   que preserva su  orientaci\'on, entonces
+    \begin{equation*}
+        \oint_C\mathbf{F}\cdot d\mathbf{s}=\int_{\sigma}\grad f\cdot d\mathbf{s}
+    \end{equation*}
+  Por el Teorema \ref{thm:t1} sabemos que,
+    \begin{equation*}
+        \int_{\sigma}\grad f\cdot d\mathbf{s}=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a))
+    \end{equation*}
+    Adem\'as,  como $C$ es cerrada se tiene que $\boldsymbol{\sigma}(a)=\boldsymbol{\sigma}(a)$, luego $f(\boldsymbol{\sigma}(b))=f(\boldsymbol{\sigma}(a))$
+ lo que demuestra que  $$\oint_C\mathbf{F}\cdot d\mathbf{s}=0.$$
+\end{corollary}
+
+
+
+

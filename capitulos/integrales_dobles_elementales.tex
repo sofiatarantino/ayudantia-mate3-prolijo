@@ -1,0 +1,52 @@
+\begin{definition}\label{conj_elem}  Un conjunto  $D\subseteq\Rn{2}$ se llama elemental si  puede ser descripto de alguna de las siguientes maneras. 
+   
+    \begin{enumerate}
+    \item[i.]  Existen funciones $\phi_1,\;\phi_2:[a,b]\to\R$  continuas  tales que $ \phi_1(x) < \phi_2(x) \: \forall x \in (a,b) $  y:
+    \[
+     D = \{ (x,y) \in \mathbb{R}^{2}: \:   x\in[a,b] \: \land \: \phi_1(x)\leq y\leq\phi_2(x) ;\forall\;x\in[a,b] \}  
+    \]   En tal  el conjunto $D$ se llama  \textit{elemental de tipo 1.} 
+   
+    \item[ii.]  Existen funciones $\psi_1,\;\psi_2:[c,d]\to\R$  continuas tales que $ \psi_1(y) < \psi_2(y) \: \forall y \in (c,d)$ y 
+    \[
+     D = \{ (x,y) \in \mathbb{R}^{2}:   y\in[c,d] \: \land \:  \psi_1(y)\leq x\leq\psi_2(y) ;\forall\;y\in[c,d] \}  
+    \]
+     En tal  el conjunto $D$  se llama  \textit{elemental de tipo 2.} 
+    
+    \item[iii.] $D$ se llama conjunto elemental de \textit{tipo 3} si es \textit{tipo 1} y \textit{tipo 2} a la vez.
+    
+    \input{figs/conj-elementales.tex}
+    
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Para poder clasificar a una regi\'on como tipo 3 es necesario poder encontrar simult\'aneamente funciones $\phi_1$, $\phi_2$, $\psi_1$ y $\psi_2$ tales que
+    \[
+    \begin{dcases}
+        \phi_1(x)\leq y\leq\phi_2(x) & x\in[a,b]\\[.2cm]
+        \psi_1(y)\leq x\leq\psi_2(y) & y\in[c,d].
+    \end{dcases}
+    \]
+    Un ejemplo simple de tal regi\'on es un c\'irculo, donde la ecuaci\'on de esta regi\'on es $$D=\{(x,y)\in\Rn{2}:(x-x_0)^2+(y-y_0)^2\leq r\}.$$  
+
+    \input{figs/ex_tipo3.tex}
+
+    Para esta regi\'on se pueden encontrar las funciones
+    \[
+        \phi_1(x)=-\sqrt{r-(x-x_0)^2}+y_0,\quad x\in[x_0-r,x_0+r],
+    \]
+    y
+    \[
+        \phi_2(x)=\sqrt{r-(x-x_0)^2}+y_0,\quad x\in[x_0-r,x_0+r].
+    \]
+    A su vez, se pueden hallar las funciones
+    \[
+        \psi_1(y)=-\sqrt{r-(y-y_0)^2}+x_0,\quad y\in[y_0-r,y_0+r],
+    \]
+    y
+    \[
+        \psi_2(y)=\sqrt{r-(y-y_0)^2}+x_0,\quad y\in[y_0-r,y_0+r].
+    \]
+    Por tanto, $D$ es una regi\'on de tipo 3.
+\end{example}
+

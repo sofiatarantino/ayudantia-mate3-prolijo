@@ -1,0 +1,38 @@
+\noindent\textbf{Coordenadas Esféricas}
+\label{sec:coordenadas_esfericas}
+\vspace{0.2cm}
+
+Para el cálculo de integrales en regiones con simetría esférica, se utiliza el sistema de coordenadas esféricas. Un punto $(x, y, z)$ se relaciona con $(\rho, \phi, \theta)$ mediante:
+
+\begin{equation}
+    \begin{cases}
+        x = \rho \sin \phi \cos \theta \\
+        y = \rho \sin \phi \sin \theta \\
+        z = \rho \cos \phi
+    \end{cases}
+\end{equation}
+
+Donde las variables se restringen a $\rho \ge 0$, $0 \le \phi \le \pi$ y $0 \le \theta \le 2\pi$ para recorrer toda la esfera.
+
+ \textcolor{red}{se puede agregar el clasico dibubo que muestra como se transforma una parale en un cilindro con el link a GeoGebra? }
+
+
+\vspace{0.4cm}
+\noindent\textbf{El Determinante Jacobiano}
+
+De acuerdo con el Teorema~\ref{teo:cambio_variable},  el cambio de coordenadas  requiere introducir el valor absoluto del determinante de la matriz Jacobiana $J_{\mathbf{T}}$ como factor de escala en el diferencial de volumen. Por lo calculado en el Ejemplo~\ref{ej:jacobiano_esferico}  y considerando que $0 \le \phi \le \pi$,  el  mismo queda:
+\begin{equation}
+    \left| J_{\mathbf{T}} \right| = \rho^2 \sin \phi
+\end{equation}
+
+\vspace{0.4cm}
+\noindent\textbf{Diferencial de Volumen}
+
+Dado que en el dominio de integración $\sin \phi \ge 0$ ya que $0 \le \phi \le \pi$, el factor de escala es simplemente $\rho^2 \sin \phi$. Por lo tanto, siguiendo el Teorema~\ref{teo:cambio_variable}, el diferencial de volumen resulta:
+
+\begin{equation}
+    dV = \rho^2 \sin \phi \, d\rho \, d\phi \, d\theta
+\end{equation}
+
+
+\vspace{1cm}
