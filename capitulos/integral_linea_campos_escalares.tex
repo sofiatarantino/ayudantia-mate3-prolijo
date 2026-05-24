@@ -10,16 +10,16 @@
 
 \end{definition}
 
-\begin{obs} La definici\'on anterior no depende de la parametrizaci\'on.
+\begin{obs}\label{obs:param} La definici\'on anterior no depende de la parametrizaci\'on elegido para la curva $C$.
 \end{obs} 
 
-  Veamos un ejemplo para ilustrar la obseravaci\'on  reci\'en enunciada.  
+ 
 
 \begin{example}  Sean el campo $f: \mathbb{R}^{2}\to\R$ tal que $f(x,y)=x$ y la curva simple $C$  dada por el segmento que uno los puntos $(0.0)$ y $(1,1)$.  Calcular la integral de l\'inea del campo $f$ sobre la curva $C$.
    
    Por un lado,  es sencillo ver que    $\boldsymbol{\sigma}_1(t)=(t,t)$ con $t\in[0,1]$ es una parametrización suave y regular  de $C$.  Siguiendo  \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre $C$ es
     \[
-        \int_\Gamma f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_1(t)\|\boldsymbol{\sigma}_1'(t)\|\:dt.
+        \int_C f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_1(t)\|\boldsymbol{\sigma}_1'(t)\|\:dt.
     \]
     Como
     \[
@@ -51,34 +51,14 @@
         \int_C f\;ds=\int_0^1t^22t\sqrt{2} \;dt =2\sqrt{2}\int_0^1t^3\;dt=\frac{\sqrt{2}}{2}.
     \]
     
-    Que es igual a lo calculado usando a  $\boldsymbol{\sigma}_1$ como parametrizaci\'on de $C.$
+   Queda ilustrado lo dicho en la Observaci\'on \ref{obs:param}, es decir, bajo las hip\'otesis enunciadas, se cumple que: 
+
+
+ $$ \int_C f\;ds =  \int_{\boldsymbol{\sigma_1}}f\:ds =\int_{\boldsymbol{\sigma_2}}f\:ds. $$
   \end{example}  
 
 \begin{obs} 
  Sea $f:A\subseteq\Rn{2} \to\R$   tal que  $f(x,y)>0 \; \forall (x,y) \in A$ y   sea $C  \subseteq  A$  una curva simple en $\Rn{2}$.   La integral de l\'inea de $f$ sobre $C$  se puede interpretar geom\'etricamente como el ``\'area de la valla de base $C$  y altura $f$". 
 \end{obs}
 
-
-\begin{definition}\textbf{Trabajo realizado por una fuerza constante sobre un objeto.}  
-Sea un objeto que se desplaza desde un punto $A$ hasta un punto $B$ por el segmento que los une y  bajo la acci\'on de una fuerza \(\mathbf{F}\) constante. 
-Se define el     \emph{trabajo realizado por la fuerza sobre el objeto} como:
-\[
-W = \mathbf{F} \cdot \mathbf{d} = |\mathbf{F}| \, |\mathbf{d}| \, \cos\theta,
-\]
-donde
-\begin{itemize}
-    \item \(\mathbf{d} = \mathbf{r}_B - \mathbf{r}_A\) es el vector de desplazamiento del objeto,
-    \item \(|\mathbf{F}|\) es la magnitud de la fuerza,
-    \item \(|\mathbf{d}|\) es la magnitud del desplazamiento, y
-    \item \(\theta\) es el ángulo entre la fuerza y el desplazamiento.
-\end{itemize}
-\end{definition}
-
-
-\textbf{Interpretaci\'on:} el trabajo representa la cantidad de energ\'ia transferida al objeto por la fuerza en la direcci\'on del desplazamiento. 
-\begin{itemize}
-    \item Si \(0 \leq \theta < 90^\circ\), el trabajo es positivo: la fuerza ayuda al movimiento.
-    \item Si \(90^\circ < \theta \leq 180^\circ\), el trabajo es negativo: la fuerza se opone al movimiento.
-    \item Si \(\theta = 90^\circ\), el trabajo es cero: la fuerza no realiza trabajo sobre el objeto.
-\end{itemize}
 

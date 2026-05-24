@@ -6,7 +6,40 @@
     \]
 \end{definition}
 
-Si $\boldsymbol{\sigma}(t)$ es de clase $\mathcal{C}^1$ a trozos, se define $\int_{\boldsymbol{\sigma}}f\:ds$  de la siguiente manera:  
+ \begin{example} 
+ Sea $\boldsymbol{\sigma} : [0, 3\pi] \to \mathbb{R}^2$ / 
+$\boldsymbol{\sigma}(t) = (\cos t,\, \sen t)$. Calcular $\displaystyle\int_{\boldsymbol{\sigma}} f\, ds$,
+donde $f(x,y) = xy$.
+\[
+    f(\boldsymbol{\sigma}(t)) = \cos t \cdot \sen t.
+\]
+\[
+    \boldsymbol{\sigma}'(t) = (-\sen t,\, \cos t)
+    \implies
+    \|\boldsymbol{\sigma}'(t)\| = \sqrt{\sen^2 t + \cos^2 t} = 1.
+\]
+\[
+    \int_{\boldsymbol{\sigma}} f\, ds
+    = \int_0^{3\pi} f(\boldsymbol{\sigma}(t))\,\|\boldsymbol{\sigma}'(t)\|\, dt
+    = \int_0^{3\pi} \cos t \cdot \sen t \, dt.
+\]
+Resolvemos:
+\[
+    \int_0^{3\pi} \cos t \cdot \sen t\, dt
+    = \int_0^{3\pi} \frac{\sen 2t}{2}\, dt
+    = \left[ -\frac{\cos 2t}{4} \right]_0^{3\pi}
+    = -\frac{\cos 6\pi}{4} + \frac{\cos 0}{4}
+    = -\frac{1}{4} + \frac{1}{4}.
+\]
+\[
+    \boxed{\int_{\boldsymbol{\sigma}} f\, ds = 0.}
+\]
+ \end{example}
+
+
+Si $\boldsymbol{\sigma}(t)$ es de clase $\mathcal{C}^1$ a trozos, se define $\int_{\boldsymbol{\sigma}}f\:ds$  de la siguiente manera: 
+
+ 
 \begin{definition}   Sea $\boldsymbol{\sigma}:I=[a,b]\to\Rn{n}$ una trayectoria de clase $\mathcal{C}^1$ a trozos   y  sea $f$ un campo escalar tal que este bien definida y sea continua   la funci\'on $f\circ\boldsymbol{\sigma}$.  Se define la \emph{integral de trayectoria}  o \emph{integral de} $f$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se  nota $\int_{\boldsymbol{\sigma}}f\:ds$, a
   
     \[
@@ -15,4 +48,6 @@ Si $\boldsymbol{\sigma}(t)$ es de clase $\mathcal{C}^1$ a trozos, se define $\in
     donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\lvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m-1}$  es una partici\'on de $I$.
 \end{definition}
 
+\begin{example} \textcolor{red}{Ejemplo sencillo con una trayectoria C1 a trozos}
+ \end{example}
 

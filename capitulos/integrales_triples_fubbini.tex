@@ -1,12 +1,16 @@
 \begin{theorem} \label{teo:fubini_r3} \textbf{Teorema de Fubini en $\mathbb{R}^3$.} 
-Sea $f: P \to \mathbb{R}$ una función continua en un paralelepípedo $P = [a, b] \times [c, d] \times [e, f]$. Entonces:
+
+\textcolor{red}{Ojo que aca solo enunciaron Fubini para un P, hay que enunciarlo para cualquier conjunto elemental de R3.  Vee como esta en R2 y copiar estructura}
+
+
+Sea el paralelepípedo $P = [a, b] \times [c, d] \times [e, f]$  y  sea $f: P \to \mathbb{R}$ un campo escalar continuo . Entonces: 
 \[
     \iiint_P f(x,y,z) \, dV = \int_a^b \left( \int_c^d \left( \int_e^f f(x,y,z) \, dz \right) dy \right) dx.
 \]
 El resultado es independiente del orden en que se realicen las integraciones (existen $3! = 6$ órdenes posibles).
 \end{theorem}
 
-\begin{obs}
+\begin{obs} \textcolor{red}{Me da la senasion que hay una mezcla de cosas}
 Para regiones $W$ que no son paralelepípedos, utilizamos la \autoref{def:caja-que-contiene} para extender $f$ a una función $f^*$ definida en una caja $P \supseteq W$. Si $W$ es una región de tipo 1, el teorema se traduce en:
 \[
     \iiint_W f(x,y,z) \, dV = \iint_D \left( \int_{\phi_1(x,y)}^{\phi_2(x,y)} f(x,y,z) \, dz \right) dA.
