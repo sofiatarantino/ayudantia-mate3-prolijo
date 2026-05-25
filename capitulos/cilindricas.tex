@@ -1,5 +1,4 @@
 
-\noindent\textbf{Coordenadas Cilíndricas}
 \label{sec:cilindricas}
 \vspace{0.2cm}
 
@@ -20,7 +19,7 @@ Donde las variables se restringen a $r \ge 0$, $0 \le \theta \le 2\pi$ y $z \in 
 
 
 \vspace{0.4cm}
-\noindent\textbf{El Determinante Jacobiano}
+\textbf{El Determinante Jacobiano}
 
 De acuerdo con el Teorema~\ref{teo:cambio_variable}, el cambio de coordenadas  requiere introducir el valor absoluto del determinante de la matriz Jacobiana $J_{\mathbf{T}}$ como factor de escala en el diferencial de volumen.Por lo calculado en el Ejemplo~\ref{ej:jacobiano_cilindrico}, y considerando que  $r \ge 0$,  el mismo queda:
 \begin{equation}
@@ -28,10 +27,86 @@ De acuerdo con el Teorema~\ref{teo:cambio_variable}, el cambio de coordenadas  r
 \end{equation}
 
 \vspace{0.4cm}
-\noindent\textbf{Diferencial de Volumen}
+\textbf{Diferencial de Volumen}
 
 Dado que en el dominio de integración $r \ge 0$, el factor de escala es simplemente $r$. Por lo tanto, siguiendo el Teorema~\ref{teo:cambio_variable}, el diferencial de volumen resulta:
 
 \begin{equation}
 dV = r \, dr \, d\theta \, dz
 \end{equation}
+
+\textbf{Visualización del sistema de coordenadas cilíndricas}
+\begin{figure}[H]
+    \centering
+    \tikzsetnextfilename{cilindricas_figura}
+
+
+
+    \begin{tikzpicture}
+        \begin{axis}[
+            name=ax3d,
+            view={115}{22},
+            width=9cm,
+            height=9cm,
+            xmin=-0.3, xmax=3,
+            ymin=-0.3, ymax=3,
+            zmin=-0.2, zmax=3,
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            axis lines=center,
+            ticks=none,
+            every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
+            every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
+            every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
+        ]
+
+        % Segmento r: origen -> proyección de P en plano xy
+        \addplot3[blue!80, thick, -{Stealth[length=5pt]}]
+            coordinates {(0,0,0) (1.286, 1.532, 0)};
+
+        % Segmento z: proyección -> P (punteado)
+        \addplot3[black!55, thick, -{Stealth[length=5pt]}]
+            coordinates {(1.286, 1.532, 0) (1.286, 1.532, 2.5)};
+
+        % Diagonal origen -> P (referencia)
+        \addplot3[black!30, thin, dashed]
+            coordinates {(0, 0, 0) (1.286, 1.532, 2.5)};
+
+        % Proyecciones sobre ejes (guías punteadas finas)
+        \addplot3[black!25, thin, dashed]
+            coordinates {(1.286, 1.532, 0) (1.286, 0, 0)};
+        \addplot3[black!25, thin, dashed]
+            coordinates {(1.286, 1.532, 0) (0, 1.532, 0)};
+
+        % Arco theta en plano xy, radio 0.85
+        \addplot3[red!65, thick, domain=0:50, samples=50]
+            ({0.85*cos(x)}, {0.85*sin(x)}, {0});
+
+        % Punto P
+        \addplot3[only marks, mark=*, mark options={fill=red!70, draw=red!80, scale=1.3}]
+            coordinates {(1.286, 1.532, 2.5)};
+
+        % Proyección de P en plano xy
+        \addplot3[only marks, mark=*, mark options={fill=black!50, scale=0.7}]
+            coordinates {(1.286, 1.532, 0)};
+
+        % Etiqueta P
+        \node[above right] at (axis cs: 1.286, 1.532, 2.5) {$P$};
+
+        % Etiqueta r
+        \node[below, color=blue!80] at (axis cs: 0.65, 0.77, 0) {$r$};
+
+        % Etiqueta z
+        \node[right, color=black!70] at (axis cs: 1.286, 1.532, 1.25) {$z$};
+
+        % Etiqueta theta
+        \node[color=red!65] at (axis cs: 0.50, 0.25, 0) {$\large\theta$};
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Sistema de coordenadas cilíndricas. El punto $P$ queda determinado 
+    por $r \ge 0$ (distancia al eje $z$), $\theta \in [0, 2\pi)$ (ángulo azimutal) 
+    y $z \in \mathbb{R}$ (altura). 
+    \href{https://www.geogebra.org/m/yam9nnxq}{Ver en GeoGebra $\nearrow$}}
+\end{figure}
