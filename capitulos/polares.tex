@@ -1,0 +1,110 @@
+Para el cálculo de integrales en regiones con simetría circular, se utiliza el sistema de coordenadas polares. Un punto $(x, y)$ se relaciona con $(r, \theta)$ mediante:
+
+\begin{equation}
+\begin{cases} 
+x = r \cos \theta \\ 
+y = r \sin \theta 
+\end{cases}
+\end{equation}
+
+Donde las variables se restringen a $r \ge 0$ y $0 \le \theta \le 2\pi$ para recorrer todo el plano.
+
+\vspace{0.4cm}
+\noindent\textbf{El Determinante Jacobiano}
+
+De acuerdo con el Teorema \ref{ teo:cambio_variables_r2} de cambio de variable para integrales dobles, el cambio de coordenadas cartesianas a polares requiere introducir el valor absoluto del determinante de la matriz Jacobiana $J(r, \theta)$ como factor de escala en el diferencial de área.
+
+La matriz de derivadas parciales es:
+
+\begin{equation}
+J(r, \theta) = 
+\begin{pmatrix} 
+\cos \theta & -r \sin \theta \\ 
+\sin \theta & r \cos \theta 
+\end{pmatrix}
+\end{equation}
+
+Tal como se demuestra en el citado Ejemplo \ref{ejemplo_jacobiano_polares}, el valor absoluto del determinante de esta matriz es:
+
+\begin{equation}
+|J_{\mathbf{T}}| = r
+\end{equation}
+
+\vspace{0.4cm}
+\noindent\textbf{Diferencial de Área}
+
+Dado que en el dominio de integración $r \ge 0$, el factor de escala es simplemente $r$. Por lo tanto, siguiendo el \textbf{Teorema de Cambio de Variables (2.5.2)}, el diferencial de área resulta:
+
+\begin{equation}
+dA = r \, dr \, d\theta
+\end{equation}
+
+\begin{example}
+Hallar el área de la región
+\[
+D = \{(x,y) \in \mathbb{R}^2 : 1 \leq x^2 + y^2 \leq 4\}.
+\]
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+  % Relleno de la corona
+  \begin{scope}
+    \clip (-2.6,-2.6) rectangle (2.6,2.6);
+    \fill[blue!20] (0,0) circle (2);
+    \fill[white]   (0,0) circle (1);
+  \end{scope}
+  % Círculo exterior r=2
+  \draw[blue!70!black, thick] (0,0) circle (2);
+  % Círculo interior r=1
+  \draw[blue!70!black, thick] (0,0) circle (1);
+  % Ejes
+  \draw[->] (-2.6,0) -- (2.7,0) node[right] {$x$};
+  \draw[->] (0,-2.6) -- (0,2.7) node[above] {$y$};
+  % Marcas en los ejes
+  \foreach \x in {-2,-1,1,2}
+    \draw (\x,0.06) -- (\x,-0.06) node[below] {\small $\x$};
+  \foreach \y in {-2,-1,1,2}
+    \draw (0.06,\y) -- (-0.06,\y) node[left] {\small $\y$};
+  % Etiqueta D
+  \node at (1.55, -0.4) {$D$};
+\end{tikzpicture}
+\end{center}
+
+La región $D$ es una corona circular de radio interior $1$ y radio exterior $2$,
+con simetría circular. Se aplica el Teorema \ref{ teo:cambio_variables_r2}
+usando coordenadas polares:
+\[
+\begin{cases}
+x = r\cos\theta \\
+y = r\sin\theta
+\end{cases}
+\]
+con jacobiano $|J_{\mathbf{T}}| = r$, tal como se demuestra en el Ejemplo \ref{ejemplo_jacobiano_polares}.
+
+La región transformada $D^*$ en coordenadas polares resulta:
+\[
+D^* = \{(r,\theta) \in \mathbb{R}^2 : 1 \leq r \leq 2,\ 0 \leq \theta \leq 2\pi\}.
+\]
+En efecto, la condición $1 \leq x^2 + y^2 \leq 4$ se traduce directamente en
+$1 \leq r^2 \leq 4$, es decir, $1 \leq r \leq 2$.
+
+Siguiendo la Definición \ref{def:area}, el área se calcula como:
+\begin{align*}
+A(D) &= \iint_D 1\, dA
+      = \iint_{D^*} r\, dr\, d\theta
+      = \int_0^{2\pi} \int_1^2 r\, dr\, d\theta.
+\end{align*}
+
+Resolvemos integrando primero en $r$:
+\[
+\int_1^2 r\, dr = \left[\frac{r^2}{2}\right]_1^2 = \frac{4}{2} - \frac{1}{2} = \frac{3}{2}.
+\]
+
+Luego en $\theta$:
+\[
+A(D) = \int_0^{2\pi} \frac{3}{2}\, d\theta = \frac{3}{2} \cdot 2\pi = 3\pi.
+\]
+
+\[
+\boxed{A(D) = 3\pi.}
+\]
+\end{example}
