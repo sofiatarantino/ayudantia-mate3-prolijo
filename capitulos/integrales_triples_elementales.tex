@@ -11,6 +11,76 @@
 	\item  Existen $D_3 \subset  \mathbb{R}^2 $  un conjunto elemental y funciones  $\eta_{13},\; \eta_{23}: D_3\to\R$  continuas  tales que $$\eta_{13}(y, z) <  \eta_{23}(y, z)  \: \forall (y,z) \in  (D_3)^{\circ}$$ y $$W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\; (y,z) \in D_3   \: \land  \:  \eta_{13}(y, z) \leq x \leq \eta_{23}(y, z) \: \forall (y,z) \in D_3  \right\}$$
 \end{enumerate}
 \end{definition}
+ \begin{figure}[htbp]
+    \centering
+    \tikzsetnextfilename{conj_elemental1_R3} 
+    \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
+        % Ejes
+        \draw[->] (0,0,0) -- (4,0,0) node[below left] {$x$};
+        \draw[->] (0,0,0) -- (0,4,0) node[right] {$y$};
+        \draw[->] (0,0,0) -- (0,0,4.5) node[above] {$z$};
+
+        % Región base D1 en xy
+        \filldraw[fill=blue!20, draw=black, thick] 
+            (1,1,0) to[out=90,in=180] (2,2.5,0) 
+                     to[out=0,in=90] (3,1.5,0) 
+                     to[out=-90,in=0] (2,0.5,0) 
+                     to[out=180,in=-90] cycle;
+        \node at (2,1.1,0) {\small $D_1$};
+
+        % Superficies inferior y superior (curvas cerradas)
+        \path 
+            coordinate (A) at (1,1,1.5)
+            coordinate (B) at (2,2.5,1.8)
+            coordinate (C) at (3,1.5,1.2)
+            coordinate (D) at (2,0.5,1.0)
+            coordinate (E) at (1,1,3)
+            coordinate (F) at (2,2.5,3.2)
+            coordinate (G) at (3,1.5,2.5)
+            coordinate (H) at (2,0.5,2.8);
+
+        % Relleno del sólido encerrado entre las dos superficies
+        \filldraw[fill=purple!40, opacity=0.5, draw=none] 
+            (A) to[out=90,in=180] (B) 
+                to[out=0,in=90] (C) 
+                to[out=-90,in=0] (D) 
+                to[out=180,in=-90] cycle
+            -- (E) to[out=90,in=180] (F) 
+                to[out=0,in=90] (G) 
+                to[out=-90,in=0] (H) 
+                to[out=180,in=-90] cycle 
+            -- cycle;
+
+        % Líneas de las superficies inferior y superior
+        \draw[blue!80!black, thick] 
+            (A) to[out=90,in=180] (B) 
+                to[out=0,in=90] (C) 
+                to[out=-90,in=0] (D) 
+                to[out=180,in=-90] cycle;
+        \node[right] at (C) {\small $z = \eta_{11}(x,y)$};
+
+        \draw[red!80!black, thick] 
+            (E) to[out=90,in=180] (F) 
+                to[out=0,in=90] (G) 
+                to[out=-90,in=0] (H) 
+                to[out=180,in=-90] cycle;
+        \node[above] at (F) {\small $z = \eta_{21}(x,y)$};
+
+        % Aristas verticales que conectan las dos superficies
+        \draw[thick, purple, opacity=0.7] (A) -- (E);
+        \draw[thick, purple, opacity=0.7] (B) -- (F);
+        \draw[thick, purple, opacity=0.7] (C) -- (G);
+        \draw[thick, purple, opacity=0.7] (D) -- (H);
+
+        % Líneas punteadas proyectantes desde la región base (solo hacia las superficies)
+        \draw[dashed, gray] (1,1,0) -- (1,1,1.5);
+        \draw[dashed, gray] (2,2.5,0) -- (2,2.5,1.8);
+        \draw[dashed, gray] (3,1.5,0) -- (3,1.5,1.2);
+        \draw[dashed, gray] (2,0.5,0) -- (2,0.5,1.0);
+
+    \end{tikzpicture}
+    \caption{Conjunto elemental de Tipo 1 en $\mathbb{R}^3$, mostrando sólido encerrado y su proyección en el plano $xy$.}
+\end{figure}
 
 
 \begin{example}
