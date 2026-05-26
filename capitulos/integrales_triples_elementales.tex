@@ -3,18 +3,130 @@
 \begin{definition}
     \textbf{Conjunto elemental en }$\Rn{3}$. Sean $D_i\in \Rn{2}$ con $1 \leq i \leq 3$  cunjuntos elementales y sean $\eta_{1i}$ y $\eta_{2i}$  con $1 \leq i \leq 3$ funciones continuas sobre $D_i$ .  Un conjunto $W\subseteq\Rn{3}$ se llama elemetal si puede ser descripto de alguna de las siguientes maneras. 
     \begin{enumerate}
-    \item Exiten $D_1 \subset  \mathbb{R}^2 $ un conjunto elemental y funciones  $\eta_{11},\; \eta_{21}: D_1\to\R$  continuas  tales que $$\eta_{11}(x, y) <  \eta_{21}(x, y)  \: \forall (x,y) \in  (D_1)^{\circ}$$ y $$ W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\;  (x,y) \in D_1 \: \land  \: \eta_{11}(x, y) \leq z \leq \eta_{21}(x, y)  \: \forall (x,y) \in D_1 \right\}.$$
+    \item Existen $D_1 \subset  \mathbb{R}^2 $ un conjunto elemental y funciones  $\eta_{11},\; \eta_{21}: D_1\to\R$  continuas  tales que $$\eta_{11}(x, y) <  \eta_{21}(x, y)  \: \forall (x,y) \in  (D_1)^{\circ}$$ y $$ W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\;  (x,y) \in D_1 \: \land  \: \eta_{11}(x, y) \leq z \leq \eta_{21}(x, y)  \: \forall (x,y) \in D_1 \right\}.$$
 	
 	
-	\item  Exiten $D_2 \subset  \mathbb{R}^2 $ un conjunto elemental y funciones  $\eta_{12},\; \eta_{22}: D_2\to\R$  continuas  tales que $$\eta_{12}(x, z) <  \eta_{22}(x, z)  \: \forall (x,z) \in  (D_2)^{\circ}$$ y $$W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\;  (x,z) \in D_2   \: \land  \:  \eta_{12}(x, z) \leq y \leq \eta_{22}(x, z) \: \forall (x,z) \in D_2 \right\}$$
+	\item  Existen $D_2 \subset  \mathbb{R}^2 $ un conjunto elemental y funciones  $\eta_{12},\; \eta_{22}: D_2\to\R$  continuas  tales que $$\eta_{12}(x, z) <  \eta_{22}(x, z)  \: \forall (x,z) \in  (D_2)^{\circ}$$ y $$W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\;  (x,z) \in D_2   \: \land  \:  \eta_{12}(x, z) \leq y \leq \eta_{22}(x, z) \: \forall (x,z) \in D_2 \right\}$$
 	
-	\item  Exiten $D_3 \subset  \mathbb{R}^2 $  un conjunto elemental y funciones  $\eta_{13},\; \eta_{23}: D_3\to\R$  continuas  tales que $$\eta_{13}(y, z) <  \eta_{23}(y, z)  \: \forall (y,z) \in  (D_3)^{\circ}$$ y $$W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\; (y,z) \in D_3   \: \land  \:  \eta_{13}(y, z) \leq x \leq \eta_{23}(y, z) \: \forall (y,z) \in D_3  \right\}$$
+	\item  Existen $D_3 \subset  \mathbb{R}^2 $  un conjunto elemental y funciones  $\eta_{13},\; \eta_{23}: D_3\to\R$  continuas  tales que $$\eta_{13}(y, z) <  \eta_{23}(y, z)  \: \forall (y,z) \in  (D_3)^{\circ}$$ y $$W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\; (y,z) \in D_3   \: \land  \:  \eta_{13}(y, z) \leq x \leq \eta_{23}(y, z) \: \forall (y,z) \in D_3  \right\}$$
 \end{enumerate}
 \end{definition}
+ \begin{figure}[htbp]
+    \centering
+    \tikzsetnextfilename{conj_elemental1_R3} 
+    \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
+        % Ejes
+        \draw[->] (0,0,0) -- (4,0,0) node[below left] {$x$};
+        \draw[->] (0,0,0) -- (0,4,0) node[right] {$y$};
+        \draw[->] (0,0,0) -- (0,0,4.5) node[above] {$z$};
+
+        % Región base D1 en xy
+        \filldraw[fill=blue!20, draw=black, thick] 
+            (1,1,0) to[out=90,in=180] (2,2.5,0) 
+                     to[out=0,in=90] (3,1.5,0) 
+                     to[out=-90,in=0] (2,0.5,0) 
+                     to[out=180,in=-90] cycle;
+        \node at (2,1.1,0) {\small $D_1$};
+
+        % Superficies inferior y superior (curvas cerradas)
+        \path 
+            coordinate (A) at (1,1,1.5)
+            coordinate (B) at (2,2.5,1.8)
+            coordinate (C) at (3,1.5,1.2)
+            coordinate (D) at (2,0.5,1.0)
+            coordinate (E) at (1,1,3)
+            coordinate (F) at (2,2.5,3.2)
+            coordinate (G) at (3,1.5,2.5)
+            coordinate (H) at (2,0.5,2.8);
+
+        % Relleno del sólido encerrado entre las dos superficies
+        \filldraw[fill=purple!40, opacity=0.5, draw=none] 
+            (A) to[out=90,in=180] (B) 
+                to[out=0,in=90] (C) 
+                to[out=-90,in=0] (D) 
+                to[out=180,in=-90] cycle
+            -- (E) to[out=90,in=180] (F) 
+                to[out=0,in=90] (G) 
+                to[out=-90,in=0] (H) 
+                to[out=180,in=-90] cycle 
+            -- cycle;
+
+        % Líneas de las superficies inferior y superior
+        \draw[blue!80!black, thick] 
+            (A) to[out=90,in=180] (B) 
+                to[out=0,in=90] (C) 
+                to[out=-90,in=0] (D) 
+                to[out=180,in=-90] cycle;
+        \node[right] at (C) {\small $z = \eta_{11}(x,y)$};
+
+        \draw[red!80!black, thick] 
+            (E) to[out=90,in=180] (F) 
+                to[out=0,in=90] (G) 
+                to[out=-90,in=0] (H) 
+                to[out=180,in=-90] cycle;
+        \node[above] at (F) {\small $z = \eta_{21}(x,y)$};
+
+        % Aristas verticales que conectan las dos superficies
+        \draw[thick, purple, opacity=0.7] (A) -- (E);
+        \draw[thick, purple, opacity=0.7] (B) -- (F);
+        \draw[thick, purple, opacity=0.7] (C) -- (G);
+        \draw[thick, purple, opacity=0.7] (D) -- (H);
+
+        % Líneas punteadas proyectantes desde la región base (solo hacia las superficies)
+        \draw[dashed, gray] (1,1,0) -- (1,1,1.5);
+        \draw[dashed, gray] (2,2.5,0) -- (2,2.5,1.8);
+        \draw[dashed, gray] (3,1.5,0) -- (3,1.5,1.2);
+        \draw[dashed, gray] (2,0.5,0) -- (2,0.5,1.0);
+
+    \end{tikzpicture}
+    \caption{Conjunto elemental de Tipo 1 en $\mathbb{R}^3$, mostrando sólido encerrado y su proyección en el plano $xy$.}
+\end{figure}
 
 
-\textcolor{red}{ejemplo de algun conjunto elemental y si es posible una ilustracion como en R2}
+\begin{example}
+    Un ejemplo de un conjunto que es elemental en $\mathbb{R}^3$ es una esfera sólida (o bola) de radio $R$ centrada en el origen:
+    $$W = \{(x,y,z) \in \mathbb{R}^3 \mid x^2 + y^2 + z^2 \leq R^2\}$$
 
+    Para ver que es un conjunto elemental del primer tipo (proyección sobre el plano $xy$), identificamos primero su región de proyección $D_1$:
+    $$D_1 = \{(x,y) \in \mathbb{R}^2 \mid x^2 + y^2 \leq R^2\}$$
+    
+    Sabemos que $D_1$ es un conjunto elemental en $\mathbb{R}^2$ (como se vio en el ejemplo de la Definición \ref{conj_elem}). Sobre esta región $D_1$, la variable $z$ queda acotada inferiormente por la semiesfera inferior y superiormente por la semiesfera superior. Es decir, existen las funciones continuas:
+    $$ \eta_{11}(x,y) = -\sqrt{R^2 - x^2 - y^2} $$
+    $$ \eta_{21}(x,y) = \sqrt{R^2 - x^2 - y^2} $$
+    
+    Tales que $\eta_{11}(x,y) \leq z \leq \eta_{21}(x,y)$ para todo $(x,y) \in D_1$. 
+    
+    % --- ACÁ VA TU ILUSTRACIÓN ---
+    % \begin{figure}[htbp]
+    %     \centering
+    %     % Acordate de guardar una captura de GeoGebra 3D en tu carpeta y poner el nombre acá
+    %     \includegraphics[width=0.5\textwidth]{ejercicios/esfera_ejemplo.png}
+    %     \caption{Esfera sólida en $\mathbb{R}^3$ proyectada sobre el plano $xy$.}
+    % \end{figure}
+    % -----------------------------
+
+   Análogamente, se puede describir dicho conjunto de otras dos maneras según el plano en el que se proyecta:
+   \begin{enumerate}
+   \item \textbf{Proyección sobre el plano $xz$:} La región elemental $D_2 \subset \mathbb{R}^2$ es el disco:
+        \[
+        D_2 = \{(x,z) \in \mathbb{R}^2 \mid x^2 + z^2 \leq R^2\}
+        \]
+        y la variable $y$ queda acotada por las funciones continuas:
+        \[
+        \eta_{12}(x,z) = -\sqrt{R^2 - x^2 - z^2} \quad \text{e} \quad \eta_{22}(x,z) = \sqrt{R^2 - x^2 - z^2}
+        \]
+
+        \item \textbf{Proyección sobre el plano $yz$:} La región elemental $D_3 \subset \mathbb{R}^2$ es el disco:
+        \[
+        D_3 = \{(y,z) \in \mathbb{R}^2 \mid y^2 + z^2 \leq R^2\}
+        \]
+        y la variable $x$ queda acotada por las funciones continuas:
+        \[
+        \eta_{13}(y,z) = -\sqrt{R^2 - y^2 - z^2} \quad \text{e} \quad \eta_{23}(y,z) = \sqrt{R^2 - y^2 - z^2}
+        \]
+    \end{enumerate}
+
+\end{example}
 
 %\begin{center}    
    % \includegraphics[width=0.8\linewidth]{figs/conj_elem_r3.jpg}

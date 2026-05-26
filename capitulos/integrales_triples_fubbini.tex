@@ -1,20 +1,31 @@
-\begin{theorem} \label{teo:fubini_r3} \textbf{Teorema de Fubini en $\mathbb{R}^3$.} 
-
-\textcolor{red}{Ojo que aca solo enunciaron Fubini para un P, hay que enunciarlo para cualquier conjunto elemental de R3.  Vee como esta en R2 y copiar estructura}
-
-
-Sea el paralelepípedo $P = [a, b] \times [c, d] \times [e, f]$  y  sea $f: P \to \mathbb{R}$ un campo escalar continuo . Entonces: 
-\[
-    \iiint_P f(x,y,z) \, dV = \int_a^b \left( \int_c^d \left( \int_e^f f(x,y,z) \, dz \right) dy \right) dx.
-\]
-El resultado es independiente del orden en que se realicen las integraciones (existen $3! = 6$ órdenes posibles).
+\begin{theorem} \label{teo:fubini_r3} \textbf{Teorema de Fubini} en $\mathbb{R}^3.$
+    Sea $f:W\to\mathbb{R}$ un campo escalar continuo sobre $W\subseteq\mathbb{R}^3$ un conjunto elemental.
+    
+    \begin{enumerate} 
+        \item Si $W$ es un conjunto de \textbf{Tipo 1} (acotado superior e inferiormente en $z$), entonces la integral triple de $f$ sobre $W$ se puede calcular como:
+        \[
+            \iiint_W f(x,y,z) \, dV = \iint_{D_1} \left( \int_{\eta_{11}(x,y)}^{\eta_{21}(x,y)} f(x,y,z) \, dz \right) dA
+        \]
+        donde $D_1$ es la proyección de $W$ sobre el plano $xy.$
+       
+        \item Si $W$ es un conjunto de \textbf{Tipo 2} (acotado en $y$), entonces la integral triple de $f$ sobre $W$ se puede calcular como:
+        \[
+            \iiint_W f(x,y,z) \, dV = \iint_{D_2} \left( \int_{\eta_{12}(x,z)}^{\eta_{22}(x,z)} f(x,y,z) \, dy \right) dA
+        \]
+        donde $D_2$ es la proyección de $W$ sobre el plano $xz.$
+       
+        \item Si $W$ es un conjunto de \textbf{Tipo 3} (acotado en $x$), entonces la integral triple de $f$ sobre $W$ se puede calcular como:
+        \[
+            \iiint_W f(x,y,z) \, dV = \iint_{D_3} \left( \int_{\eta_{13}(y,z)}^{\eta_{23}(y,z)} f(x,y,z) \, dx \right) dA
+        \]
+        donde $D_3$ es la proyección de $W$ sobre el plano $yz.$
+    \end{enumerate}
 \end{theorem}
 
-\begin{obs} \textcolor{red}{Me da la senasion que hay una mezcla de cosas}
-Para regiones $W$ que no son paralelepípedos, utilizamos la \autoref{def:caja-que-contiene} para extender $f$ a una función $f^*$ definida en una caja $P \supseteq W$. Si $W$ es una región de tipo 1, el teorema se traduce en:
-\[
-    \iiint_W f(x,y,z) \, dV = \iint_D \left( \int_{\phi_1(x,y)}^{\phi_2(x,y)} f(x,y,z) \, dz \right) dA.
-\]
+\begin{obs}
+La definición formal de la integral sobre una región elemental $W$ se basa en extender la función original a una función $f^*$ definida sobre una caja o paralelepípedo $P \supseteq W$ (donde $f^* = f$ dentro de $W$ y $f^* = 0$ fuera). 
+
+En el caso particular de que la región de integración sea directamente un paralelepípedo $P = [a, b] \times [c, d] \times [e, f]$, las integrales dobles sobre las proyecciones se reducen a intervalos constantes, permitiendo calcular la integral triple mediante tres integrales simples iteradas. En este escenario, el resultado es independiente del orden en que se realicen las integraciones (existiendo $3! = 6$ órdenes posibles).
 \end{obs}
 
 \begin{example}
