@@ -35,91 +35,133 @@ Dado que en el dominio de integración $\sin \phi \ge 0$ ya que $0 \le \phi \le 
 \end{equation}
 
 \textbf{Visualización del sistema de coordenadas esféricas}
-\begin{figure}[H]
+
+\begin{figure}[htbp]
     \centering
-    \tikzsetnextfilename{esfericas_figura}
+    \tikzsetnextfilename{esfericas_cambio_figura}
 
     \begin{tikzpicture}
-        \begin{axis}[
-            name=ax3d,
-            view={115}{22},
-            width=9cm,
-            height=9cm,
-            xmin=-0.3, xmax=3,
-            ymin=-0.3, ymax=3,
-            zmin=-0.2, zmax=3,
-            xlabel={$x$},
-            ylabel={$y$},
-            zlabel={$z$},
-            axis lines=center,
-            ticks=none,
-            every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
-            every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
-            every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
-        ]
 
-        % Coordenadas de P: rho=2.5, phi=50°, theta=50°
-        % px = rho*sin(phi)*cos(theta) = 2.5*sin(50)*cos(50) ≈ 1.232
-        % py = rho*sin(phi)*sin(theta) = 2.5*sin(50)*sin(50) ≈ 1.468
-        % pz = rho*cos(phi)            = 2.5*cos(50)         ≈ 1.607
+    %%% IZQUIERDA: caja W* en espacio (ρ, φ, θ)
+    \begin{axis}[
+        name=izq,
+        view={110}{25},
+        width=7cm,
+        height=7cm,
+        xmin=-0.2, xmax=3.5,
+        ymin=-0.2, ymax=7.5,
+        zmin=-0.2, zmax=3.8,
+        xlabel={$\rho$},
+        ylabel={$\theta$},
+        zlabel={$\phi$},
+        axis lines=center,
+        ticks=none,
+        every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
+    ]
 
-        % Segmento rho: origen -> P (línea principal)
-        \addplot3[violet!80, thick, -{Stealth[length=5pt]}]
-            coordinates {(0,0,0) (1.232, 1.468, 1.607)};
+    % Cara inferior (φ = 0)
+    \addplot3[fill=magenta!20, opacity=0.85, draw=magenta!70, thick]
+        coordinates {(0,0,0)(3,0,0)(3,6.28,0)(0,6.28,0)(0,0,0)};
+    % Cara posterior (θ = 0)
+    \addplot3[fill=magenta!15, opacity=0.7, draw=magenta!70, thick]
+        coordinates {(0,0,0)(3,0,0)(3,0,3.14)(0,0,3.14)(0,0,0)};
+    % Cara lateral (ρ = 0)
+    \addplot3[fill=magenta!20, opacity=0.7, draw=magenta!70, thick]
+        coordinates {(0,0,0)(0,6.28,0)(0,6.28,3.14)(0,0,3.14)(0,0,0)};
+    % Cara frontal (ρ = R)
+    \addplot3[fill=magenta!30, opacity=0.8, draw=magenta!70, thick]
+        coordinates {(3,0,0)(3,6.28,0)(3,6.28,3.14)(3,0,3.14)(3,0,0)};
+    % Cara lateral (θ = 2π)
+    \addplot3[fill=magenta!25, opacity=0.75, draw=magenta!70, thick]
+        coordinates {(0,6.28,0)(3,6.28,0)(3,6.28,3.14)(0,6.28,3.14)(0,6.28,0)};
+    % Cara superior (φ = π)
+    \addplot3[fill=magenta!35, opacity=0.9, draw=magenta!70, thick]
+        coordinates {(0,0,3.14)(3,0,3.14)(3,6.28,3.14)(0,6.28,3.14)(0,0,3.14)};
 
-        % Proyección de P sobre el plano xy
-        % px_xy = rho*sin(phi)*cos(theta) ≈ 1.232
-        % py_xy = rho*sin(phi)*sin(theta) ≈ 1.468
-        \addplot3[black!25, thin, dashed]
-            coordinates {(1.232, 1.468, 0) (1.232, 1.468, 1.607)};
+    % Etiqueta W*
+    \node[color=magenta!80!black, font=\Large]
+        at (axis cs: 1.5, 3.14, 1.57) {$W^*$};
 
-        % Segmento desde origen hasta proyección en xy (para mostrar theta)
-        \addplot3[blue!80, thick, -{Stealth[length=5pt]}]
-            coordinates {(0,0,0) (1.232, 1.468, 0)};
+    % Cotas
+    \node[below, color=black!60, font=\small]
+        at (axis cs: 3, 0, 0) {$R$};
+    \node[above right, color=black!60, font=\small]
+        at (axis cs: 0, 6.28, 0) {$2\pi$};
+    \node[left, color=black!60, font=\small]
+        at (axis cs: 0, 0, 0) {$0$};
+    \node[left, color=black!60, font=\small]
+        at (axis cs: 0, 0, 3.14) {$\pi$};
 
-        % Guías punteadas finas sobre ejes
-        \addplot3[black!25, thin, dashed]
-            coordinates {(1.232, 1.468, 0) (1.232, 0, 0)};
-        \addplot3[black!25, thin, dashed]
-            coordinates {(1.232, 1.468, 0) (0, 1.468, 0)};
+    \end{axis}
 
-        % Arco theta en plano xy (de eje x hasta proyección), radio 0.85
-        \addplot3[red!65, thick, domain=0:50, samples=50]
-            ({0.85*cos(x)}, {0.85*sin(x)}, {0});
+    % Label inferior izquierdo
+    \node[below=0.15cm of izq.south, font=\small]
+        {Espacio $(\rho,\theta,\phi)$};
 
-        % Arco phi en el plano vertical que contiene a P
-        % Va desde el eje z (phi=0) hasta el segmento rho (phi=50°)
-        % El plano contiene el ángulo theta=50°, radio 0.85
-        \addplot3[orange!80, thick, domain=0:50, samples=50]
-            ({0.85*sin(x)*cos(50)}, {0.85*sin(x)*sin(50)}, {0.85*cos(x)});
+    %%% FLECHA T
+    \draw[-{Stealth[length=9pt, width=6pt]}, thick]
+        ($(izq.east)+(0.4,0)$)
+        -- node[above, font=\large]{$T$}
+        ++(1.5,0);
 
-        % Punto P
-        \addplot3[only marks, mark=*, mark options={fill=red!70, draw=red!80, scale=1.3}]
-            coordinates {(1.232, 1.468, 1.607)};
+    %%% DERECHA: esfera W en espacio (x, y, z)
+    \begin{axis}[
+        name=der,
+        at={($(izq.east)+(2.4cm,0)$)},
+        anchor=west,
+        view={110}{25},
+        width=7cm,
+        height=7cm,
+        xmin=-2.8, xmax=2.8,
+        ymin=-2.8, ymax=2.8,
+        zmin=-2.8, zmax=3.2,
+        xlabel={$x$},
+        ylabel={$y$},
+        zlabel={$z$},
+        axis lines=center,
+        ticks=none,
+        every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
+    ]
 
-        % Proyección de P en plano xy (punto pequeño)
-        \addplot3[only marks, mark=*, mark options={fill=black!50, scale=0.7}]
-            coordinates {(1.232, 1.468, 0)};
+    % Hemisferio inferior
+    \addplot3[surf, fill=green!20, draw=green!45,
+              fill opacity=0.65, draw opacity=0.8,
+              domain=0:360, y domain=90:180,
+              samples=36, samples y=10, shader=flat]
+        ({2*cos(x)*sin(y)}, {2*sin(x)*sin(y)}, {2*cos(y)});
 
-        % Etiqueta P
-        \node[above right] at (axis cs: 1.232, 1.468, 1.607) {$P$};
+    % Hemisferio superior
+    \addplot3[surf, fill=green!30, draw=green!55,
+              fill opacity=0.75, draw opacity=0.9,
+              domain=0:360, y domain=0:90,
+              samples=36, samples y=10, shader=flat]
+        ({2*cos(x)*sin(y)}, {2*sin(x)*sin(y)}, {2*cos(y)});
 
-        % Etiqueta rho (sobre el segmento diagonal)
-        \node[left, color=violet!80] at (axis cs: 0.62, 0.73, 0.80) {$\rho$};
+    % Circulo ecuatorial (z = 0)
+    \addplot3[draw=green!70, thick, domain=0:360, samples=60]
+        ({2*cos(x)}, {2*sin(x)}, {0});
 
-        % Etiqueta theta (ángulo azimutal en plano xy)
-        \node[color=red!65] at (axis cs: 0.55, 0.28, 0.05) {$\large\theta$};
+    % Etiqueta W
+    \node[color=green!50!black, font=\Large]
+        at (axis cs: 0.4, 0.4, 0.8) {$W$};
 
-        % Etiqueta phi (ángulo polar desde eje z)
-        \node[color=orange!80] at (axis cs: 0.20, 0.22, 0.55) {$\large\phi$};
+    \end{axis}
 
-        \end{axis}
+    % Label inferior derecho
+    \node[below=0.15cm of der.south, font=\small]
+        {Espacio $(x,y,z)$};
+
     \end{tikzpicture}
-    \caption{Sistema de coordenadas esféricas. El punto $P$ queda determinado 
-    por $\rho \ge 0$ (distancia al origen), $\phi \in [0, \pi]$ (ángulo polar) 
-    y $\theta \in [0, 2\pi)$ (ángulo azimutal).
-    \href{https://www.geogebra.org/3d/pzujyjqy}{Ver en GeoGebra $\nearrow$}}
-\end{figure}
 
+    \caption{Visualización del sistema de coordenadas esféricas. 
+    El bloque $W^*$ a la izquierda representa la región en el espacio 
+    $(\rho,\theta,\phi)$ con sus límites típicos, mientras que la esfera 
+    $W$ a la derecha muestra cómo se transforma esa región en el 
+    espacio $(x,y,z)$ mediante la transformación $T$.\href{https://www.geogebra.org/m/pzujyjqy}{Ver en GeoGebra }}
+\end{figure}
 
 \vspace{1cm}
