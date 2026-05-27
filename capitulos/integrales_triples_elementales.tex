@@ -4,83 +4,237 @@
     \textbf{Conjunto elemental en }$\Rn{3}$. Sean $D_i\in \Rn{2}$ con $1 \leq i \leq 3$  cunjuntos elementales y sean $\eta_{1i}$ y $\eta_{2i}$  con $1 \leq i \leq 3$ funciones continuas sobre $D_i$ .  Un conjunto $W\subseteq\Rn{3}$ se llama elemetal si puede ser descripto de alguna de las siguientes maneras. 
     \begin{enumerate}
     \item Existen $D_1 \subset  \mathbb{R}^2 $ un conjunto elemental y funciones  $\eta_{11},\; \eta_{21}: D_1\to\R$  continuas  tales que $$\eta_{11}(x, y) <  \eta_{21}(x, y)  \: \forall (x,y) \in  (D_1)^{\circ}$$ y $$ W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\;  (x,y) \in D_1 \: \land  \: \eta_{11}(x, y) \leq z \leq \eta_{21}(x, y)  \: \forall (x,y) \in D_1 \right\}.$$
-	
+	\begin{figure}[htbp]
+    \centering
+    \tikzsetnextfilename{conj_elemental1_R3}
+\begin{tikzpicture}
+    \begin{axis}[
+        view={35}{25}, % Ángulo de perspectiva
+        width=12cm, height=12cm,
+        grid=none,
+        axis lines=center,
+        xmin=0, xmax=5,
+        ymin=0, ymax=5,
+        zmin=0, zmax=6,
+        xtick={1,4}, xticklabels={$a$,$b$}, % Marcas exactas de a y b en el eje x
+        ytick=\empty, ztick=\empty,
+        xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+        every axis x label/.style={at={(ticklabel* cs:1)},anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1)},anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1)},anchor=south},
+        clip=false % CRÍTICO para que no se corten los textos que salen del gráfico
+    ]
+
+    % --- 0. Grilla en el piso (z=0) para dar perspectiva ---
+    \addplot3 [surf, domain=0:5, domain y=0:5, samples=6, samples y=6, opacity=0.1, faceted color=gray, fill=none] (x,y,0);
+
+    % --- 1. Dominio D_1 en R2 (Plano z=0) ---
+    % Relleno sombreado del dominio D_1 - SÚPER LISO Y SIN CONTORNOS
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=30, opacity=0.15, colormap={gray}{color=(gray!15) color=(gray!15)}, shader=interp, draw=none] 
+        (x, { (1 + 0.3*sin(x*50)) * (1-y) + (3.5 + 0.2*cos(x*60)) * y }, 0);
+
+    % NUEVO: Delimitación de D1 con líneas punteadas
+    \addplot3 [domain=1:4, samples=40, thick, dashed, black] (x, {1 + 0.3*sin(x*50)}, 0);
+    \addplot3 [domain=1:4, samples=40, thick, dashed, black] (x, {3.5 + 0.2*cos(x*60)}, 0);
+    \draw[dashed, thick, black] (1, {1 + 0.3*sin(50)}, 0) -- (1, {3.5 + 0.2*cos(60)}, 0);
+    \draw[dashed, thick, black] (4, {1 + 0.3*sin(200)}, 0) -- (4, {3.5 + 0.2*cos(240)}, 0);
+
+    % --- 2. Paredes laterales del volumen (Efecto sólido, con bordes claros y liso) ---
+    % Pared trasera (Parameterization refined for consistent volume)
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=30, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=black!70] 
+        (x, {3.5 + 0.2*cos(x*60)}, { (1-y)*(1.5 + 0.2*sin(x*50) + 0.1) + y*(4.5 + 0.3*cos(x*40) - 0.2) });
+
+    % Pared izquierda (en x=a)
+    \addplot3 [surf, domain=0:1, domain y=0:1, samples=5, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=black!70] 
+        (1, { (1 + 0.3*sin(50))*(1-x) + (3.5 + 0.2*cos(60))*x }, { (1-y)*(1.5 + 0.2*sin(50) + 0.1*x) + y*(4.5 + 0.3*cos(40) - 0.2*x) });
+
+    % Pared derecha (en x=b)
+    \addplot3 [surf, domain=0:1, domain y=0:1, samples=5, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=black!70] 
+        (4, { (1 + 0.3*sin(200))*(1-x) + (3.5 + 0.2*cos(240))*x }, { (1-y)*(1.5 + 0.2*sin(200) + 0.1*x) + y*(4.5 + 0.3*cos(160) - 0.2*x) });
+
+    % --- 3. Tapas del sólido (Superficies \eta, con bordes claros y nuevos colores lisos) ---
+    % Superficie inferior z = \eta_{11}(x,y) (cian liso with outline)
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=25, opacity=0.6, colormap={cyan}{color=(cyan!30) color=(cyan!30)}, faceted color=cyan!60!black, shader=interp, draw=none] 
+        (x, { (1 + 0.3*sin(x*50)) * (1-y) + (3.5 + 0.2*cos(x*60)) * y }, { 1.5 + 0.2*sin(x*50) + 0.1*y });
+        
+    % Pared frontal (draw between surfaces for correct blending)
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=30, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=black!70] 
+        (x, {1 + 0.3*sin(x*50)}, { (1-y)*(1.5 + 0.2*sin(x*50)) + y*(4.5 + 0.3*cos(x*40)) });
+
+    % Superficie superior z = \eta_{21}(x,y) NUEVO COLOR: Azul más profundo, LISO y WITH CONTORNO
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=25, opacity=0.7, colormap={blue}{color=(blue!50) color=(blue!50)}, faceted color=blue!60!black, shader=interp, draw=none] 
+        (x, { (1 + 0.3*sin(x*50)) * (1-y) + (3.5 + 0.2*cos(x*60)) * y }, { 4.5 + 0.3*cos(x*40) - 0.2*y });
+
+    % --- 4. Esquinas y proyecciones (Líneas punteadas) ---
+    % Mantener las líneas de soporte rectas para el contexto (están bien)
+    \draw[dashed, thin] (1, {1 + 0.3*sin(50)}, 0) -- (1, {1 + 0.3*sin(50)}, {1.5 + 0.2*sin(50)});
+    \draw[dashed, thin] (4, {1 + 0.3*sin(200)}, 0) -- (4, {1 + 0.3*sin(200)}, {1.5 + 0.2*sin(200)});
+    \draw[dashed, thin] (1, {3.5 + 0.2*cos(60)}, 0) -- (1, {3.5 + 0.2*cos(60)}, {1.5 + 0.2*sin(50) + 0.1});
+    \draw[dashed, thin] (4, {3.5 + 0.2*cos(240)}, 0) -- (4, {3.5 + 0.2*cos(240)}, {1.5 + 0.2*sin(200) + 0.1});
+
+    % --- 5. Etiquetas ---
+    \node at (2.5, 2.2, 0) {$D_1$};
+
+    % Etiquetas de las superficies
+    \node[anchor=west] at (3.5, 4, 5.2) {$z = \eta_{21}(x,y)$};
+    \node[anchor=west] at (3.5, 4, 1.2) {$z = \eta_{11}(x,y)$};
+    
+    % Flechas caligráficas a las superficies
+    \draw[->, out=180, in=0, thin] (3.4, 4, 5.2) to node[midway, above] {} (2.5, 2.5, 4.6);
+    \draw[->, out=180, in=0, thin] (3.4, 4, 1.2) to node[midway, below] {} (2.5, 2.5, 1.6);
+
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Conjunto elemental de Tipo 1.}
+\end{figure}
+
 	
 	\item  Existen $D_2 \subset  \mathbb{R}^2 $ un conjunto elemental y funciones  $\eta_{12},\; \eta_{22}: D_2\to\R$  continuas  tales que $$\eta_{12}(x, z) <  \eta_{22}(x, z)  \: \forall (x,z) \in  (D_2)^{\circ}$$ y $$W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\;  (x,z) \in D_2   \: \land  \:  \eta_{12}(x, z) \leq y \leq \eta_{22}(x, z) \: \forall (x,z) \in D_2 \right\}$$
-	
+	\begin{figure}[htbp]
+    \centering
+    \tikzsetnextfilename{conj_elemental2_R3}
+    \begin{tikzpicture}
+    \begin{axis}[
+        view={125}{25}, % Rotado para que el sólido "venga" hacia adelante
+        width=12cm, height=12cm,
+        grid=none,
+        axis lines=center,
+        xmin=0, xmax=5,
+        ymin=0, ymax=6, % Eje de profundidad y proyectado
+        zmin=0, zmax=5,
+        xtick={1,4}, xticklabels={$a$,$b$},
+        ytick=\empty, ztick=\empty,
+        xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+        every axis x label/.style={at={(ticklabel* cs:1)},anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1)},anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1)},anchor=south},
+        clip=false
+    ]
+
+    % --- 0. Plano de fondo Lila (xz en y=0) ---
+    \addplot3 [surf, domain=0:5, domain y=0:5, samples=2, opacity=0.1, colormap={lila}{color=(purple!30) color=(purple!30)}, shader=interp, draw=none] (x,0,y);
+
+    % --- 1. Dominio D_2 en R2 (Plano xz) ---
+    % Relleno de D2
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=2, opacity=0.15, colormap={gray}{color=(gray!20) color=(gray!20)}, shader=interp, draw=none] 
+        (x, 0, y);
+    % Bordes punteados negros rectangulares
+    \draw[dashed, black, thick] (1, 0, 1.2) -- (4, 0, 1.2) -- (4, 0, 3.5) -- (1, 0, 3.5) -- cycle;
+
+    % --- 2. Paredes del volumen (proyectadas en y) ---
+    % Pared en z = 3.5 (Toma en cuenta z=3.5 para cerrar perfecto con el techo)
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        (x, { (1-y)*(1.2 + 0.2*sin(x*50) + 0.1*3.5) + y*(4.5 + 0.3*cos(x*40) - 0.2*3.5) }, 3.5);
+    % Pared en z = 1.2 (Toma en cuenta z=1.2 para cerrar perfecto con el techo)
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        (x, { (1-y)*(1.2 + 0.2*sin(x*50) + 0.1*1.2) + y*(4.5 + 0.3*cos(x*40) - 0.2*1.2) }, 1.2);
+
+    % --- 3. Superficie Trasera y = eta12 ---
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=25, opacity=0.6, colormap={cyan}{color=(cyan!30) color=(cyan!30)}, shader=interp, draw=none] 
+        (x, { 1.2 + 0.2*sin(x*50) + 0.1*y }, y);
+
+    % --- 4. Superficie Delantera y = eta22 (Mirando al frente) ---
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=25, opacity=0.7, colormap={blue}{color=(blue!50) color=(blue!50)}, shader=interp, draw=none] 
+        (x, { 4.5 + 0.3*cos(x*40) - 0.2*y }, y);
+
+    % --- 5. Proyecciones punteadas al plano ---
+    \draw[dashed, thin] (1,0,1.2) -- (1, {1.2 + 0.2*sin(50) + 0.1*1.2}, 1.2);
+    \draw[dashed, thin] (4,0,3.5) -- (4, {1.2 + 0.2*sin(200) + 0.1*3.5}, 3.5);
+
+    % --- 6. Etiquetas y flechas (ajustadas para que no tapen la figura) ---
+    \node at (2.5, 0, 2.35) {$D_2$};
+    
+    % Flecha para la cara delantera (techo)
+    \node[anchor=south west] at (3.5, 5.5, 4.5) {$y = \eta_{22}(x,z)$};
+    \draw[->, thin] (3.5, 5.4, 4.4) to[out=200, in=60] (2.8, 4.1, 2.8);
+    
+    % Flecha para la cara trasera (piso curvo)
+    \node[anchor=north west] at (3.8, 0.5, 0.5) {$y = \eta_{12}(x,z)$};
+    \draw[->, thin] (3.8, 0.7, 0.6) to[out=135, in=300] (2.2, 1.7, 1.8);
+
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Conjunto elemental de Tipo 2.}
+\end{figure}
+
+
 	\item  Existen $D_3 \subset  \mathbb{R}^2 $  un conjunto elemental y funciones  $\eta_{13},\; \eta_{23}: D_3\to\R$  continuas  tales que $$\eta_{13}(y, z) <  \eta_{23}(y, z)  \: \forall (y,z) \in  (D_3)^{\circ}$$ y $$W = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\; (y,z) \in D_3   \: \land  \:  \eta_{13}(y, z) \leq x \leq \eta_{23}(y, z) \: \forall (y,z) \in D_3  \right\}$$
+\begin{figure}[htbp]
+    \centering
+    \tikzsetnextfilename{conj_elemental3_R3}
+    \begin{tikzpicture}
+    \begin{axis}[
+        view={35}{25}, 
+        width=12cm, height=12cm,
+        grid=none,
+        axis lines=center,
+        xmin=0, xmax=6, % Eje de proyección x
+        ymin=0, ymax=5,
+        zmin=0, zmax=5,
+        xtick=\empty, ytick={1,4}, yticklabels={$a$,$b$},
+        ztick=\empty,
+        xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+        every axis x label/.style={at={(ticklabel* cs:1)},anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1)},anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1)},anchor=south},
+        clip=false
+    ]
+
+    % --- 0. Plano de fondo Lila (yz en x=0) ---
+    \addplot3 [surf, domain=0:5, domain y=0:5, samples=2, opacity=0.1, colormap={lila}{color=(purple!30) color=(purple!30)}, shader=interp, draw=none] (0,x,y);
+
+    % --- 1. Dominio D_3 en R2 (Plano yz) ---
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=2, opacity=0.15, colormap={gray}{color=(gray!20) color=(gray!20)}, shader=interp, draw=none] 
+        (0, x, y);
+    \draw[dashed, black, thick] (0, 1, 1.2) -- (0, 4, 1.2) -- (0, 4, 3.5) -- (0, 1, 3.5) -- cycle;
+
+    % --- 2. Paredes del volumen (Relleno completo de las 4 caras laterales) ---
+    % Pared superior en z = 3.5
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        ({ (1-y)*(1.2 + 0.2*sin(x*50) + 0.1*3.5) + y*(4.8 + 0.2*cos(x*40) - 0.1*3.5) }, x, 3.5);
+    
+    % Pared inferior en z = 1.2
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        ({ (1-y)*(1.2 + 0.2*sin(x*50) + 0.1*1.2) + y*(4.8 + 0.2*cos(x*40) - 0.1*1.2) }, x, 1.2);
+
+    % Pared lateral anterior en y = 1 (Une de z=1.2 a z=3.5)
+    \addplot3 [surf, domain=1.2:3.5, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        ({ (1-y)*(1.2 + 0.2*sin(1*50) + 0.1*x) + y*(4.8 + 0.2*cos(1*40) - 0.1*x) }, 1, x);
+
+    % Pared lateral posterior en y = 4 (Une de z=1.2 a z=3.5)
+    \addplot3 [surf, domain=1.2:3.5, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        ({ (1-y)*(1.2 + 0.2*sin(4*50) + 0.1*x) + y*(4.8 + 0.2*cos(4*40) - 0.1*x) }, 4, x);
+
+    % --- 3. Superficie Trasera x = eta13 ---
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=25, opacity=0.6, colormap={cyan}{color=(cyan!30) color=(cyan!30)}, shader=interp, draw=none] 
+        ({ 1.2 + 0.2*sin(x*50) + 0.1*y }, x, y);
+
+    % --- 4. Superficie Delantera x = eta23 ---
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=25, opacity=0.7, colormap={blue}{color=(blue!50) color=(blue!50)}, shader=interp, draw=none] 
+        ({ 4.8 + 0.2*cos(x*40) - 0.1*y }, x, y);
+
+    % --- 5. Proyecciones punteadas al plano ---
+    \draw[dashed, thin] (0,1,1.2) -- ({1.2+0.2*sin(50)+0.1*1.2}, 1, 1.2);
+    \draw[dashed, thin] (0,4,3.5) -- ({1.2+0.2*sin(200)+0.1*3.5}, 4, 3.5);
+
+    % --- 6. Etiquetas y flechas optimizadas ---
+    \node at (0, 2.5, 2.35) {$D_3$};
+    
+    % Flecha para la sábana frontal (azul)
+    \node[anchor=south west] at (5.5, 4.5, 4.5) {$x = \eta_{23}(y,z)$};
+    \draw[->, thin] (5.5, 4.4, 4.4) to[out=210, in=30] (4.2, 2.5, 2.8);
+    
+    % Flecha para la sábana trasera (cyan) - Desde arriba apuntando hacia abajo
+    \node[anchor=south east] at (1.0, 1.5, 4.5) {$x = \eta_{13}(y,z)$};
+    \draw[->, thin] (1.0, 1.5, 4.3) to[out=270, in=120] (1.3, 2.0, 2.8);
+
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Conjunto elemental de Tipo 3.}
+\end{figure}
 \end{enumerate}
 \end{definition}
- \begin{figure}[htbp]
-    \centering
-    \tikzsetnextfilename{conj_elemental1_R3} 
-    \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
-        % Ejes
-        \draw[->] (0,0,0) -- (4,0,0) node[below left] {$x$};
-        \draw[->] (0,0,0) -- (0,4,0) node[right] {$y$};
-        \draw[->] (0,0,0) -- (0,0,4.5) node[above] {$z$};
 
-        % Región base D1 en xy
-        \filldraw[fill=blue!20, draw=black, thick] 
-            (1,1,0) to[out=90,in=180] (2,2.5,0) 
-                     to[out=0,in=90] (3,1.5,0) 
-                     to[out=-90,in=0] (2,0.5,0) 
-                     to[out=180,in=-90] cycle;
-        \node at (2,1.1,0) {\small $D_1$};
-
-        % Superficies inferior y superior (curvas cerradas)
-        \path 
-            coordinate (A) at (1,1,1.5)
-            coordinate (B) at (2,2.5,1.8)
-            coordinate (C) at (3,1.5,1.2)
-            coordinate (D) at (2,0.5,1.0)
-            coordinate (E) at (1,1,3)
-            coordinate (F) at (2,2.5,3.2)
-            coordinate (G) at (3,1.5,2.5)
-            coordinate (H) at (2,0.5,2.8);
-
-        % Relleno del sólido encerrado entre las dos superficies
-        \filldraw[fill=purple!40, opacity=0.5, draw=none] 
-            (A) to[out=90,in=180] (B) 
-                to[out=0,in=90] (C) 
-                to[out=-90,in=0] (D) 
-                to[out=180,in=-90] cycle
-            -- (E) to[out=90,in=180] (F) 
-                to[out=0,in=90] (G) 
-                to[out=-90,in=0] (H) 
-                to[out=180,in=-90] cycle 
-            -- cycle;
-
-        % Líneas de las superficies inferior y superior
-        \draw[blue!80!black, thick] 
-            (A) to[out=90,in=180] (B) 
-                to[out=0,in=90] (C) 
-                to[out=-90,in=0] (D) 
-                to[out=180,in=-90] cycle;
-        \node[right] at (C) {\small $z = \eta_{11}(x,y)$};
-
-        \draw[red!80!black, thick] 
-            (E) to[out=90,in=180] (F) 
-                to[out=0,in=90] (G) 
-                to[out=-90,in=0] (H) 
-                to[out=180,in=-90] cycle;
-        \node[above] at (F) {\small $z = \eta_{21}(x,y)$};
-
-        % Aristas verticales que conectan las dos superficies
-        \draw[thick, purple, opacity=0.7] (A) -- (E);
-        \draw[thick, purple, opacity=0.7] (B) -- (F);
-        \draw[thick, purple, opacity=0.7] (C) -- (G);
-        \draw[thick, purple, opacity=0.7] (D) -- (H);
-
-        % Líneas punteadas proyectantes desde la región base (solo hacia las superficies)
-        \draw[dashed, gray] (1,1,0) -- (1,1,1.5);
-        \draw[dashed, gray] (2,2.5,0) -- (2,2.5,1.8);
-        \draw[dashed, gray] (3,1.5,0) -- (3,1.5,1.2);
-        \draw[dashed, gray] (2,0.5,0) -- (2,0.5,1.0);
-
-    \end{tikzpicture}
-    \caption{Conjunto elemental de Tipo 1 en $\mathbb{R}^3$, mostrando sólido encerrado y su proyección en el plano $xy$.}
-\end{figure}
 
 
 \begin{example}
@@ -95,15 +249,6 @@
     $$ \eta_{21}(x,y) = \sqrt{R^2 - x^2 - y^2} $$
     
     Tales que $\eta_{11}(x,y) \leq z \leq \eta_{21}(x,y)$ para todo $(x,y) \in D_1$. 
-    
-    % --- ACÁ VA TU ILUSTRACIÓN ---
-    % \begin{figure}[htbp]
-    %     \centering
-    %     % Acordate de guardar una captura de GeoGebra 3D en tu carpeta y poner el nombre acá
-    %     \includegraphics[width=0.5\textwidth]{ejercicios/esfera_ejemplo.png}
-    %     \caption{Esfera sólida en $\mathbb{R}^3$ proyectada sobre el plano $xy$.}
-    % \end{figure}
-    % -----------------------------
 
    Análogamente, se puede describir dicho conjunto de otras dos maneras según el plano en el que se proyecta:
    \begin{enumerate}
@@ -126,6 +271,48 @@
         \]
     \end{enumerate}
 
+    \begin{figure}[htbp]
+    \centering
+ 
+    \tikzsetnextfilename{ej_esfera_elemental} 
+    
+    \begin{tikzpicture}[line cap=round, line join=round]
+        \begin{axis}[
+            view={135}{25}, % Cámara clásica
+            width=10cm,
+            height=10cm,
+            axis lines=center,
+            % Ajustamos los ejes a la esfera de radio 1
+            xmin=-1.5, xmax=1.5, 
+            ymin=-1.5, ymax=1.5,
+            zmin=-1.5, zmax=1.5,
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            % Anclaje perfecto de letras
+            every axis x label/.style={at={(ticklabel* cs:1.05)},anchor=north east},
+            every axis y label/.style={at={(ticklabel* cs:1.05)},anchor=north west},
+            every axis z label/.style={at={(ticklabel* cs:1.05)},anchor=south},
+            ticklabel style={font=\small},
+        ]
+
+        % Esfera unitaria x^2 + y^2 + z^2 = 1 (Roja transparente)
+        \addplot3[
+            surf,
+            opacity=0.4,
+            color=purple!30,
+            faceted color=purple!30!black,
+            samples=25, % Reducido para no saturar la memoria
+            domain=0:360,
+            y domain=0:180,
+            z buffer=sort
+        ]
+        ({cos(x)*sin(y)}, {sin(x)*sin(y)}, {cos(y)});
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Representación de la región $W$.}
+\end{figure}
 \end{example}
 
 %\begin{center}    
