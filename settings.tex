@@ -34,11 +34,6 @@
   \usetikzlibrary{arrows.meta, decorations.pathmorphing, positioning}
   \usetikzlibrary{decorations.markings}
 
-% estas lineas estan para acelerar la compilacion, pero antes se debe activar 
-% el flag --shell-escape de compilacion. en cada editor de texto/compilador de 
-% latex es distinto. si usan overleaf no le den bola. checkear:
-% https://tex.stackexchange.com/questions/482557/how-to-externalize-tikz-pictures
-
  \usetikzlibrary{external}
  \tikzexternalize[prefix=tikz/]
  \tikzset{external/only named}  

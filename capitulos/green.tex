@@ -1,0 +1,74 @@
+\begin{theorem} \textbf{Teorema de Green.} \label{green}  Sean $U\subseteq \Rn{2}$ abierto  y   $D \subsetneq  U$ un conjunto  simplemente conexo (\autoref{def:conjuntoconexo_simp}) cuyo borde, $\partial D$, es una curva simple y cerrada.  Si  $\mathbf{F}:U\to\Rn{2}$ es de clase $\mathcal{C}^1$, entonces
+    \[
+        \oint_{\partial D^{+}} \mathbf{F}\cdot d\mathbf{s} = \iint_D \grad\times\mathbf{F}\cdot d\mathbf{A}.
+    \]
+\end{theorem}
+
+\begin{obs} Sea $\mathbf{F}:U\subset \Rn{2}\to\Rn{2}$ bajo las condiciones de (\ref{green})  con $\mathbf{F}=(P,Q)$,  el teorema de Green  puede ser escrito de siguiente manera alternativa:
+\[
+    \oint_{\partial D^+}P\:dx+Q\:dy=\iint_D\left(\dif{Q}{x}-\dif{P}{y}\right)dA,
+\]
+basta con ver la notaci\'on dada en (\ref{not_int}) y recordar que 
+\[
+    \nabla\times\mathbf{F} = \dif{Q}{x}-\dif{P}{y}.
+\]
+\end{obs}
+
+\begin{example} Evaluar la integral de línea $\oint_C -y \, dx + x \, dy$, donde $C$ es la circunferencia $x^2 + y^2 = 1$ orientada en sentido antihorario.
+
+Antes de aplicar el Teorema de Green, verificamos que se cumplan las hipótesis fundamentales:
+\begin{itemize}
+    \item El campo vectorial $\mathbf{F}(x,y) = (-y, x)$ tiene componentes $P(x,y) = -y$ y $Q(x,y) = x$. Al ser polinomios, son funciones de clase $C^1$ (con derivadas parciales continuas) en todo $\mathbb{R}^2$.
+    \item La curva $C$ (la circunferencia) es una curva cerrada, simple, y está orientada en sentido antihorario.
+    \item La región $D$ encerrada por la curva (el disco de radio 1) es simplemente conexa.
+\end{itemize}
+
+Como se cumplen las condiciones, el Teorema de Green nos permite transformar la integral de línea a lo largo de la curva $C$ en una integral de área (integral doble) sobre la región $D$ usando la siguiente relación:
+\[ \oint_C P \, dx + Q \, dy = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dA \]
+
+Calculamos las derivadas parciales de nuestro campo:
+\[ \frac{\partial Q}{\partial x} = 1 \qquad \text{y} \qquad \frac{\partial P}{\partial y} = -1 \]
+
+Sustituimos estos valores para pasar explícitamente a la integral de área:
+\[ \oint_C -y \, dx + x \, dy = \iint_D (1 - (-1)) \, dA = \iint_D 2 \, dA \]
+
+Por propiedades de las integrales dobles, podemos sacar la constante afuera. La integral doble de $1 \, dA$ representa exactamente el área de la región encerrada $D$:
+\[ 2 \iint_D 1 \, dA = 2 \cdot \text{Área}(D) \]
+
+Sabemos que $D$ es un disco de radio $R = 1$, por lo que su área es $\pi \cdot 1^2 = \pi$. Reemplazando este valor, obtenemos el resultado final:
+\[ 2 \cdot \pi = 2\pi \]
+
+\begin{figure}[h!]
+    \centering
+    \tikzsetnextfilename{ej_green} 
+    \begin{tikzpicture}
+        % Ejes
+        \draw[->] (-2,0) -- (2,0) node[right] {$x$};
+        \draw[->] (0,-2) -- (0,2) node[above] {$y$};
+        
+        % Región D sombreada (acá el circle común no molesta porque no lleva flecha)
+        \filldraw[blue!20, opacity=0.5] (0,0) circle (1.5cm);
+        
+        % Curva C dibujada como ARCO para que la decoración no tire error
+        % Arranca en (1.5,0) y hace un giro completo de 0 a 360 grados con radio 1.5cm
+        \draw[thick, blue, postaction={decorate, decoration={
+            markings, 
+            mark=at position 0.25 with {\arrow{Stealth}}
+        }}] (1.5,0) arc (0:360:1.5cm);
+        
+        % Etiquetas
+        \node at (0.5, 0.5) {$D$};
+        \node[blue] at (1.2, 1.2) {$C$};
+    \end{tikzpicture}
+    \caption{Región de integración $D$ y su frontera orientada $C$.}
+\end{figure}
+\end{example}
+
+\begin{tarea}
+ Para  la curva simple, cerrada y orientada $C$ formada por los segmentos  de $(0, 0)$ a $(1, 1),$ de (1,1) a $(0, 1)$ y de $(0, 1)$ vuelta al $(0, 0)$, calcular  $$\int_{C} xy \; dx + \sqrt{y^{2}+1} \; dy.$$
+\end{tarea}
+
+
+\begin{tarea}
+ Sea    $D=\{  (x,y) \in \mathbb{R}^{2} \: : \: 1 \leq x ^{2}+ y^{2}  \leq  4,  x\geq 0 \}$ , calcular   $$\int_{(\partial D)^{-}} x^{2}y \; dx - xy^{2} \; dy.$$
+\end{tarea}
