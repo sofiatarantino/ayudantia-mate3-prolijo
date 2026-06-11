@@ -5,6 +5,140 @@
 \]  donde las orientaciones tanto de  $S$ como de $\partial S$ son las inducidas por $\boldsymbol{\Sigma}$ sobre ellas, ver  (\ref{sigma_induce_1}) y  (\ref{sigma_induce}).
 \end{theorem}
 
+\begin{example} Verificar el Teorema de Stokes para el campo vectorial $\mathbf{F} = (x^2y, 3x^3z, yz^3)$ y la superficie $S$ dada por el cilindro $x^2 + y^2 = 1$ con $-1 \le z \le 1$.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=2, >=stealth]
+        % Cilindro - Parte trasera (líneas punteadas)
+        \draw[dashed, color=gray] (0,-1) arc (-90:90:1 and 0.4);
+        \draw[dashed, color=gray] (0,1) arc (-90:90:1 and 0.4);
+        \draw[dashed, color=gray] (-1,-1) -- (-1,1);
+    
+        % Ejes coordenados traseros
+        \draw[->, color=gray!70, dashed] (0,0,0) -- (0,0,1.5) node[above] {$z$};
+        \draw[->, color=gray!70, dashed] (0,0,0) -- (0,1.5,0) node[right] {$y$};
+        \draw[->, color=gray!70, dashed] (0,0,0) -- (1.5,0,0) node[below left] {$x$};
+    
+        % Superficie del cilindro (Cuerpo)
+        \fill[cyan!10, opacity=0.5] (-1,-1) -- (-1,1) arc (180:360:1 and 0.4) -- (1,-1) arc (360:180:1 and 0.4);
+        
+        % Cilindro - Parte delantera (líneas continuas)
+        \draw[thick] (1,-1) -- (1,1);
+        \draw[thick] (-1,-1) arc (180:360:1 and 0.4);
+        \draw[thick] (-1,1) arc (180:360:1 and 0.4);
+    
+        % Curva Superior C1 (z = 1) con flechas de orientación horario
+        \draw[thick, red, ->] (1,1) arc (0:-90:1 and 0.4);
+        \draw[thick, red, ->] (0,0.6) arc (-90:-180:1 and 0.4);
+        \node[red, above right] at (1,1) {$C_1 \ (z=1)$};
+    
+        % Curva Inferior C2 (z = -1) con flechas de orientación antihorario
+        \draw[thick, blue, <-] (1,-1) arc (0:-90:1 and 0.4);
+        \draw[thick, blue, <-] (0,-1.4) arc (-90:-180:1 and 0.4);
+        \node[blue, below right] at (1,-1) {$C_2 \ (z=-1)$};
+    
+        % Vector normal saliente n
+        \draw[->, thick, violet] (0.707, 0, -0.28) -- (1.3, 0, -0.5) node[right] {$\mathbf{n}$};
+        \draw[->, thick, violet] (-0.5, 0, -0.35) -- (-0.9, 0, -0.6);
+    \end{tikzpicture}
+    \caption{Representación geométrica del cilindro $S$ con orientación saliente $\mathbf{n}$ y el sentido de recorrido inducido en sus fronteras $C_1$ y $C_2$.}
+\end{figure}
+
+Primero calculamos el rotacional del campo vectorial $\mathbf{F}$:
+\[
+\nabla \times \mathbf{F} = \det \begin{pmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+x^2y & 3x^3z & yz^3
+\end{pmatrix}
+\]
+
+\[
+\nabla \times \mathbf{F} = (z^3 - 3x^3, 0, 9x^2z - x^2)
+\]
+
+Parametrizamos el cilindro utilizando coordenadas cilíndricas con $r = 1$:
+\[
+\mathbf{r}(\theta, z) = (\cos\theta, \sin\theta, z) \quad \text{con } 0 \le \theta \le 2\pi, \; -1 \le z \le 1
+\]
+
+\[
+\mathbf{r}_{\theta} = (-\sin\theta, \cos\theta, 0), \quad \mathbf{r}_z = (0, 0, 1)
+\]
+\[
+d\mathbf{S} = (\mathbf{r}_{\theta} \times \mathbf{r}_z) \, d\theta \, dz = (\cos\theta, \sin\theta, 0) \, d\theta \, dz
+\]
+Este vector apunta hacia afuera, lo cual coincide con la orientación elegida.
+
+$(\nabla \times \mathbf{F}) \cdot d\mathbf{S}$, sustituyendo $x = \cos\theta$:
+\[
+(\nabla \times \mathbf{F}) \cdot (\mathbf{r}_{\theta} \times \mathbf{r}_z) = (z^3 - 3\cos^3\theta)(\cos\theta) + 0(\sin\theta) + (9\cos^2\theta z - \cos^2\theta)(0) = z^3\cos\theta - 3\cos^4\theta
+\]
+\[
+\iint_{S} (\nabla \times \mathbf{F}) \cdot d\mathbf{S} = \int_{-1}^{1} \int_{0}^{2\pi} (z^3\cos\theta - 3\cos^4\theta) \, d\theta \, dz
+\]
+
+\begin{enumerate}
+    \item $\int_{0}^{2\pi} z^3\cos\theta \, d\theta = z^3 [\sin\theta]_{0}^{2\pi} = 0$
+    \item $\cos^4\theta = \frac{3}{8} + \frac{1}{2}\cos(2\theta) + \frac{1}{8}\cos(4\theta)$, por lo que:
+    \[
+    \int_{0}^{2\pi} 3\cos^4\theta \, d\theta = 3 \cdot \left( \frac{3}{8} \cdot 2\pi \right) = \frac{9\pi}{4}
+    \]
+\end{enumerate}
+Sustituyendo estos resultados en la integral:
+\[
+\iint_{S} (\nabla \times \mathbf{F}) \cdot d\mathbf{S} = \int_{-1}^{1} \left( 0 - \frac{9\pi}{4} \right) dz = -\frac{9\pi}{4} \cdot [z]_{-1}^{1} = -\frac{9\pi}{4} \cdot 2 = -\frac{9\pi}{2}
+\]
+
+\bigskip
+
+
+La frontera $\partial S$ está compuesta por dos curvas. Según la regla de la mano derecha con respecto a la normal exterior, la curva superior $C_1$ ($z = 1$) se recorre en sentido horario (visto desde arriba) y la curva inferior $C_2$ ($z = -1$) se recorre en sentido antihorario.
+
+\smallskip
+$C_1$ ($z = 1$, $\theta$ va de $2\pi$ a $0$):
+\[
+x = \cos\theta, \quad y = \sin\theta, \quad z = 1 \implies dx = -\sin\theta \, d\theta, \quad dy = \cos\theta \, d\theta, \quad dz = 0
+\]
+
+$\mathbf{F} = (\cos^2\theta\sin\theta, 3\cos^3\theta, \sin\theta)$
+
+\[
+\int_{C_1} \mathbf{F} \cdot d\mathbf{r} = \int_{2\pi}^{0} \left[ (\cos^2\theta\sin\theta)(-\sin\theta) + (3\cos^3\theta)(\cos\theta) \right] d\theta = \int_{2\pi}^{0} (-\cos^2\theta\sin^2\theta + 3\cos^4\theta) \, d\theta
+\]
+
+\smallskip
+$C_2$ ($z = -1$, $\theta$ va de $0$ a $2\pi$):
+\[
+x = \cos\theta, \quad y = \sin\theta, \quad z = -1 \implies dx = -\sin\theta \, d\theta, \quad dy = \cos\theta \, d\theta, \quad dz = 0
+\]
+
+$\mathbf{F} = (\cos^2\theta\sin\theta, -3\cos^3\theta, -\sin\theta)$
+
+\[
+\int_{C_2} \mathbf{F} \cdot d\mathbf{r} = \int_{0}^{2\pi} \left[ (\cos^2\theta\sin\theta)(-\sin\theta) + (-3\cos^3\theta)(\cos\theta) \right] d\theta = \int_{0}^{2\pi} (-\cos^2\theta\sin^2\theta - 3\cos^4\theta) \, d\theta
+\]
+
+\smallskip
+
+Luego, 
+\begin{align*}
+\oint_{\partial S} \mathbf{F} \cdot d\mathbf{r} &= -\int_{0}^{2\pi} (-\cos^2\theta\sin^2\theta + 3\cos^4\theta) \, d\theta + \int_{0}^{2\pi} (-\cos^2\theta\sin^2\theta - 3\cos^4\theta) \, d\theta \\
+&= \int_{0}^{2\pi} (\cos^2\theta\sin^2\theta - 3\cos^4\theta - \cos^2\theta\sin^2\theta - 3\cos^4\theta) \, d\theta \\
+&= \int_{0}^{2\pi} -6\cos^4\theta \, d\theta
+\end{align*}
+
+Utilizando nuevamente el resultado de la integral de $\cos^4\theta$:
+\[
+\oint_{\partial S} \mathbf{F} \cdot d\mathbf{r} = -6 \cdot \left( \frac{3\pi}{4} \right) = -\frac{18\pi}{4} = -\frac{9\pi}{2}
+\]
+
+\bigskip
+Por lo tanto, se verifica el teorema de Stockes.
+\end{example}
+
+
 \begin{tarea} Sean  $S=\{  (x,y,z) \in \mathbb{R}^{3} \: : \:  x ^{2}+ y^{2} = z,  x ^{2}+ y^{2}  \leq 4 \}$  y $F(x,y,z) = (x ^{2}z^{2}, y^{2}z^{2}, xyz)$, calcular, indicando la orientaci\'on elegida   $$\iint_S\grad\times\mathbf{F}\cdot d\mathbf{S}$$
 \end{tarea}
 
