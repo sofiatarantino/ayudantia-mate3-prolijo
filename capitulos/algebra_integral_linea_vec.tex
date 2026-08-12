@@ -1,0 +1,96 @@
+ \begin{propertie} \textbf{Algebra de Integral de l\'inea.}\label{alge} Sea $C^{+}$ una curva simple, orientada y suave a trozos, adem\'as,  sean  $\mathbf{F}$ y $\mathbf{G}$ campos vectoriales continuos con dominios tales que incluyen a la curva $C$, entonces: 
+\begin{itemize}
+\item[1.]  \[
+        \int_{C^{+}}(\mathbf{F} + \mathbf{G})  \cdot d\mathbf{s}=  \int_{C^{+}} \mathbf{F} \cdot d\mathbf{s}  +  \int_{C^{+}} \mathbf{G}  \cdot d\mathbf{s} 
+    \]
+
+\item[2.]  \[
+        \int_{C^{+}} k \mathbf{F}  \cdot d\mathbf{s}= k \int_{C^{+}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\item[3.]  \[
+        \int_{C^{+}} k \mathbf{F}  \cdot d\mathbf{s}= - \int_{C^{-}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\item[3.]  Si $C = \cup_{i=1}^{n} C_{i},$ entonces \[
+        \int_{C^{+}}  \mathbf{F}  \cdot d\mathbf{s}=  \sum_{i=1}^{n}  \int_{C_{i}^{+}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\end{itemize}
+ \end{propertie}
+
+
+ \begin{nota}\label{not_int} Sean  $\mathbf{F}=(f_1, f_2)$ y $\mathbf{G}=(g_1, g_2, g_3)$ campos vectoriales, notaremos $$ \int_{C_1}\mathbf{F}\cdot d\mathbf{s} =  \int_{ C_1}f_1\:dx+ f_2 \:dy$$ 
+  $$ \int_{C_2}\mathbf{G}\cdot d\mathbf{s} =  \int_{C_2} g_1\:dx+g_2\:dy+g_3\:dz.$$
+ \end{nota}
+ 
+
+\begin{nota} Si $C$  es una curva simple cerrada,  se suele notar a la integral como
+    \[
+        \oint_{C}\mathbf{F}\cdot d\mathbf{s},  
+    \]  y se la llama integral de circulaci\'on de $\mathbf{F}$ sobre $C$.
+\end{nota}
+
+
+
+
+\begin{example} Si $C$ es la curva simple frontera de la región delimitada por la recta $y = x$ y la parábola $y = 6x - x^2$, calcular, indicando la orientaci\'on elegida,   la integral de línea $$\displaystyle\oint_{C} xy\,dx + y^2\,dy.$$ 
+\end{example}
+
+\textcolor{red}{poner una ilustracion y resolver respentando la notacion con la cual venimos escribiendo}
+
+\begin{example}\label{ej:trabajo_poligonal}
+Hallar el trabajo realizado por el campo vectorial $\mathbf{F}(x,y) = (x^2y,\, x-y)$ al mover una partícula a lo largo de la trayectoria poligonal cerrada $C$ que une los puntos $A(0,0) \to B(2,3) \to C(4,2) \to A(0,0)$.
+\end{example}
+
+\textcolor{red}{ilustracion}
+
+\noindent\textbf{Solución:} De acuerdo con la definición de integral sobre una trayectoria a trozos, el trabajo total $W$ se obtiene dividiendo la curva en tres tramos independientes ($C = C_{AB} \cup C_{BC} \cup C_{CA}$) y sumando sus respectivas contribuciones: 
+\[ 
+W = \int_{C} \mathbf{F} \cdot d\mathbf{s} = \int_{C_{AB}} \mathbf{F} \cdot d\mathbf{s} + \int_{C_{BC}} \mathbf{F} \cdot d\mathbf{s} + \int_{C_{CA}} \mathbf{F} \cdot d\mathbf{s}. 
+\] 
+
+\noindent\textbf{1. Tramo $C_{AB}$: Desde $(0,0)$ hasta $(2,3)$.} \\ 
+Parametrizamos el segmento lineal mediante la trayectoria $\boldsymbol{\sigma}_1(t) = (2t,\, 3t)$ con $t\in[0,1]$, cuyo vector tangente es $\boldsymbol{\sigma}_1'(t) = (2, 3)$. Planteando la integral de trayectoria obtenemos:
+\[ 
+W_{AB} = \int_0^1 \bigl( (2t)^2(3t) ,\, 2t-3t \bigr) \cdot (2,3) \,dt = \int_0^1 (24t^3 - 3t)\,dt = \frac{9}{2}. 
+\] 
+
+\noindent\textbf{2. Tramo $C_{BC}$: Desde $(2,3)$ hasta $(4,2)$.} \\ 
+La forma estándar de parametrizar este segmento es $\boldsymbol{\sigma}_2(t) = (2+2t,\, 3-t)$ con $t\in[0,1]$, lo que implica que $\boldsymbol{\sigma}_2'(t) = (2, -1)$. Sustituyendo en el producto escalar vectorial resulta:
+\[ 
+W_{BC} = \int_0^1 \bigl( (2+2t)^2 (3-t) ,\, (2+2t)-(3-t) \bigr) \cdot (2,-1) \,dt = \int_0^1 (25 + 37t + 8t^2 - 8t^3)\,dt.
+\] 
+Evaluando la primitiva mediante la regla de Barrow:
+\[
+W_{BC} = \left[25t + \frac{37}{2}t^2 + \frac{8}{3}t^3 - 2t^4\right]_0^1 = \frac{265}{6}. 
+\]
+
+\noindent\textbf{3. Tramo $C_{CA}$: Desde $(4,2)$ hasta $(0,0)$.} \\ 
+Parametrizamos el regreso al origen mediante $\boldsymbol{\sigma}_3(t) = (4-4t,\, 2-2t)$ con $t\in[0,1]$, de donde se obtiene $\boldsymbol{\sigma}_3'(t) = (-4, -2)$. Planteamos la integral correspondiente:
+\[ 
+W_{CA} = \int_0^1 \bigl( (4-4t)^2 (2-2t) ,\, (4-4t)-(2-2t) \bigr) \cdot (-4,-2) \,dt = \int_0^1 \bigl[-128(1-t)^3 - 4(1-t)\bigr]\,dt.
+\] 
+Resolviendo la integral por el método de sustitución:
+\[
+W_{CA} = \left[\frac{128(1-t)^4}{4} + \frac{4(1-t)^2}{2}\right]_0^1 = 0 - (32 + 2) = -34. 
+\]
+
+\noindent Sumando el trabajo neto realizado por el campo en cada uno de los tres tramos independientes de la poligonal, obtenemos el resultado final: 
+\[ 
+W = W_{AB} + W_{BC} + W_{CA} = \frac{9}{2} + \frac{265}{6} - 34 = \frac{27 + 265 - 204}{6} = \frac{88}{6} = \frac{44}{3}. \tag*{$\blacksquare$} 
+\] 
+
+
+
+
+ \begin{tarea} Sea $C$ la curva simple dada por la uni\'on de los segmentos que unen los puntos $(0,0)$,  $(0,3)$ y $(0,2)$. Calcular, indicando la orientaci\'on elegida para $C$  $$ \int_{C}  (y^{2}, 2xy +1)  \cdot d\mathbf{s} $$
+ \end{tarea}
+
+ \begin{tarea} Mismo ejercicio con la orientaci\'on para $C$ contraria  a la elegida y comparar los resultados obtenidos. 
+ \end{tarea}
+
+
+
+
+

@@ -18,21 +18,58 @@
 
 
 
-\begin{corollary}\label{tmh:c3} Sean $A\subseteq\Rn{n}$ abierto y conexo y $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$  un campo vectorial conservativo entonces  entonces, para toda curva $C$ simple cerrada contenida en $A$ se cumple que
-    $$\oint_C\mathbf{F}\cdot d\mathbf{s}=0.$$
-    
 
-    \textit{Demostración.}S  $f$ un funci\'on potencial de $\mathbf{F}$  y sea $\boldsymbol{\sigma}:[a,b]\to A$  una  parametrizaci\'on de  $C$   que preserva su  orientaci\'on, entonces
-    \begin{equation*}
-        \oint_C\mathbf{F}\cdot d\mathbf{s}=\int_{\sigma}\grad f\cdot d\mathbf{s}
-    \end{equation*}
-  Por el Teorema \ref{thm:t1} sabemos que,
-    \begin{equation*}
-        \int_{\sigma}\grad f\cdot d\mathbf{s}=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a))
-    \end{equation*}
-    Adem\'as,  como $C$ es cerrada se tiene que $\boldsymbol{\sigma}(a)=\boldsymbol{\sigma}(a)$, luego $f(\boldsymbol{\sigma}(b))=f(\boldsymbol{\sigma}(a))$
- lo que demuestra que  $$\oint_C\mathbf{F}\cdot d\mathbf{s}=0.$$
+\begin{corollary}\label{tmh:c2} 
+Sean $A \subseteq \mathbb{R}^n$ abierto y arcoconexo y $\mathbf{F}: A \subseteq \mathbb{R}^n \to \mathbb{R}^n$ un campo vectorial conservativo. Entonces, para todo par de curvas $C_1$ y $C_2$ simples en $A$, con los mismos puntos extremos y misma orientación, se tiene que: 
+\[ \int_{C_1} \mathbf{F} \cdot d\mathbf{s} = \int_{C_2} \mathbf{F} \cdot d\mathbf{s} \] 
+Dada esta igualdad, se dice que la integral de línea de un campo conservativo tiene \emph{independencia del camino}. 
 \end{corollary}
+
+\begin{proof}
+Sean $\boldsymbol{\sigma}_1: [a_1,b_1] \to A$ y $\boldsymbol{\sigma}_2: [a_2,b_2] \to A$ parametrizaciones de $C_1$ y $C_2$ respectivamente que preservan sus orientaciones, y sea $f$ una función potencial de $\mathbf{F}$. 
+
+Por la Definición~\ref{int_cv} y sabiendo que $\mathbf{F} = \nabla f$, se tiene que: 
+\begin{align*} 
+\int_{C_1} \mathbf{F} \cdot d\mathbf{s} &= \int_{\boldsymbol{\sigma}_1} \nabla f \cdot d\mathbf{s} \\ 
+\int_{C_2} \mathbf{F} \cdot d\mathbf{s} &= \int_{\boldsymbol{\sigma}_2} \nabla f \cdot d\mathbf{s} 
+\end{align*} 
+
+Además, dado que $C_1$ y $C_2$ comparten los mismos puntos extremos y el mismo sentido de recorrido, sus parametrizaciones satisfacen que $\boldsymbol{\sigma}_1(a_1) = \boldsymbol{\sigma}_2(a_2) \ \land \ \boldsymbol{\sigma}_1(b_1) = \boldsymbol{\sigma}_2(b_2)$. 
+
+Por lo tanto, aplicando el Corolario~\ref{thm:c1}, obtenemos: 
+\[ \int_{\boldsymbol{\sigma}_1} \nabla f \cdot d\mathbf{s} = \int_{\boldsymbol{\sigma}_2} \nabla f \cdot d\mathbf{s} \] 
+Lo que demuestra finalmente:
+\[ \int_{C_1} \mathbf{F} \cdot d\mathbf{s} = \int_{C_2} \mathbf{F} \cdot d\mathbf{s} \qedhere \] 
+\end{proof}
+
+
+\begin{corollary}\label{tmh:c3} 
+Sean $A \subseteq \mathbb{R}^n$ abierto y arcoconexo y $\mathbf{F}: A \subseteq \mathbb{R}^n \to \mathbb{R}^n$ un campo vectorial conservativo. Entonces, para toda curva $C$ simple cerrada contenida en $A$, se cumple que: 
+\[ \oint_C \mathbf{F} \cdot d\mathbf{s} = 0 \] 
+\end{corollary}
+
+\begin{proof}
+Sea $f$ una función potencial de $\mathbf{F}$ y sea $\boldsymbol{\sigma}: [a,b] \to A$ una parametrización de $C$ que preserva su orientación. Entonces, por la Definición~\ref{int_cv} y sabiendo que $\mathbf{F} = \nabla f$, tenemos: 
+\begin{equation*} 
+\oint_C \mathbf{F} \cdot d\mathbf{s} = \int_{\boldsymbol{\sigma}} \nabla f \cdot d\mathbf{s} 
+\end{equation*} 
+
+Por el Teorema~\ref{thm:t1}, sabemos que: 
+\begin{equation*} 
+\int_{\boldsymbol{\sigma}} \nabla f \cdot d\mathbf{s} = f(\boldsymbol{\sigma}(b)) - f(\boldsymbol{\sigma}(a)) 
+\end{equation*} 
+
+Además, dado que la curva $C$ es cerrada, su punto final coincide con su punto inicial, lo que significa que $\boldsymbol{\sigma}(b) = \boldsymbol{\sigma}(a)$. Por la buena definición de la función $f$, se cumple que $f(\boldsymbol{\sigma}(b)) = f(\boldsymbol{\sigma}(a))$. 
+
+Sustituyendo esta igualdad en la ecuación anterior, obtenemos:
+\[ f(\boldsymbol{\sigma}(b)) - f(\boldsymbol{\sigma}(a)) = 0 \]
+Lo que demuestra finalmente que: 
+\[ \oint_C \mathbf{F} \cdot d\mathbf{s} = 0 \qedhere \] 
+\end{proof}
+
+
+
+
 
 
 

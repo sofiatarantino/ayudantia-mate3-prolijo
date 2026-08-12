@@ -1,12 +1,12 @@
 
-Para extender esta noci\'on de integral a  conjuntos acotados m\'as generales que no sean  paralelepípedos , definimos lo siguiente. 
+Para extender esta noci\'on de integral a  conjuntos acotados m\'as generales que no sean  paralelepípedos, definimos lo siguiente. 
 
 \begin{definition}\label{def:caja-que-contiene} Sea $W  \subseteq  \mathbb{R}^3$ , $f:W\to\R$ continua y  $P = [a, b] \times [c, d] \times [e, f]$ tal que $W  \subseteq  P$.  Se define la funci\'on $f^*$ tal que
 \[
     f^*(x,y,z)=
     \begin{dcases*}
         f(x,y,z) & si $(x,y,z)\in W$ \\[.2cm]
-        0        & si $(x,y,z)\notin P\smallsetminus W.$
+        0        & si $(x,y,z)\in P\smallsetminus W.$
     \end{dcases*}
 \]
 La inegral de  $f$ sobre $W$ se define por 
@@ -20,14 +20,14 @@ La inegral de  $f$ sobre $W$ se define por
 \end{obs}
 
 \begin{propertie}
-    Sean $f,\;g$ dos funciones integrables en una regi\'on $W\subset\Rn{3}$, entonces:
+    Sean $f,\;g$ dos funciones acotadas e integrables en una regi\'on $W\subset\Rn{3}$, entonces:
     \begin{enumerate}
         \item[i.] $\alpha f+\beta g$ es integrable en $W$, $\forall\;\alpha,\;\beta\in\R$ y adem\'as
         \[
             \iiint_W \left(\alpha f+\beta g\right)dV=\alpha\iiint_W f\:dV+\beta\iiint_W g\:dV.
         \]
         \item[ii.] El producto $fg$ es integrable en $W$.
-        \item[iii.] Si $g(x,y,z) \neq  0\;\forall(x,y,z)\in W$ entonces el cociente $f/g$ es integrable en $W$.
+        \item[iii.]Si existe una constante \(M > 0\) tal que \(\vert{}g(x,y,z)\vert{} \geq M\) \(\forall(x,y,z)\in W\), entonces el cociente \(f/g\) es integrable en \(W\).
         \item[iv.] Si $f(x,y,z) \geq 0  \;\: \forall(x,y,z)\in W$ entonces  $\iiint_W f\:dV\geq0$.
         \item[v.]Si $f(x,y,z) \leq g(x,y,z) \;\: \forall(x,y,z)\in W$ entonces $\iiint_W f\:dV\leq\iiint_W g\:dV.$
         \item[vi.]Si $|f|$ es integrable en $W$, entonces 

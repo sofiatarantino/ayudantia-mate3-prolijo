@@ -1,10 +1,11 @@
-\begin{theorem}
-   Sea  $\mathbf{F}:A\subseteq\Rn{n} \to \Rn{n}$ continuo con  $A$ abierto y arcoconexo.  Son equivalentes:
-    \begin{enumerate}
-        \item $\mathbf{F}$ es conservativo. 
-        \item La integral de $\mathbf{F}$ es independiente del camino en $A$. 
-        \item $\oint_C\mathbf{F}\cdot d\mathbf{s}=0$ para toda curva cerrada simple orientada $C$ en $A$.
-    \end{enumerate}
+\begin{theorem}\label{thm:equivalencias_conservativos}
+Sea $\mathbf{F}: A \subseteq \mathbb{R}^n \to \mathbb{R}^n$ un campo vectorial continuo, con $A$ un conjunto abierto y arcoconexo. Las siguientes afirmaciones son equivalentes:
+\begin{enumerate}
+    \item $\mathbf{F}$ es un campo vectorial conservativo en $A$.
+    \item La integral de línea de $\mathbf{F}$ es independiente del camino en $A$.
+    \item $\oint_C \mathbf{F} \cdot d\mathbf{s} = 0$ para toda curva simple, cerrada y orientada $C$ contenida en $A$.
+\end{enumerate}
+\end{theorem}
 
     \textit{Demostración.} 
     \begin{itemize}
@@ -43,7 +44,7 @@
           \end{align*}
    \item[] ($3 \Rightarrow 1$.) Queda a cargo del lector.   
 \end{itemize}
-\end{theorem}
+
 
 \begin{tarea}  Probar que el campo $\mathbf{F}$  tiene rotor nulo en todo $\mathbb{R}^{2}$ y, sin embargo, no es un campo conservativo. ( No vale la vuelta de de la Propiedad (\ref{conserv})).   $$F(x,y) = (\dfrac{y}{x^{2}+y^{2}}, \dfrac{-x}{x^{2}+y^{2}}) $$
 \end{tarea}

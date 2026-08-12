@@ -1,59 +1,42 @@
 \label{sec:limites}
-\begin{definition} \textbf{L\'imite.} \label{def:limite}
-Sean $f:A  \subseteq  \Rn{n} \to \Rn{m}$ una funci\'on, $L \in \Rn{m}$ y $x_0$ un punto de acumulaci\'on de $A$. Decimos que \emph{el l\'imite de $f$ para $x$ tendiendo a $x_0$ es $L$} o que \emph{$f$ tiende a $L$ cuando $x$ tiende a $x_0$}
-si
-\[
- \forall \varepsilon > 0 \, \exists\: \delta > 0 \;|\; f(x) \in B_{\varepsilon}(L) \; \forall 
- x \in B_{\delta}^*(x_0) \cap A.
-\]
-
-En este caso, utilizamos la notaci\'on
-\[
- f(x) \xrightarrow[x \to x_0]{} L \quad \text{o} \quad \lim_{x \to x_0} f(x) = L.
-\]
-\begin{obs} Si $f$ es un \emph{campo escalar} (es decir, si en la Definici\'on \eqref{def:limite} es $m = 1$), la condici\'on 
- \[
- \forall \varepsilon > 0 \, \exists\: \delta > 0 \;|\; f(x) \in B_{\varepsilon}(L) \; \forall 
- x \in B_{\delta}^*(x_0) \cap A
-\]
-es equivalente a 
-\[
- \forall \varepsilon > 0 \, \exists\: \delta > 0 \;|\; \abs{ f(x) - L } < \varepsilon \; \forall 
- x \in B_{\delta}^*(x_0) \cap A.
-\]
-\end{obs}
-
-\begin{obs} La definici\'on de l\'imite puede expresarse equivalentemente en t\'erminos de distancias o de normas:
-\begin{itemize} 
- \item Sean $f:A  \subseteq  \Rn{n} \to \Rn{m}$ una funci\'on, $L \in \Rn{m}$ y $x_0$ un punto de acumulaci\'on de $A$. Decimos que \emph{el l\'imite de $f$ para $x$ tendiendo a $x_0$ es $L$} o que \emph{$f$ tiende a $L$ cuando $x$ tiende a $x_0$} si
-\[
- \forall \varepsilon > 0 \, \exists\: \delta > 0 \;|\; \dis_m {(f(x),L)} < \varepsilon \, \forall 
- x\in A : 0 < \dis_n {(x,x_0)} < \delta,
+\begin{definition} \textbf{L\'imite.} \label{def:limite_normas} 
+Sean $\campoVec{F}:A \subseteq \Rn{n} \to \Rn{m}$ una funci\'on, $L \in \Rn{m}$ y $\vect{x}_0$ un punto de acumulaci\'on de $A$. Decimos que \emph{el l\'imite de $\campoVec{F}$ para $\vect{x}$ tendiendo a $\vect{x}_0$ es $L$} o que \emph{$\campoVec{F}$ tiende a $L$ cuando $\vect{x}$ tiende a $\vect{x}_0$} si 
+\[ 
+\forall \varepsilon > 0, \, \exists \, \delta > 0 \quad \text{tal que} \quad 0 < \lVert \vect{x} - \vect{x}_0 \rVert < \delta \land \vect{x} \in A \implies \lVert \campoVec{F}(\vect{x}) - L \rVert < \varepsilon. 
 \] 
-donde $\dis_n$ y $\dis_m$ son las distancias en $\Rn{n}$ y $\Rn{m}$, respectivamente.
-
- \item Sean $f:A  \subseteq  \Rn{n} \to \Rn{m}$ una funci\'on, $L \in \Rn{m}$ y $x_0$ un punto de acumulaci\'on de $A$. Decimos que \emph{el l\'imite de $f$ para $x$ tendiendo a $x_0$ es $L$} o que \emph{$f$ tiende a $L$ cuando $x$ tiende a $x_0$} si
-\[
- \forall \varepsilon > 0 \, \exists\: \delta > 0 \;|\; \norm{f(x) - L}_m < \varepsilon \, \forall 
- x\in A : 0 < \norm{x - x_0}_n < \delta,
+En este caso, utilizamos la notaci\'on 
+\[ 
+\campoVec{F}(\vect{x}) \xrightarrow[\vect{x} \to \vect{x}_0]{} L \quad \text{o} \quad \lim_{\vect{x} \to \vect{x}_0} \campoVec{F}(\vect{x}) = L. 
 \] 
-donde $\norm{\cdot}_n$ y $\norm{\cdot}_m$ son las normas en $\Rn{n}$ y $\Rn{m}$, respectivamente.
-\end{itemize}
-\end{obs}
 \end{definition}
 
 
 
+\begin{obs} \label{obs:entornos_distancias}
+A veces es útil expresar la misma definición en t\'erminos de entornos (bolas), lo cual equivale a utilizar funciones de distancia:
+\[ 
+\forall \varepsilon > 0, \, \exists \, \delta > 0 \quad \text{tal que} \quad \vect{x} \in B_{\delta}^*(\vect{x}_0) \cap A \implies \campoVec{F}(\vect{x}) \in B_{\varepsilon}(L). 
+\] 
+Recordemos que la pertenencia a la bola reducida $\vect{x} \in B_{\delta}^*(\vect{x}_0)$ equivale matem\'aticamente a la desigualdad de distancias $0 < \dis_n(\vect{x},\vect{x}_0) < \delta$.
+\end{obs}
+
+\begin{obs} \label{obs:campo_escalar} 
+Si la funci\'on es un \emph{campo escalar} (es decir, $m = 1$), se suele denotar a la funci\'on con la letra min\'uscula $f$ y a su l\'imite con la letra $l \in \mathbb{R}$. En este caso, la condici\'on sobre el codominio $\lVert \campoVec{F}(\vect{x}) - L \rVert < \varepsilon$ se reduce al valor absoluto tradicional, escribi\'endose la definici\'on como:
+\[ 
+\forall \varepsilon > 0, \, \exists \, \delta > 0 \quad \text{tal que} \quad 0 < \lVert \vect{x} - \vect{x}_0 \rVert < \delta \land \vect{x} \in A \implies \abs{f(\vect{x}) - l} < \varepsilon. 
+\] 
+\end{obs}
+
+
 \begin{theorem}\textbf{Unicidad del l\'imite.} \label{teo:unicidad_limite} Sean $\mathbf{F}:A  \subseteq  \Rn{n} \to \Rn{m}$ una funci\'on, $\mathbf{x}_0$ un punto de acumulaci\'on de $A$ y $\mathbf{L}_1, \mathbf{L}_2 \in \Rn{m}$ tales que 
 \[
- \mathbf{F}(\mathbf{x}) \xrightarrow[\mathbf{x} \to \mathbf{x}_0]{} \mathbf{L}_1 \quad \wedge \quad \mathbf{F}(\mathbf{x}) \xrightarrow[\mathbf{x} \to \mathbf{x}_0]{} \mathbf{L}_2.
+ \mathbf{F}(\mathbf{x}) \xrightarrow[\mathbf{x} \to \mathbf{x}_0]{} \mathbf{L}_1 \quad \wedge \quad \mathbf{F}(\mathbf{x}) \xrightarrow[\mathbf{x} \to \mathbf{x}_0]{} \mathbf{L}_2,
 \]
-Entonces $\mathbf{L}_1 = \mathbf{L}_2$.
-\begin{proof}
-\mbox{}
+entonces  $\mathbf{L}_1 = \mathbf{L}_2$.
+\end{theorem}
 
-Las ideas utilizadas en la demostraci\'on de este teorema son las que siguen.\\
-Como 
+
+\begin{proof}  Como 
 \[
  \mathbf{F}(\mathbf{x}) \xrightarrow[\mathbf{x} \to \mathbf{x}_0]{} \mathbf{L}_1,
 \]
@@ -104,26 +87,34 @@ podemos elegir $\delta_1 > 0$ tal que $\mathbf{x} \in B_{\delta_1}^*(\mathbf{x}_
  Como $B_{\delta}^*(\mathbf{x}_0)  \subseteq  B_{\delta_1}^*(\mathbf{x}_0)$ y $B_{\delta}^*(\mathbf{x}_0)  \subseteq  B_{\delta_2}^*(\mathbf{x}_0)$, si tomamos alg\'un $\mathbf{x} \in B_{\delta}^*(\mathbf{x}_0) \cap A$\footnote{Notemos que $B_{\delta}^*(\mathbf{x}_0) \cap A \ne \varnothing$ porque $\mathbf{x}_0$ es un punto de acumulaci\'on de $A$.}, vale que $f(\mathbf{x}) \in B_{\varepsilon}(\mathbf{L}_1)$ y tambi\'en $f(\mathbf{x}) \in B_{\varepsilon}(\mathbf{L}_2)$, por lo que $f(\mathbf{x}) \in B_{\varepsilon}(\mathbf{L}_1) \cap B_{\varepsilon}(\mathbf{L}_2)$. Absurdo, pues $B_{\varepsilon}(\mathbf{L}_1) \cap B_{\varepsilon}(\mathbf{L}_2) = \varnothing$. El absurdo provino de suponer que $\mathbf{L}_1 \ne \mathbf{L}_2$, por lo cual debe ser $\mathbf{L}_1 = \mathbf{L}_2$.
 \end{proof}
 
-\end{theorem}
-\begin{propertie}\textbf{\'Algebra de l\'imites.} \label{prop:alg_lim} Sean $\mathbf{F},\mathbf{G}:A  \subseteq  \Rn{n} \to \Rn{m}$ funciones y $\mathbf{x}_0$ un punto de acumulaci\'on de $A$. Supongamos que 
-  \begin{align*}
-   &\lim_{\mathbf{x} \to \mathbf{x}_0} \mathbf{F}(\mathbf{x}) = \mathbf{L}_1 \in \Rn{m} \\
-   &\lim_{\mathbf{x} \to \mathbf{x}_0} \mathbf{G}(\mathbf{x}) = \mathbf{L}_2 \in \Rn{m}.
-  \end{align*}
-  Entonces:
-  \begin{enumerate} %[i.]
-   \item Linealidad
-      \begin{enumerate} %[(a)]
-       \item $\lim_{\mathbf{x} \to \mathbf{x}_0} (\mathbf{F} + \mathbf{G})(\mathbf{x}) = \mathbf{L}_1 + \mathbf{L}_2$
-       \item $\lim_{\mathbf{x} \to \mathbf{x}_0} (\alpha \mathbf{F})(\mathbf{x}) = \alpha \mathbf{L}_1 \, \forall \alpha \in \R$
-      \end{enumerate}
-  \item $\lim_{\mathbf{x} \to \mathbf{x}_0} (\mathbf{F} \cdot \mathbf{G}) (\mathbf{x}) = \mathbf{L}_1 \cdot \mathbf{L}_2$\footnote{Si $m \ge 2$, ``$\cdot$'' representa el producto escalar en $\Rn{m}$.}
-  \item Si $m = 1$ (\textit{i.e.}, si $\mathbf{F} \text{ y } \mathbf{G}$ son campos escalares), $\mathbf{G}$ es no nula en alg\'un entorno de $\mathbf{x}_0$ y $\mathbf{L}_2 \ne 0$, 
-  \[
-   \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{\mathbf{F}(\mathbf{x})}{\mathbf{G}(\mathbf{x})} = \frac{\mathbf{L}_1}{\mathbf{L}_2}.
-  \]
-  \end{enumerate}
+
+\newpage
+
+
+
+\begin{propertie}\textbf{\'Algebra de l\'imites.} \label{prop:alg_lim} 
+Sean $\campoVec{F},\campoVec{G}:A \subseteq \Rn{n} \to \Rn{m}$ funciones y $\vect{x}_0$ un punto de acumulaci\'on de $A$. Supongamos que 
+\begin{align*} 
+&\lim_{\vect{x} \to \vect{x}_0} \campoVec{F}(\vect{x}) = L_1 \in \Rn{m}    \quad \text{ y } \\ 
+&\lim_{\vect{x} \to \vect{x}_0} \campoVec{G}(\vect{x}) = L_2 \in \Rn{m},
+\end{align*} 
+entonces: 
+\begin{enumerate} 
+\item \textbf{Linealidad} 
+\begin{enumerate} 
+\item $\lim_{\vect{x} \to \vect{x}_0} (\campoVec{F} + \campoVec{G})(\vect{x}) = L_1 + L_2$ 
+\item $\lim_{\vect{x} \to \vect{x}_0} (\alpha \campoVec{F})(\vect{x}) = \alpha L_1 \quad \forall \alpha \in \mathbb{R}$ 
+\end{enumerate} 
+
+\item $\lim_{\vect{x} \to \vect{x}_0} (\campoVec{F} \cdot \campoVec{G}) (\vect{x}) = L_1 \cdot L_2$\footnote{Si $m \ge 2$, ``$\cdot$'' representa el producto escalar en $\Rn{m}$.} 
+
+\item Si $m = 1$ (\textit{i.e.}, si las funciones son campos escalares denotados por $f$ y $g$, con l\'imites $l_1$ y $l_2 \ne 0$), y $g$ es no nula en alg\'un entorno de $\vect{x}_0$, entonces: 
+\[ 
+\lim_{\vect{x} \to \vect{x}_0} \frac{f(\vect{x})}{g(\vect{x})} = \frac{l_1}{l_2}. 
+\] 
+\end{enumerate} 
 \end{propertie}
+
 
 \begin{tarea} Calcular $$ \lim_{(x,y) \to (0,0)}  (f(x) + g(x)),$$ siendo
  $$f(x,y) = 
@@ -138,95 +129,91 @@ podemos elegir $\delta_1 > 0$ tal que $\mathbf{x} \in B_{\delta_1}^*(\mathbf{x}_
      \end{dcases}$$   ¿Qu\'e puede decir sobre el uso de \'algebra de l\'imites ?
 \end{tarea}
 
-\begin{tarea}  Calcular los siguientes l\'imites usando \'algebra de l\'imites.
- \[
-  \lim_{(x,y) \to (0,0)} \frac{x^2 +1 +  y}{(x-1)^2 +  y^2} 
- \]
- \[
-  \lim_{(x,y) \to (0,0)} \frac{e^x \log(\cos y)}{x^2 + (y+1)^2}
- \]
+\begin{tarea} 
+Calcular los siguientes l\'imites utilizando el \'algebra de l\'imites: 
+\[ 
+\lim_{(x,y) \to (0,0)} \frac{x^2 + 1 + y}{(x-1)^2 + y^2} 
+\] 
+\[ 
+\lim_{(x,y) \to (0,0)} \frac{e^x \ln(\cos y)}{x^2 + (y+1)^2} 
+\] 
 \end{tarea}
 
-\begin{obs} \label{des} Para resolver límites por definici\'on ser\'a \'util tener presente ciertas desigualdades. Por ejemplo, sean $z \in \mathbb{R}$  y $(x,y) \in \mathbb{R}^{2}-\{ (0,0) \}$, entonces
-\begin{enumerate}
-\item  $ 0\leq x^2\leq x^2+y^2 \iff  0\leq  \dfrac{ x^2}{ x^2+y^2}\leq 1 \iff  0\leq  \dfrac{x^2}{\|(x,y)\|^2}\leq 1$ 
-  
-\item Tomando raiz cuadrada en $1.$ queda,  \; $  0\leq \dfrac{|x|}{\|(x,y)\|}\leq 1.$
-  
-\item     $|\sen z|\leq 1  \quad\land\quad  |\cos z|\leq 1.$ 
- 
-\item   $|\sen z|\leq |z|.$ 
-\end{enumerate}
+
+\begin{obs} \label{obs:desigualdades_utiles} 
+Para resolver l\'imites por definici\'on ser\'a \'util tener presente ciertas desigualdades elementales. Si $z \in \mathbb{R}$ y $(x,y) \in \mathbb{R}^{2} \setminus \{ (0,0) \}$, entonces: 
+\begin{enumerate} 
+\item $0 \le x^2 \le x^2+y^2 \iff 0 \le \frac{x^2}{x^2+y^2} \le 1 \iff 0 \le \frac{\abs{x}^2}{\lVert (x,y) \rVert^2} \le 1$ 
+\item Tomando ra\'iz cuadrada en el \'item anterior se obtiene: \; $0 < \frac{\abs{x}}{\lVert (x,y) \rVert} \le 1 \iff \abs{x} \le \lVert (x,y) \rVert$.
+\item $\abs{\sen z} \le 1 \quad \land \quad \abs{\cos z} \le 1  \quad  \quad \forall z \in \mathbb{R}$. 
+\item $\abs{\sen z} \le \abs{z} \quad \forall z \in \mathbb{R} $. 
+\end{enumerate} 
 \end{obs}
 
 
-\begin{example} Probar, usando la definici\'on de l\'imite,  que
- \[
-  \lim_{(x,y) \to (0,0)} \frac{x^2  y}{x^2 + y^2} = 0.
- \]
- \end{example}
+\begin{example} 
+Probar, usando la definici\'on de l\'imite, que 
+\[ 
+\lim_{(x,y) \to (0,0)} \frac{x^2 y}{x^2 + y^2} = 0. 
+\] 
+\end{example} 
 
-Para $f: A=\mathbb{R}^{2}-\{(0,0)\} \to \mathbb{R} \: | \: f(x,y)=\dfrac{x^2  y}{x^2 + y^2}$  \: y \: $L=0$ tenemos que probar que
-
-\[
-\forall \varepsilon > 0\; \exists\:\delta > 0 \;|\;    (x,y) \in A \land 0 < \|(x-0,y-0)\| < \delta \implies   \left| \frac{x^2y}{x^2+y^2} - 0\right|  <  \varepsilon.   
+\textbf{Soluci\'on.} Para el campo escalar $f: A=\mathbb{R}^{2} \setminus \{(0,0)\} \to \mathbb{R}$ definido por $f(x,y)=\frac{x^2 y}{x^2 + y^2}$ y su l\'imite $l=0$, debemos probar que 
+\[ 
+\forall \varepsilon > 0, \, \exists \, \delta > 0 \quad \text{tal que} \quad (x,y) \in A \land 0 < \lVert (x,y) \rVert < \delta \implies \abs{ \frac{x^2y}{x^2+y^2} - 0 } < \varepsilon. 
+\] 
+Partimos de la expresi\'on en valor absoluto:
+\[ 
+\abs{ \frac{x^2y}{x^2+y^2} - 0 } = \abs{ \frac{x^2y}{x^2+y^2} } = \frac{x^2 \abs{y}}{x^2+y^2} = \left( \frac{x^2}{x^2+y^2} \right) \abs{y}.
+\] 
+ aplicando los \'items 1 y 2 de la Observaci\'on \eqref{obs:desigualdades_utiles}, concluimos
+\[ 
+\left( \frac{x^2}{x^2+y^2} \right) \abs{y} \le 1 \cdot \abs{y} = \abs{y} \le \lVert (x,y) \rVert < \delta,
 \]
+luego, basta con elegir $\delta = \varepsilon$ para completar la demostraci\'on.
 
-Partimos de
+\begin{example} 
+Probar, usando la definici\'on de l\'imite, que 
+\[ 
+\lim_{(x,y) \to (0,0)} \frac{x^2 \sen y}{x^2 + y^2} = 0. 
+\] 
+\end{example} 
 
-\[
-\left| \frac{x^2y}{x^2+y^2} - 0\right|=\left| \frac{x^2y}{x^2+y^2}\right|= \frac{x^2|y|}{x^2+y^2};
-\]
+\textbf{Soluci\'on.} Para el campo escalar $f: A=\mathbb{R}^{2} \setminus \{(0,0)\} \to \mathbb{R}$ definido por $f(x,y)=\frac{x^2 \sen y}{x^2 + y^2}$ y su l\'imite $l=0$, debemos probar que 
+\[ 
+\forall \varepsilon > 0, \, \exists \, \delta > 0 \quad \text{tal que} \quad (x,y) \in A \land 0 < \lVert (x,y) \rVert < \delta \implies \abs{ \frac{x^2 \sen y}{x^2+y^2} - 0 } < \varepsilon. 
+\] 
+Partimos de la expresi\'on en valor absoluto:
+\[ 
+\abs{ \frac{x^2 \sen y}{x^2+y^2} - 0 } = \abs{ \frac{x^2 \sen y}{x^2+y^2} } = \frac{x^2 \abs{\sen y}}{x^2+y^2}.
+\] 
+Utilizando el \'item 4 de la Observaci\'on \eqref{obs:desigualdades_utiles}, sabemos que $\abs{\sen y} \le \abs{y}$. Reemplazando obtenemos:
+\[ 
+\frac{x^2 \abs{\sen y}}{x^2+y^2} \le \frac{x^2 \abs{y}}{x^2+y^2} = \left( \frac{x^2}{x^2+y^2} \right) \abs{y}.
+\] 
+Nuevamente, aplicando los \'items 1 y 2 de la Observaci\'on \eqref{obs:desigualdades_utiles}, concluimos:
+\[ 
+ \left( \frac{x^2}{x^2+y^2} \right) \abs{y} \le  \lVert (x,y) \rVert < \delta.
+\] 
+Luego, basta con elegir $\delta = \varepsilon$.
 
-ahora, usando  $1.$ y $2.$ de \ref{des} llegamos a 
-
-\[
-\frac{x^2|y|}{x^2+y^2}\leq\frac{(x^2+y^2)\sqrt{x^2+y^2} }{x^2+y^2}=\sqrt{x^2+y^2}=\|(x,y)\|<\delta.
-\]
-
-Luego, basta con tomar $\delta=\epsilon$.
-
-\begin{example} Probar, usando la definici\'on de l\'imite, que
- \[
-  \lim_{(x,y) \to (0,0)} \frac{x^2 \sin y}{x^2 + y^2} = 0.
- \]
-\end{example}
-
-Para $f: A=\mathbb{R}^{2}-\{(0,0)\} \to \mathbb{R} \: | \: f(x,y)=\dfrac{x^2sen(y)}{x^2+y^2}$  \: y \: $L=0$ tenemos que probar que
-
-\[
-\forall \varepsilon > 0\; \exists\:\delta > 0 \;|\;    (x,y) \in A \land 0 < \|(x-0,y-0)\| < \delta \implies   \left| \dfrac{x^2sen(y)}{x^2+y^2}- 0\right|  <  \varepsilon.   
-\]
-
-Partimos de
-
-\[
-| \frac{x^2sen(y)}{x^2+y^2} - 0|=| \frac{x^2sen(y)}{x^2+y^2}|= \frac{x^2|sen(y)|}{x^2+y^2};
-\]
-
-Usando usando  $1.$ y $4.$ de \ref{des} llegamos a 
-
-\[
-\frac{x^2|\sen y|}{x^2+y^2}\leq\frac{(x^2+y^2)|y| }{x^2+y^2}\leq\frac{(x^2+y^2)\sqrt{x^2+y^2} }{x^2+y^2}=\sqrt{x^2+y^2}=\|(x,y)\|<\delta
-\]
-
-Luego, basta con tomar $\delta=\epsilon$.
 
 
 
 
 %\newpage
 
-\begin{propertie} \label{prop:lim_x_comp}
- Sea $\mathbf{F}: A  \subseteq  \Rn{n} \to \Rn{m}$ un campo vectorial y $\mathbf{x}_0$ un punto de acumulaci\'on de $A$. Sean $f_j: A  \subseteq  \Rn{n} \to \R \,\;(j = 1,2, \dots, m)$ campos escalares tales que $\mathbf{F}(\mathbf{x}) = \left( f_1(\mathbf{x}), f_2(\mathbf{x}), \dots, f_m(\mathbf{x}) \right),\; \forall \mathbf{x} \in A$\footnote{Los campos escalares $f_j$ quedan determinados un\'ivocamente por $\mathbf{F}$ de la siguiente manera: 
- \begin{gather*}
-     f_j : A  \subseteq  \Rn{n} \to \R; \\
-     f_j(\mathbf{x}) = \mathbf{F}(\mathbf{x}) \cdot \mathbf{e}_j,
- \end{gather*} donde $\mathbf{e}_j$ es el $j$-\'esimo vector can\'onico de $\Rn{m}$.}.\\
- Sea $\mathbf{L} = \left( L_1, L_2, \dots, L_m \right) \in \Rn{m}$, $L_j \in \R \; \forall j = 1,2, \dots, m$. Entonces
- \[
-  \lim_{\mathbf{x} \to \mathbf{x}_0} \mathbf{F}(\mathbf{x}) = L \iff \lim_{\mathbf{x} \to \mathbf{x}_0} f_j(\mathbf{x}) = L_j \, \forall j = 1,2, \dots, m.
- \]
+\begin{propertie} \label{prop:lim_x_comp} 
+Sea $\campoVec{F}: A \subseteq \Rn{n} \to \Rn{m}$ un campo vectorial y $\vect{x}_0$ un punto de acumulaci\'on de $A$. Sean $f_j: A \subseteq \Rn{n} \to \mathbb{R} \;\; (j = 1,2, \dots, m)$ campos escalares tales que $\campoVec{F}(\vect{x}) = \left( f_1(\vect{x}), f_2(\vect{x}), \dots, f_m(\vect{x}) \right), \; \forall \vect{x} \in A$\footnote{Los campos escalares $f_j$ quedan determinados un\'ivocamente por $\campoVec{F}$ de la siguiente manera: 
+\begin{gather*} 
+f_j : A \subseteq \Rn{n} \to \mathbb{R}; \\ 
+f_j(\vect{x}) = \campoVec{F}(\vect{x}) \cdot \vect{e}_j, 
+\end{gather*} 
+donde $\vect{e}_j$ es el $j$-\'esimo vector can\'onico de $\Rn{m}$.}.\\ 
+Sea $L = \left( l_1, l_2, \dots, l_m \right) \in \Rn{m}$, con $l_j \in \mathbb{R} \; \forall j = 1,2, \dots, m$. Entonces:
+\[ 
+\lim_{\vect{x} \to \vect{x}_0} \campoVec{F}(\vect{x}) = L \iff \lim_{\vect{x} \to \vect{x}_0} f_j(\vect{x}) = l_j \quad \forall j = 1,2, \dots, m. 
+\] 
 \end{propertie}
 
 \begin{tarea}Calcular

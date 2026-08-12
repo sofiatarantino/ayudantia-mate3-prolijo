@@ -6,14 +6,14 @@ se lo llama paralelepípedo rectangular .
 \end{definition}
 
 
-\begin{definition} \textbf{Partici\'on regular.} 	Sea \( P  \subseteq  \mathbb{R}^3 \) un paralelepípedo.  Una partición regular de $B$ es un conjunto de pequeños paralelepípedos disjuntos (salvo tal vez por sus caras)  de igual volumen que  generan una subdivisi\'on de $P$.  Es decir, si $P = [a, b] \times [c, d] \times [e, f]$,  esto se logra dividiendo:
+\begin{definition} \textbf{Partici\'on regular.} 	Sea \( P  \subseteq  \mathbb{R}^3 \) un paralelepípedo.  Una partición regular de $P$ es un conjunto de pequeños paralelepípedos disjuntos (salvo tal vez por sus caras)  de igual volumen que  generan una subdivisi\'on de $P$.  Es decir, si $P = [a, b] \times [c, d] \times [e, f]$,  esto se logra dividiendo:
 
 \begin{itemize}
-    \item el intervalo \( [a, b] \) en \( l \) subintervalos \( [x_i, x_{i+1}] \)  con $0 \leq  i \leq l-1$ cada uno de ancho \( \Delta x \),
-    \item el intervalo \( [c, d] \) en \( p \) subintervalos \( [y_j, y_{j+1}] \)  con $0 \leq  p \leq p-1$, cada uno de ancho \( \Delta y \),
-    \item el intervalo \( [e, f] \) en \( m \) subintervalos \( [z_k, z_{k+1}] \)  con $0 \leq  k \leq m-1$, cada uno de ancho \( \Delta z \).
+    \item el intervalo \( [a, b] \) en \( l \) subintervalos \( [x_i, x_{i+1}] \)  con $0 \leq  i \leq l-1$ cada uno de ancho \( \Delta x=\dfrac{b-a}{l} \),
+    \item el intervalo \( [c, d] \) en \( p \) subintervalos \( [y_j, y_{j+1}] \)  con $0 \leq  j \leq p-1$, cada uno de ancho \( \Delta y=\dfrac{d-c}{p} \),
+    \item el intervalo \( [e, f] \) en \( m \) subintervalos \( [z_k, z_{k+1}] \)  con $0 \leq  k \leq m-1$, cada uno de ancho \( \Delta z=\dfrac{f-e}{m} \).
 \end{itemize}
-y tomando los sub paralelepípedos $P_{ijk}$ tales que
+y tomando los subparalelepípedos $P_{ijk}$ tales que
 	\[
 	P_{ijk} = [x_i, x_{i+1}] \times [y_j, y_{j+1}] \times [z_k, z_{k+1}]
 	\]  El volumne de $ P_{ijk}$ la notaremos por $\Delta P_{ijk}$ 
@@ -24,15 +24,15 @@ y tomando los sub paralelepípedos $P_{ijk}$ tales que
 
 
 \begin{definition}
-Dada una funci\'on $f:P\to\R$, donde $P\subset \Rn{3}$ es un paralelep\'ipedo rectangular, se define la \emph{suma de Reimann}  de $f$ sobre $P$ a
+Dada una funci\'on $f:P\to\R$, donde  $P = [a, b] \times [c, d] \times [e, f]$ es un paralelep\'ipedo rectangular,  se define la \emph{suma de Reimann}  de $f$ sobre $P$ a
 \[
     S_{l,p,m}=\sum_{i=0}^{l-1}\sum_{j=0}^{p-1}\sum_{k=0}^{m-1}f(c_{ijk})\Delta P_{ijk},
 \]  
-donde $\{ P_{ijk}\}_{( 1 \leq i \leq l, 1 \leq j \leq p, 1 \leq k \leq m  )}$ es una partici\'on regular de $P$ y  $c_{ijk}\in P_{ijk}  \: \forall \: 1 \leq i \leq l, 1 \leq j \leq p, 1 \leq k \leq m.$ 
+donde \(\{ P_{ijk}\}\) con \(0 \leq i \leq l-1\), \(0 \leq j \leq p-1\), \(0 \leq k \leq m-1\) es una partición regularde $P$ y  $c_{ijk}\in P_{ijk}$  para todo \(i, j, k\) en dichos rangos. 
 \end{definition}
 
 \begin{definition} 
-Sea $f: P=[a,b]\times[c,d]\times[e,f] \to\R$ una funci\'on.    Diremos que $f$ es integrable sobre $P$ si existe y es finito el  l\'imite $\lim_{(l,p,m)\to(\infty,\infty,\infty)} S_{l,p,m}$, en tal caso  el valor de dicho l\'imite  se llama \emph{integral triple} de $f$ sobre $P$ y se nota 
+Sea $f: P=[a,b]\times[c,d]\times[e,f] \to\R$ una funci\'on.    Diremos que $f$ es integrable sobre $P$ si existe y es finito el  l\'imite $$\lim_{(l,p,m)\to +\infty} S_{l,p,m}, $$ independientemente de la elección de los puntos \(c_{ijk} \in P_{ijk}\). En tal caso  el valor de dicho l\'imite  se llama \emph{integral triple} de $f$ sobre $P$ y se nota 
     \[
           \iiint_P f\:dV  \: \mbox{ o } \:  \iiint_P f(x,y,z)\:dxdydz.
     \]

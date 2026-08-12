@@ -20,9 +20,12 @@
     %——————————————————————————————————————————————
     % Tick en x=2
     \draw (2,0) -- ++(0,-0.1) node[below] {$x_0$};
+   \draw (3.5,0) -- ++(0,-0.1) node[below] {$x_0+r$};
+    \draw (0.5,0) -- ++(0,-0.1) node[below] {$x_0- r$};
     % Tick en y=2
     \draw (0,2) -- ++(-0.1,0) node[left]  {$y_0$};
-
+ \draw (0,3.5) -- ++(-0.1,0) node[left]  {$y_0 + r$};
+  \draw (0,0.5) -- ++(-0.1,0) node[left]  {$y_0 - r$};
     \node at (2,2) {$D$};
   \end{scope}
 \end{tikzpicture}

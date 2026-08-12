@@ -1,22 +1,36 @@
-\begin{obs} Si en la \autoref{def:grafm1} cambiamos  $A \subseteq \mathbb{R}$ por $A \subseteq \mathbb{R}^{n}$  obtenemos de manera an\'aloga la siguiente definici\'on.    
-\end{obs}
+ Si en la \autoref{def:grafm1} cambiamos  $A \subseteq \mathbb{R}$ por $A \subseteq \mathbb{R}^{n}$  y  $B \subseteq \mathbb{R}$ por $B \subseteq \mathbb{R}^{m}$ obtenemos de manera an\'aloga la siguiente definici\'on.    
 
 
-
-\begin{definition}  \label{def:grafica}
- 
- Sea \( f: A  \subseteq  \mathbb{R}^n \rightarrow \mathbb{R}\),  se define la \textit{gráfica de $f$}, y se nota $\text{Graf}(f)$,  a
- \[
-\text{Graf}(f)=\{(x_1,x_2,...,x_n,x_{n+1})\in \mathbb{R}^{n+1} \;|\; (x_1,x_2,...,x_n) \in A \land x_{n+1}= f(x_1,x_2,...,x_n) \}
- \]
-
+\begin{definition}\textbf{Gráfica de un campo vectorial}
+\label{def:grafica_campo_vec}
+Sea $\campoVec{F} \colon A \subseteq \mathbb{R}^n \to \mathbb{R}^m$ un campo vectorial,  se define la \textit{gráfica de $\campoVec{F}$}, y se denota como $\operatorname{Graf}(\mathbf{f})$, al conjunto:
+\[ 
+\operatorname{Graf}(\campoVec{F}) = \{ (\mathbf{x}, \mathbf{y}) \in \mathbb{R}^{n} \times \mathbb{R}^{m} \mid \mathbf{x} \in A \land \mathbf{y} = \campoVec{F}(\mathbf{x}) \} 
+\]
 \end{definition}
-\begin{obs}  Como \( f: A  \subseteq  \mathbb{R}^n \rightarrow \mathbb{R}\)  entonces $\text{Graf}(f)  \subseteq  \mathbb{R}^{n+1},$  con el objetivo de poder dibujar,  nos detendremos especialmente en el caso de gr\'aficas de  campos  $f: A\subseteq \mathbb{R}^2 \rightarrow \mathbb{R},$ cuya definici\'on se desprende automaticamente  de la definici\'on  (\ref{def:grafica}),  es decir, 
+
+\begin{obs} Siendo $\campoVec{F} \colon A \subseteq \mathbb{R}^n \to \mathbb{R}^m$ un campo vectorial entonces  desde la Definicón \ref{def:grafica_campo_vec} se desprende de manera inmediata que 
  \[
-\text{Graf}(f)=\{(x,y,z)\in \mathbb{R}^3 \;|\;(x,y)\subseteq A \land z=f(x,y) \}.
+\operatorname{Graf}(\campoVec{F})   \subseteq  \mathbb{R}^{n+m}.
+ \]
+\end{obs}
+Para el caso particular de un campo escalar obtenemos la siguiente definición
+\begin{definition}\textbf{Gráfica de un campo escalar.} 
+ \label{def:grafica}
+ Sea \( f: A  \subseteq  \mathbb{R}^n \to  \mathbb{R}\),  se define la \textit{gráfica de $f$}, y se nota $\text{Graf}(f)$,  a
+ \[
+\operatorname{Graf}(f)=\{(\mathbf{x}, y) \in  \mathbb{R}^{n} \times \mathbb{R}  \;|\; \mathbf{x} \in A \land  y = f(\mathbf{x}) \}
+ \]
+\end{definition}
+
+
+\begin{obs}  Siendo \( f: A  \subseteq  \mathbb{R}^n \to  \mathbb{R}\) un campo escalar   entonces  desde la Definicón \ref{def:grafica}  se desprende que  $$\text{Graf}(f) \subseteq  \mathbb{R}^{n+1}.$$  Con el objetivo de poder dibujar,  nos detendremos especialmente en el caso de gr\'aficas de  campos  $f: A\subseteq \mathbb{R}^2 \rightarrow \mathbb{R},$ cuya definici\'on es,  
+ \[
+\operatorname{Graf}(f)=\{(x,y,z)\in \mathbb{R}^3 \;|\;(x,y)\in A \land z=f(x,y) \}.
  \]
 \end{obs}
 
  
+
 
 

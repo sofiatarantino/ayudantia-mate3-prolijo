@@ -1,41 +1,39 @@
-\begin{definition}{\textbf{Partición.}}
-    Se llama \textit{partición} de un intervalo real $[a,b]$ a un conjunto de puntos $P=\left\{x_1,x_2,...,x_{n-1}\right\}$, tal que
-    \begin{equation*}
-        a=x_0<x_1<x_2<...<x_{n-1}<b=x_n.
-    \end{equation*}
-    Así, la partición $P$ divide $[a,b]$ en $n$ subintervalos cerrados
-    \begin{equation*}
-        [a,x_1],[x_1,x_2],...,[x_{n-1},b].
-    \end{equation*}
+
+\begin{definition}\label{def:FuncMate1}{\textbf{Función.}}  Se llama \textit{función} a la regla que asigna a cada elemento de un conjunto $A$ un y solo un elemento de un conjunto $B$. Tomaremos, en esta sección, el caso donde $A, B \subseteq \mathbb{R}$.  La manera habitual de denotar una función $f$ es 
+\[
+f \colon A \subseteq \mathbb{R} \to B \subseteq \mathbb{R}.
+\]
+A los conjuntos $A$ y $B$ se los llama, respectivamente, \textit{dominio} y \textit{codominio} de la función, y la notación usual para los mismos es $A = \operatorname{Dom}(f)$ y $B = \operatorname{Cod}(f)$.
 \end{definition}
 
-\begin{definition}{\textbf{Función.}}
-   Se llama \textit{función} a la regla que asigna a cada elemento de un conjunto
-    $A$  un y s\'olo un elemento de un conjunto $B$. Tomaremos, en esta secci\'on,  el caso  donde $A, B \subseteq \mathbb{R}.$   La manera habitual de denotar una funci\'on $f$ es $$f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R}.$$  A los conjuntos $A$ y $B$  se los llama, respectivamente, \textit{dominio}  y \textit{codominio} de la funci\'on y  la notaci\'on usual para los mismos  es  $A=\text{Dom}(f)$ y $B=\text{Cod}(f)$.
-    \label{def:FuncMate1}
-\end{definition}
+
 
 
 \begin{definition} {\textbf{Imagen.}}
-    Dada una funci\'on $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R},$  se llama \textit{imagen} de una función y se nota  $\text{Img}(f)$, a
+    Dada una funci\'on $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R},$  se llama \textit{imagen} de  función y se denota por  $\text{Img}(f)$, 
     al conjunto 
-    \begin{equation*}
-        \text{Img}(f) = \left\{ y\in B: \exists\;x\in A\:|\:f(x)=y \right\}.    
-    \end{equation*}
+\begin{equation*} 
+\operatorname{Img}(f) = \{ y \in B \colon \exists \, x \in A \text{ tal que } f(x) = y \}. 
+\end{equation*} 
 \end{definition}
 
-\begin{definition}{\textbf{Gráfica.}}
-    \label{def:grafm1}
-   Dada una función $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R}$ se define la \textit{gráfica} de $f$, y se nota  $\text{Graf}(f)$, al conjunto
-    \begin{equation*}
-        \text{Graf}(f) = \left\{ (x,y)\in \mathbb{R}^{2}: x \in A\;\land\;y=f(x)\right\}.    
-    \end{equation*}
+\begin{definition} {\textbf{Gráfica.}} 
+\label{def:grafm1} 
+Dada una función $f \colon A \subseteq \mathbb{R} \to B \subseteq \mathbb{R}$, se define la \textit{gráfica} de $f$, y se denota como $\operatorname{Graf}(f)$, al conjunto 
+\begin{equation*} 
+\operatorname{Graf}(f) = \{ (x,y) \in \mathbb{R}^{2} \colon x \in A \land y = f(x) \}. 
+\end{equation*} 
 \end{definition}
+
+
 
 
 %\textcolor{red}{Aca hay un lio en los ejemplos, la tabla y el grafico no corresponden a la formula. Hacer dos ejemplos completo por separado. }
 
-\begin{example} Dibujar la gr\'afica de $f$ siendo  $$f:  [-2,\infty]  \subseteq \mathbb{R} \rightarrow  \mathbb{R} \:|\:  f(x)=2x-1$$ Tenemos que, por definici\'on,   $\text{Dom}(f)=  [-2,+\infty)$ y   $\text{Cod}(f)=  \mathbb{R}$, adem\'as es sencillo ver que $\text{Img}(f)= [-5,+\infty)$ .
+\begin{example} Dibujar la gr\'afica de la función $f \colon [-2,+\infty) \to \mathbb{R}$ definida por $f(x) = 2x-1$. 
+ \end{example}
+
+{\textbf{Solución.}}  Tenemos que, por definici\'on,   $\text{Dom}(f)=  [-2,+\infty)$ y   $\text{Cod}(f)=  \mathbb{R}$, adem\'as es sencillo ver que $\text{Img}(f)= [-5,+\infty)$ .
   Para hallar algunos puntos en la gr\'afica de $f$ se puede hacer una tabla de valores:
     \begin{table}[H]
         \centering
@@ -51,7 +49,7 @@
       \end{table} es decir,
        \begin{equation*}
         \left\{(-2,-5), (-1,-3), (0,-1), (1,1),(2,3) \right\}\subset \text{Graf}(f)
-    \end{equation*}  Estos puntos, se pueden graficar sobre un plano cartesiano.
+    \end{equation*}  Estos puntos, se pueden graficar sobre un plano cartesiano:
 
 \begin{figure}[H] 
        \begin{center}
@@ -83,8 +81,8 @@
         \label{fig:unitCircle1.2} 
    \end{figure}
 
-Además, sabemos que la función corresponde a una función lineal, por lo que, para graficar los infinitos puntos pertenecientes
-    a la $\text{Graf}(f)$ podemos unir los anteriores con una recta.
+Además, sabemos que la función es una función lineal, por lo que, para graficar los infinitos puntos pertenecientes
+    a la $\text{Graf}(f)$  podemos unir los anteriores con una recta:
     \begin{figure}[H] 
         \begin{center}
             \begin{tikzpicture}
@@ -111,14 +109,14 @@ Además, sabemos que la función corresponde a una función lineal, por lo que, 
                 \end{axis}
             \end{tikzpicture}
             \end{center}
-        \caption{En rojo, los puntos de la tabla de valores y en azul la $\text{Graf}(f)$.}
+        \caption{En rojo, los puntos de la tabla de valores y en azul la $\text{Graf}(f)$ completa.}
         %\label{fig:unitCircle1} % Etiqueta para hacer referencia a la imagen
     \end{figure}
 
-  \end{example}
-\begin{example} Dibujar la gr\'afica de $f$ siendo $$f: [-2,2]  \subseteq \mathbb{R} \rightarrow  \mathbb{R} \:|\:  f(x)=x^2.$$    En este caso, por definici\'on,  tenemos que $\text{Dom}(f)=  [-2,2]$ y $\text{Cod}(f)=  \mathbb{R}$. Adem\'as, es f\'acil ver que $\text{Img}(f)= [0,4].$
-
-Anlogamente al ejemplo anterior,  armamos una tabla de valores para $f$:
+ 
+\begin{example} Dibujar la gráfica de la función $f \colon [-2,2] \to \mathbb{R}$ definida por $f(x) = x^2$.
+ \end{example}
+{\textbf{Solución.}}  En este caso, por definici\'on,  tenemos que $\text{Dom}(f)=  [-2,2]$ y $\text{Cod}(f)=  \mathbb{R}$. Adem\'as, es f\'acil ver que $\text{Img}(f)= [0,4].$  Anlogamente al ejemplo anterior,  armamos una tabla de valores de $f$:
     \begin{table}[H]
         \centering
         \begin{tabular}{|c|c|}
@@ -167,9 +165,9 @@ Anlogamente al ejemplo anterior,  armamos una tabla de valores para $f$:
         %\label{fig:unitCircle1} % Etiqueta para hacer referencia a la imagen
 \end{figure}
 
- Por conocimiento previo, sabemos que la forma de unir estos puntos para graficar $f$ es a través de una parábola. Así, 
- se están dibujando los infinitos puntos pertenecientes a la $\text{Graf}(f)$ sobre el plano.
-        \begin{figure}[H] 
+
+Por conocimiento previo, sabemos que la forma de unir estos puntos para graficar $f$ es a través de una parábola. Así, se están dibujando los infinitos puntos pertenecientes a la $\operatorname{Graf}(f)$ sobre el plano.
+ \begin{figure}[H] 
             \begin{center}
                 \begin{tikzpicture}
                     \begin{axis}[
@@ -195,17 +193,15 @@ Anlogamente al ejemplo anterior,  armamos una tabla de valores para $f$:
                     \end{axis}
                 \end{tikzpicture}
                 \end{center}
-            \caption{En rojo, los puntos del subconjunto de la gráfica de la figura anterior. En azul, $\text{Graf}(f)$, con sus infinitos puntos, en el intervalo $[-2,2]$.}
+            \caption{En rojo, los puntos de la tabla de valores y en azul la $\text{Graf}(f)$ completa.}
             %\label{fig:unitCircle1} % Etiqueta para hacer referencia a la imagen
         \end{figure}
-\end{example}
-\begin{definition}
-  
-  Sea la funci\'on $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R}$. Diremos que
+
+\begin{definition}  Sea la funci\'on $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R}$. Diremos que
    $f$ es \textit{sobreyectiva} si se cumple que su codominio es igual a su imagen, esto es
    \begin{equation*}
         \text{Cod}(f)=\text{Img}(f).
-    \end{equation*}   Es decir que cada elemento del conjunto de salida es la evaluación de la función en al menos un elemento del dominio.
+    \end{equation*}   Es decir que cada elemento del conjunto de llegada es la evaluación de la función en al menos un elemento del dominio.
  Diremos que $f$ es   \textit{inyectiva} si a cada elemento en el conjunto imagen le corresponde un único
     valor del  conjunto dominio, esto es,   si  $a,b\in \text{Dom}(f)$, entonces:
      \begin{equation*}
@@ -214,16 +210,36 @@ Anlogamente al ejemplo anterior,  armamos una tabla de valores para $f$:
  Finalmente, diremos que $f$  es \textit{biyectiva} cuando es\textit{sobreyectiva} e \textit{inyectiva} a la vez.
 \end{definition}
 
-\begin{definition}{\textbf{Límite.}}
-    Sea $f$ una funci\'on  definida en un intervalo abierto alrededor de $x_0$, excepto posiblemente $x_0$.   Diremos que el l\'imite de $f$ cuando $x$ tiende a $x_0$ es $L$, y lo notaremos por 
-   \begin{equation*}
-        \lim_{x\to x_0}{f(x)}=L
-    \end{equation*}  si se cumple la siguiente condici\'on
-    \begin{equation*}
-        \forall \epsilon>0 : \exists \delta >0 : 0<\left\lvert x-x_0 \right\rvert<\delta \Rightarrow \left\lvert f(x) - L\right\rvert < \epsilon 
-    \end{equation*}
-    \label{def:Limite}
+
+\begin{definition}{\textbf{Clasificación de funciones.}}
+Sea la función $f \colon A \subseteq \mathbb{R} \to B \subseteq \mathbb{R}$. 
+
+Diremos que $f$ es \textit{sobreyectiva} si se cumple que su codominio es igual a su imagen, esto es:
+\begin{equation*} 
+\operatorname{Cod}(f) = \operatorname{Img}(f). 
+\end{equation*} 
+Es decir, cada elemento del conjunto de llegada es la evaluación de la función en al menos un elemento del dominio. 
+
+Diremos que $f$ es \textit{inyectiva} si a elementos distintos del dominio les corresponden imágenes distintas o, equivalentemente, si para cualesquiera $a,b \in \operatorname{Dom}(f)$ se cumple:
+\begin{equation*} 
+f(a) = f(b) \implies a = b. 
+\end{equation*} 
+
+Finalmente, diremos que $f$ es \textit{biyectiva} cuando es \textit{sobreyectiva} e \textit{inyectiva} a la vez. 
 \end{definition}
+
+\begin{definition}\label{def:Limite}{\textbf{Límite.}}  Sea $f$ una función definida en un intervalo abierto alrededor de $x_0$, excepto posiblemente en $x_0$. Diremos que el límite de $f$ cuando $x$ tiende a $x_0$ es $L$, y lo denotaremos por 
+\begin{equation*} 
+\lim_{x \to x_0} f(x) = L, 
+\end{equation*} 
+si se cumple la siguiente condición: 
+\begin{equation*} 
+\forall \varepsilon > 0, \, \exists \delta > 0 \colon 0 < |x - x_0| < \delta \implies |f(x) - L| < \varepsilon. 
+\end{equation*} 
+\end{definition}
+
+
+
 
 \begin{obs}{\textbf{Límites Notables.}}
     \label{obs:LimitesNotables}
@@ -260,26 +276,26 @@ Anlogamente al ejemplo anterior,  armamos una tabla de valores para $f$:
     \end{minipage}
 \end{obs}
 
-\begin{definition}{\textbf{Polinomio de Taylor.}}
-    Sea $f$ una función  y  $a \in \text{Dom}(f)$ tal que $f$ admite derivadas de orden $n$ en $a$. Se llama \textit{polinomio de Taylor de orden $n$ centrado en $a$ de la función $f$}, y se nota por $T_n[f,a](x)$, a:
-    \begin{equation*}
-        T_n[f,a](x) = \sum^n_{k=0} \frac{f^{(k)}(a)}{k!}(x-a)^k 
-    \end{equation*}
-    \label{def:PolTaylor}
+
+\begin{definition}\label{def:PolTaylor}{\textbf{Polinomio de Taylor.}}
+Sea $f$ una función y $a \in \operatorname{Dom}(f)$ tal que $f$ admite derivadas hasta el orden $n$ en $a$. Se llama \textit{polinomio de Taylor de orden $n$ de la función $f$ centrado en $a$}, y se denota por $T_n[f,a](x)$, al polinomio:
+\begin{equation*} 
+T_n[f,a](x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k. 
+\end{equation*}
 \end{definition}
 
 \begin{definition}{\textbf{Resto de Taylor.}}
-  En las condiciones de la definici\'on anterior,  se llama \textit{resto de Taylor} de orden $n$ de $f$, y se nota por $  R_n[f,a]$, a
-    \begin{equation*}
-        R_n[f,a](x) = f(x)-T_n[f,a](x).
-    \end{equation*}
- \end{definition} 
+En las mismas condiciones de la definición anterior, se llama \textit{resto de Taylor} de orden $n$ de la función $f$ centrado en $a$, y se denota por $R_n[f,a](x)$, a la función:
+\begin{equation*} 
+R_n[f,a](x) = f(x) - T_n[f,a](x). 
+\end{equation*} 
+\end{definition}
+
+
+\begin{propertie} \label{def:RestoTaylor} {\textbf{Propiedad del Resto de Taylor.}}  Si $f$ es una función con $n+1$ derivadas continuas en el intervalo cerrado de extremos $a$ y $x$, entonces existe un valor $c$ en el intervalo abierto de mismos extremos tal que:
+\begin{equation*} 
+R_n[f,a](x) = \frac{f^{(n+1)}(c)}{(n+1)!} (x-a)^{n+1}. 
+\end{equation*}
+A esta última expresión se la llama \textit{forma de Lagrange para el resto}
    
-  \begin{propertie}{\textbf{Propiedad del Resto de Taylor.}}  Si $f$ es  una función con $n+1$ derivadas continuas  en el intervalo cerrado de extremos $a$ y $x$ entonces 
-    existe $c\in\mathbb{R}$ en el intervalo abierto de mismos extremos tal que
-    \begin{equation*}
-        R_n[f,a](x) = f^{(n+1)}(c)\frac{(x-a)^{n+1}}{(n+1)!}.
-    \end{equation*}
-    A esta última expresi\'on se la llama \textit{fórmula de Lagrange para resto}.
-    \label{def:RestoTaylor}
 \end{propertie}

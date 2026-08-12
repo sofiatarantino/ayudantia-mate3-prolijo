@@ -4,34 +4,33 @@
 
 Para el cálculo de integrales en regiones con simetría cilíndrica, se utiliza el sistema de coordenadas cilíndricas. Un punto $(x, y, z)$ se relaciona con $(r, \theta, z)$ mediante:
 
-\begin{equation}
-\begin{cases} 
-x = r \cos \theta \\ 
-y = r \sin \theta \\ 
-z = z 
-\end{cases}
-\end{equation}
+\begin{equation}\label{def:coord_cilindricas}
+\mathbf{T}:W^*=[0,R]\times[0, 2\pi]\times[0,H] \subseteq\Rn{3} \to W\: : \: \mathbf{T}(r, \theta,z ) =( r \cos \theta , r \sin \theta,z ).
+\end{equation} 
 
-Donde las variables se restringen a $r \ge 0$, $0 \le \theta \le 2\pi$ y $z \in \mathbb{R}$ para recorrer todo el espacio.
+\begin{tarea} Probar que la transformaci\'on $T$ definida en (\ref{def:coord_cilindricas}) est\'a bajo las las hi\'otesis del Teorema  ~\ref{teo:cambio_variable}
+\end{tarea}
 
+\vspace{0.2cm}
 
-
-
-\vspace{0.4cm}
-\textbf{El Determinante Jacobiano}
-
-De acuerdo con el Teorema~\ref{teo:cambio_variable}, el cambio de coordenadas  requiere introducir el valor absoluto del determinante de la matriz Jacobiana $J_{\mathbf{T}}$ como factor de escala en el diferencial de volumen.Por lo calculado en el Ejemplo~\ref{ej:jacobiano_cilindrico}, y considerando que  $r \ge 0$,  el mismo queda:
+Para el c\'alculo del \emph{Determinante Jacobiano} de $T$  primero  calculamos su  matriz diferencial $D_\mathbf{T}$, quedando
+       \begin{equation*}
+       \boldsymbol{D}_{\mathbf{T}}(r, \theta,z ) 
+       =
+       \begin{pmatrix}
+       \cos\theta & -r\sin\theta & 0 \\
+       \sin\theta & r\cos\theta & 0 \\
+       0 & 0 & 1
+       \end{pmatrix}
+ \end{equation*}
+ luego, el jacobiano es
+       \begin{equation}\label{ejemplo_jacobiano_polares}
+       J_{\mathbf{T}}(r, \theta,z) = \det(\boldsymbol{D}_{\mathbf{T}})(r, \theta,z) = 
+      r(\cos^2\theta + \sin^2\theta) = r,
+      \end{equation} 
+ por \'ultimo,  en nuestro caso,  como $r \geq 0$, tenemos
 \begin{equation}
 |J_{\mathbf{T}}| = r
-\end{equation}
-
-\vspace{0.4cm}
-\textbf{Diferencial de Volumen}
-
-Dado que en el dominio de integración $r \ge 0$, el factor de escala es simplemente $r$. Por lo tanto, siguiendo el Teorema~\ref{teo:cambio_variable}, el diferencial de volumen resulta:
-
-\begin{equation}
-dV = r \, dr \, d\theta \, dz
 \end{equation}
 
 \textbf{Visualización del sistema de coordenadas cilíndricas}
@@ -86,13 +85,13 @@ dV = r \, dr \, d\theta \, dz
 
     % Cotas
     \node[below, color=black!60, font=\small]
-        at (axis cs: 2.5, 0, 0) {$R$};
+       at (axis cs: 2.5, 0, 0) {$R$};
     \node[above right, color=black!60, font=\small]
         at (axis cs: 0, 6.28, 0) {$2\pi$};
     \node[left, color=black!60, font=\small]
         at (axis cs: 0, 0, 0) {$z_1$};
     \node[left, color=black!60, font=\small]
-        at (axis cs: 0, 0, 2.5) {$z_2$};
+        at (axis cs: 0, 0, 2.5) {$H$};
 
     \end{axis}
 

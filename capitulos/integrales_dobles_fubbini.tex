@@ -2,19 +2,19 @@
 \begin{theorem}  \label{col:fubini} \textbf{Teorema de Fubini} en $\mathbb{R}^{2}.$  Sea $f:D\to\R$ continua sobre  $D\subseteq\Rn{2}$  un conjunto elemental   (\ref{conj_elem}) 
    
 \begin{enumerate} 
-        \item  Si $D$ es de tipo 1   entonces la integral doble de $f$ sobre $D$ se puede calcular
+        \item  Si $D$ es de Tipo 1 (\ref{def:tipo1})   entonces la integral doble de $f$ sobre $D$ se puede calcular
         \[
             \iint_D f=\int_a^b\left(\int_{\phi_1(x)}^{\phi_2(x)}f(x,y)\:dy\right)dx.  
         \]
        
-        \item   Si $D$ es de tipo 2   entonces la integral doble de $f$ sobre $D$ se puede calcular
+        \item   Si $D$ es de Tipo 2 (\ref{def:tipo2})  entonces la integral doble de $f$ sobre $D$ se puede calcular
         \[
-            \iint_D f=\int_a^b\left(\int_{\psi_1(y)}^{\psi_2(y)}f(x,y)\:dx\right)dy.  
+            \iint_D f=\int_c^d\left(\int_{\psi_1(y)}^{\psi_2(y)}f(x,y)\:dx\right)dy.  
         \]
        
-        \item Si $D$ es de tipo 3   entonces la integral doble de $f$ sobre $D$ se puede calcular  
+        \item Si $D$ es de Tipo 3   entonces la integral doble de $f$ sobre $D$ se puede calcular  
          \[
-            \iint_D f=\int_a^b\left(\int_{y=\phi_1(x)}^{y=\phi_2(x)}f(x,y)\:dy\right)dx=\int_a^b\left(\int_{x=\psi_1(y)}^{x=\psi_2(y)}f(x,y)\:dx\right)dy. 
+            \iint_D f=\int_a^b\left(\int_{\phi_1(x)}^{\phi_2(x)}f(x,y)\:dy\right)dx=\int_c^d\left(\int_{\psi_1(y)}^{\psi_2(y)}f(x,y)\:dx\right)dy. 
         \]
     \end{enumerate}
 \end{theorem}
@@ -60,7 +60,7 @@
     \[
         D=\{(x,y)\in\Rn{2}:0\leq x\leq1;\;x^3\leq y\leq x^2\},  
     \]
- luego $D$ es elemetal de tipo 1 y  por el \autoref{col:fubini}
+ por lo tanto $D$ es elemetal de Tipo 1 y  por el \autoref{col:fubini}
     \begin{gather*}
         \iint_D x^2y\:dA=\int_0^1\left(\int_{x^3}^{x^2}\:dy\right)dx=\int_0^1\left(x^2\frac{1}{2}y^2\Big\lvert_{x^3}^{x^2}\right)dx\\
         =\int_0^1\frac{1}{2}x^2\left((x^2)^2-(x^3)^2\right)=\int_0^1\frac{1}{2}x^6-\frac{1}{2}x^8\;dx\\=\frac{1}{14}x^7-\frac{1}{18}x^9\Big\lvert_0^1=\frac{1}{14}-\frac{1}{18}=\frac{1}{63}.
@@ -74,7 +74,7 @@
 
 \begin{definition}  
     \label{def:area}
-    Sea $D\subset\Rn{2}$,  se define el \'area de $D$,  y se nota $\text{A}(D)$,  a  
+    Sea $D\subset\Rn{2}$,  se define el \'area de $D$,  y se denota $\text{A}(D)$,  a  
     \[
         \text{A}(D)=\iint_D1\:dA.
     \]

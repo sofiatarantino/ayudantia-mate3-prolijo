@@ -1,44 +1,41 @@
 \begin{definition}\label{long}\textbf{Longitud de curva.}
-    Sean $C$ una curva simple en $\Rn{n}$ y  $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular y  de clase $\mathcal{C}^1$ a trozos de $C$  (ver\: \ref{param}). Se define la \emph{longitud de} $C$, y se nota  Long($C$), a 
+    Sean $C$ una curva simple en $\mathbb{R}^n$ y  $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular y  de clase $\mathcal{C}^1$ a trozos de $C$  (ver\: \ref{param}). Se define la \emph{longitud de} $C$, y se denota por  Long($C$), a 
     \[
-        \text{Long}(C)=\sum_{i=1}^{m}\int_{I_i}\|\boldsymbol{\sigma}'(t)\|dt,    
+        \text{Long}(C)=\sum_{i=0}^{m-1}\int_{I_i}\|\boldsymbol{\sigma}'(t) \|\,dt ,    
     \]
-   donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\lvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m-1}$  es una partici\'on de $I$.
+   donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\rvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m}$  es una partici\'on de $I$.
 \end{definition}
 
 
 
 \begin{example}
-    Sea la curva simple $C$ que describe una circunferencia de radio $r$ centrada en el origen, \emph{i.e.}
-        \[
-            C = \bigl\{(x,y)\in\Rn{2} \;:\; x^2 + y^2 = r^2 \bigr\}.
-        \]
-         Calcular la longitud de $C$.
-        
-        
-       Es sencillo ver que 
+  Calcular la longitud de $C$,  siendo $C$  la curva simple  que describe una circunferencia de radio $r$ centrada en el origen. 
+  \end{example}  
+
+% Sabemos que podemos describir a  la curva $C$ como   \[  C = \bigl\{(x,y)\in\Rn{2} \;:\; x^2 + y^2 = r^2 \bigr\},\]
+
+\noindent\textbf{Solución:}  Para calcular la longitud de la curva utilizando la definición~\ref{long}, necesitamos realizar tres pasos fundamentales:
+\begin{enumerate}
+    \item Hallar una parametrización $\boldsymbol{\sigma}$ adecuada para la  curva. 
+    \item Calcular el vector tangente $\boldsymbol{\sigma}'$.  
+    \item Obtener la norma $\|\boldsymbol{\sigma}'\|$ y resolver la integral correspondiente. 
+\end{enumerate}
+
+\noindent Comenzamos parametrizando la curva. Es sencillo ver que 
         \[
             \boldsymbol{\sigma}(t) 
             = 
-            \bigl(r\cos t,\;r\sin t\bigr),
-            \qquad t\in [\,0,\,2\pi\,].
+            \bigl(r\cos t,\;r\sin t\bigr), \quad
+            \text{ con } t\in [\,0,\,2\pi\,].
         \] 
-       es una parametrización regular y de clase  \(\mathcal{C}^1\)  de $C$, luego  
-        \begin{gather*}
-            \boldsymbol{\sigma}'(t)
-            =
-            \bigl(-r\sin t,\;r\cos t\bigr) \mbox{ y }\\[.2cm]
-            \|\boldsymbol{\sigma}'(t)\|
-            =
-            \sqrt{(-r\sin t)^2 + (r\cos t)^2}
-            =
-            r\,\sqrt{\sin^2 t + \cos^2 t}
-            = 
-            r.
-        \end{gather*}
+       es una parametrización regular y de clase  \(\mathcal{C}^1\)  de $C$. Luego  
+        \begin{align*} 
+\boldsymbol{\sigma}'(t) &= (-r\sin t,\, r\cos t), \\[0.2cm]
+\|\boldsymbol{\sigma}'(t)\| &= \sqrt{(-r\sin t)^2 + (r\cos t)^2} = r\sqrt{\sin^2 t + \cos^2 t} = r. 
+\end{align*} 
        Para calcular la longitud de $C$  basta con plantear y resolver la siguiente integral
         \[
-            \mathrm{Long}(C)
+            \text{Long}(C)
             =
             \int_{0}^{2\pi} \bigl\|\boldsymbol{\sigma}'(t)\bigr\| \, dt
             =
@@ -46,36 +43,30 @@
             =
             2\pi r.
         \]
-        Por lo tanto, la  longitud de la circunferencia de radio \(r\) es \(2\pi r\), resultado ya conocido. 
-    \end{example}
+        Por lo tanto, la  longitud de la curva \(2\pi r\), resultado ya conocido, dado que $C$ es una circunferencia de radio \(r\).  \hfill $\blacksquare$ 
+  
     
-   
-    \begin{example}
-    Sea  la curva simple $C$ dada por el segmento que une los puntos $\mathbf{p}$ y $\mathbf{q}$  en \(\Rn{n}\).   Calcular la longitud de $C$. 
+\begin{example}\label{ejer:param_seg}
+  Sea la curva simple $S$ dada por el segmento que une los puntos $\mathbf{p}$ y $\mathbf{q}$ en $\mathbb{R}^n$. Calcular la longitud de $S$. 
+\end{example}
     
-     Es sencillo ver que 
-        \[
-            \boldsymbol{\sigma}(t) 
-            = 
-            \mathbf{p} + t\, (\,\mathbf{q} - \mathbf{p}\,),
-            \qquad t\in [\,0,\,1\,].
-        \]
-          es una parametrización regular y de clase  \(\mathcal{C}^1\) de \(C\), luego  
-        \[
-            \boldsymbol{\sigma}'(t) = \mathbf{q} - \mathbf{p}
-            \implies \|\boldsymbol{\sigma}'(t)\| = \|\mathbf{q} - \mathbf{p}\|
-        \]
-      Para calcular la longitud de $\Gamma$  basta con plantear y resolver la siguiente integral  
-        \[
-            \mathrm{Long}(C)
-            =
-            \int_{0}^{1} \|\boldsymbol{\sigma}'(t)\|\: dt
-            =
-            \int_{0}^{1} \|\mathbf{q} - \mathbf{p}\|\: dt
-            =
-            \|\mathbf{q} - \mathbf{p}\|.
-        \] Por lo tanto, la longuitud del segmento que une los puntos  $\mathbf{p}$ y $\mathbf{q}$  es $ \|\mathbf{q} - \mathbf{p}\|$, resultado ya conocido.
- \end{example}
+\noindent\textbf{Solución:} Al igual que en el ejercicio anterior, el procedimiento consiste en parametrizar la curva, hallar su vector tangente y luego integrar su norma. 
 
- \begin{tarea} Calcular, usando la definici\'on  \ref{long},   el per\'imetro de un rombo cuyas diagonales menor y mayor miden $d$ y $D$ respectivamente.  
+Comenzamos parametrizando el segmento que va desde el punto $\mathbf{p}$ hacia el punto $\mathbf{q}$.  
+\[ 
+\boldsymbol{\sigma}(t) = \mathbf{p} + t(\mathbf{q} - \mathbf{p}), \quad  \text{ con } t\in [0,1]. 
+\]
+Esta parametrización es de clase $\mathcal{C}^1$ y regular de $S$.  Al calcular su vector tangente obtenemos un vector constante:
+\begin{align*} 
+\boldsymbol{\sigma}'(t) &=\mathbf{q} - \mathbf{p}, \\[0.2cm]
+\|\boldsymbol{\sigma}'(t)\| &=   \|\mathbf{q} - \mathbf{p}\|. 
+\end{align*} 
+Para calcular la longitud de $S$  basta con plantear y resolver la siguiente integral
+\[ 
+\text{Long}(S) = \int_{0}^{1} \bigl\|\boldsymbol{\sigma}'(t)\bigr\| \, dt = \int_{0}^{1} \|\mathbf{q} - \mathbf{p}\| \, dt = \|\mathbf{q} - \mathbf{p}\|.
+\] 
+Por lo tanto, la longitud del segmento es $\|\mathbf{q} - \mathbf{p}\|$, resultado que coincide perfectamente con la distancia euclídea elemental entre dos puntos.  \hfill $\blacksquare$ 
+
+
+\begin{tarea} Calcular, usando la definici\'on  \ref{long},   el per\'imetro de un rombo cuyas diagonales menor y mayor miden $d$ y $D$ respectivamente.  
  \end{tarea}

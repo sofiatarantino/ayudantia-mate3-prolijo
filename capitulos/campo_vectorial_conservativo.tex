@@ -1,10 +1,13 @@
-\begin{definition}\label{conser} Un  campo vectorial continuo $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$, con  $A$ abierto y arcoconexo,   se llama \emph{campo conservativo} si existe  $f:A\subseteq\Rn{n}\to\R$ de clase $\mathcal{C}^1$  tal que  $$\grad f(\mathbf{x})=\mathbf{F}(\mathbf{x})\quad\forall\:\mathbf{x}\in A.$$ En tal caso el campo escalar $f$ se llama \emph{funci\'on potencial} del campo vectorial $\mathbf{F}.$
-\end{definition} 
+\begin{definition}\label{conser} 
+Un campo vectorial continuo $\mathbf{F}: A \subseteq \mathbb{R}^n \to \mathbb{R}^n$, con $A$ abierto y arcoconexo, se llama \emph{campo conservativo} si existe una función escalar $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ de clase $\mathcal{C}^1$ tal que:
+\[ \nabla f(\mathbf{x}) = \mathbf{F}(\mathbf{x}), \quad \forall \mathbf{x} \in A \] 
+En tal caso, el campo escalar $f$ se llama \emph{función potencial} del campo vectorial $\mathbf{F}$. 
+\end{definition}
 
+\begin{propertie}\label{conserv}  Sea $A\subset \Rn{n}$   ($n=2$ o $n=3$)  abierto y arcoconexo y sea  $\mathbf{F}:A  \to \Rn{n}$  de clase $C^{1}(A).$  Si $\mathbf{F}$ es  un campo conservativo entonces $$\nabla \times \mathbf{F}(\mathbf{x}) =0 \:\:\: \forall \mathbf{x} \in A.  $$  
+\end{propertie}
 
-\begin{example}
-Determinar si $\mathbf{F}(x,y,z) = (z\cos xz,\; z,\; y + x\cos xz)$
-admite función potencial. En caso afirmativo, hallarla.
+\begin{example} Determinar si $\mathbf{F}(x,y,z) = (z\cos xz,\; z,\; y + x\cos xz)$ admite función potencial y, cn caso afirmativo,  hallarla.
 
 Un campo vectorial $\mathbf{F} = (P, Q, R)$
 de clase $\mathcal{C}^1$ en un abierto simplemente conexo admite función potencial
@@ -71,8 +74,49 @@ Luego:
 \]
 \end{example}
 
+\begin{example} 
+Determinar si el campo vectorial $\mathbf{F}(x,y,z) = (z\cos xz,\; z,\; y + x\cos xz)$ admite función potencial y, en caso afirmativo, hallarla.
+\end{example}
 
-\begin{propertie}\label{conserv}  Sea $A\subset \Rn{n}$   ($n=2$ o $n=3$)  abierto y arcoconexo y sea  $\mathbf{F}:A  \to \Rn{n}$  de clase $C^{2}(A).$  Si $\mathbf{F}$ es  un campo conservativo entonces $$\nabla \times \mathbf{F}(\mathbf{x}) =0 \:\:\: \forall \mathbf{x} \in A.  $$  
-\end{propertie}
+\noindent\textbf{Solución:}  El campo vectorial $\mathbf{F} = (P, Q, R)$ está definido en todo $\mathbb{R}^3$ y sus componentes son combinaciones de funciones polinómicas y trigonométricas de clase $\mathcal{C}^1$. 
+De acuerdo con la Propiedad~\ref{conserv}, si un campo es conservativo, sus derivadas parciales cruzadas deben ser iguales (lo que equivale a que su rotacional sea nulo).  Por lo tanto, antes de buscar la función potencial, verificamos si se cumplen estas condiciones necesarias:
+\[ \frac{\partial R}{\partial y} = \frac{\partial Q}{\partial z}, \qquad \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}, \qquad \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y} \]
+
+Identificamos las componentes del campo:
+\[ P(x,y,z) = z\cos xz, \qquad Q(x,y,z) = z, \qquad R(x,y,z) = y + x\cos xz \]
+
+Calculamos las derivadas parciales correspondientes:
+\begin{align*}
+    \frac{\partial R}{\partial y} &= 1, \qquad \frac{\partial Q}{\partial z} = 1 \implies \frac{\partial R}{\partial y} = \frac{\partial Q}{\partial z} \\
+    \frac{\partial P}{\partial z} &= \cos xz - xz\sin xz, \qquad \frac{\partial R}{\partial x} = \cos xz - xz\sin xz \implies \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x} \\
+    \frac{\partial Q}{\partial x} &= 0, \qquad \frac{\partial P}{\partial y} = 0 \implies \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}
+\end{align*}
+
+Como las condiciones necesarias se satisfacen, el campo $\mathbf{F}$ es un candidato válido para ser conservativo. Procederemos a intentar construir su función potencial de forma directa en el siguiente paso. Si logramos hallarla con éxito, quedará demostrado que el campo efectivamente admite función potencial.
+
+
+
+Buscamos una función escalar $\varphi(x,y,z)$ tal que $\nabla\varphi = \mathbf{F}$. Esto nos plantea el siguiente sistema de ecuaciones diferenciales parciales:
+\[ \text{(I)} \ \frac{\partial \varphi}{\partial x} = z\cos xz, \qquad \text{(II)} \ \frac{\partial \varphi}{\partial y} = z, \qquad \text{(III)} \ \frac{\partial \varphi}{\partial z} = y + x\cos xz \]
+
+Comenzamos integrando la ecuación (I) respecto a la variable $x$:
+\[ \varphi(x,y,z) = \int z\cos xz\, dx =\sin xz + g(y,z) \]
+donde $g(y,z)$ representa la "constante" de integración, la cual puede depender de las variables que se mantuvieron fijas ($y$ y $z$).
+
+Para determinar $g(y,z)$, derivamos la expresión obtenida respecto a $y$ e igualamos con la ecuación (II):
+\[ \frac{\partial \varphi}{\partial y} = \frac{\partial g}{\partial y} = z \]
+Integrando ahora respecto a $y$, hallamos la forma de la función $g$:
+\[ g(y,z) = \int z\, dy = yz + h(z) \]
+donde $h(z)$ es una nueva función que depende únicamente de $z$. Sustituyendo esto en nuestra expresión para $\varphi$, tenemos:
+\[ \varphi(x,y,z) = \sin xz + yz + h(z) \]
+
+Finalmente, para hallar $h(z)$, derivamos respecto a $z$ e igualamos con la ecuación (III):
+\[ \frac{\partial \varphi}{\partial z} = x\cos xz + y + h'(z) = y + x\cos xz \]
+Simplificando los términos comunes de ambos lados, obtenemos:
+\[ h'(z) = 0 \implies h(z) = C, \quad \text{con } C \in \mathbb{R} \]
+
+\noindent \textbf{Resultado:} La familia de funciones potenciales para el campo vectorial $\mathbf{F}$ es:
+\[ \boxed{\varphi(x,y,z) = \sin xz + yz + C} \]
+
 
 

@@ -1,64 +1,124 @@
 
 
 \begin{definition}\label{def:int_de_linea}\textbf{Integral de l\'inea para campos escalares.}
-    Sea $C\subset \Rn{n}$  una curva simple y suave a trozos  (\ref{param})  y sea $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular de $C$.   Sea $f:A\subseteq\Rn{n}\to\R$ continua con $C  \subseteq  A$.   Se define la \emph{integral de l\'inea del campo $f$ sobre la curva} $C$, y se nota por $\int_{C}f\:ds$ a
+    Sea $C\subset \Rn{n}$  una curva simple y suave a trozos  (\ref{param})  y sea $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular de $C$.   Sea $f:A\subseteq\Rn{n}\to\R$ un campo escalar continuo con $C  \subseteq  A$.   Se define la \emph{integral de l\'inea del campo $f$ sobre la curva} $C$, y se denota por $\int_{C}f\:ds$,  mediante
     \[
         \int_{C}f\:ds= \int_{\boldsymbol{\sigma}}f\:ds. 
     \]
-   
-
-
 \end{definition}
 
-\begin{obs}\label{obs:param} La definici\'on anterior no depende de la parametrizaci\'on elegido para la curva $C$.
-\end{obs} 
-
- 
-
-\begin{example}  Sean el campo $f: \mathbb{R}^{2}\to\R$ tal que $f(x,y)=x$ y la curva simple $C$  dada por el segmento que uno los puntos $(0.0)$ y $(1,1)$.  Calcular la integral de l\'inea del campo $f$ sobre la curva $C$.
-   
-   Por un lado,  es sencillo ver que    $\boldsymbol{\sigma}_1(t)=(t,t)$ con $t\in[0,1]$ es una parametrización suave y regular  de $C$.  Siguiendo  \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre $C$ es
-    \[
-        \int_C f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_1(t)\|\boldsymbol{\sigma}_1'(t)\|\:dt.
-    \]
-    Como
-    \[
-        f\circ\boldsymbol{\sigma}_1(t)=f(t,t)=t 
-    \]
-    y
-    \[
-        \boldsymbol{\sigma}_1'(t)=(1,1)\implies\|\boldsymbol{\sigma}_1'(t)\|=\sqrt{1^2+1^2}=\sqrt{2};
-    \]
-    se llega a 
-    \[
-        \int_C f\;ds=\int_0^1t\sqrt{2}\;dt=\frac{\sqrt{2}}{2}.
-    \]
-
-    Por otro lado, tambi\'en es sencillo ver que  $\boldsymbol{\sigma}_2(t)=(t^2,t^2)$ con $t\in[0,1]$ es una parametrización  suave y regular  de $C$.  Siguiendo   \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre $C$ es
-    \[
-        \int_C f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_2(t)\|\boldsymbol{\sigma}_2'(t)\|\:dt,
-    \]
-    Como 
-    \[
-        f\circ\boldsymbol{\sigma}_2(t)= f(t^{2},t^{2}) = t^2
-    \]
-    y
-    \[
-        \boldsymbol{\sigma}_2'(t)=(2t,2t)\implies\|\boldsymbol{\sigma}_2'(t)\|=\sqrt{(2t)^2+(2t)^2}=2t\sqrt{2};
-    \]
-     se llega a 
-    \[
-        \int_C f\;ds=\int_0^1t^22t\sqrt{2} \;dt =2\sqrt{2}\int_0^1t^3\;dt=\frac{\sqrt{2}}{2}.
-    \]
-    
-   Queda ilustrado lo dicho en la Observaci\'on \ref{obs:param}, es decir, bajo las hip\'otesis enunciadas, se cumple que: 
-
-
- $$ \int_C f\;ds =  \int_{\boldsymbol{\sigma_1}}f\:ds =\int_{\boldsymbol{\sigma_2}}f\:ds. $$
-  \end{example}  
-
-\begin{obs} 
- Sea $f:A\subseteq\Rn{2} \to\R$   tal que  $f(x,y)>0 \; \forall (x,y) \in A$ y   sea $C  \subseteq  A$  una curva simple en $\Rn{2}$.   La integral de l\'inea de $f$ sobre $C$  se puede interpretar geom\'etricamente como el ``\'area de la valla de base $C$  y altura $f$". 
+\begin{obs}\label{obs:param} 
+La definición anterior es intrínseca a la curva, es decir, su valor no depende de la parametrización elegida para $C$. Si bien cambiar la parametrización altera tanto la velocidad del recorrido $\|\boldsymbol{\sigma}'(t)\|$ como el intervalo de integración, el teorema de cambio de variable garantiza que ambos efectos se compensen exactamente, dejando el valor de la integral invariante (siempre que se preserve la simplicidad de la curva).
 \end{obs}
+
+\begin{example}\label{ej:indep_param} Sean el campo $f: \mathbb{R}^{2}\to\R$ tal que $f(x,y)=x$ y la curva simple $C$  dada por el segmento que uno los puntos $(0.0)$ y $(1,1)$.  Calcular la integral de l\'inea del campo $f$ sobre la curva $C$.
+ \end{example} 
+  
+\noindent\textbf{Solución:} Al igual que en los ejemplos anteriores, primero debemos elegir una parametrización para la curva $C$. La forma estándar de describir el segmento  de recta que va desde el origen $(0,0)$ hasta el punto $(1,1)$ es  (ver ejercicio \ref{ejer:param_seg})
+\[
+\boldsymbol{\sigma}(t) = (t,\, t), \quad \text{con } t \in [0,1].
+\]
+Esta parametrización es de clase $\mathcal{C}^1$ y regular, entonces, siguiendo  la Definici\'on \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre la curva $C$ es
+    \[
+        \int_C f\;ds=  \int_{\boldsymbol{\sigma_1}}f\:ds,  
+    \]
+y, por la Definici\'on  \ref{def:int_linea_esca_a_trozos}, sabemos que:
+
+\[
+\int_{\boldsymbol{\sigma_1}}f\:ds = \int_0^1 (f \circ\boldsymbol{\sigma}_1) (t)\|\boldsymbol{\sigma_1}'(t)\|\:dt.
+ \]
+    
+
+Procedemos a calcular su vector tangente y la norma correspondiente:
+\[
+\boldsymbol{\sigma_1}'(t) = (1,\, 1) \implies \|\boldsymbol{\sigma_1}'(t)\| = \sqrt{1^2 + 1^2} = \sqrt{2}.
+\]
+A continuación, evaluamos el campo escalar $f(x,y) = x$ sobre los puntos de la trayectoria, reemplazando la componente $x$ por la parametrización, lo que nos da $(f \circ \boldsymbol{\sigma_1})(t) = t$.
+
+
+\noindent  Juntando todo lo dicho:
+\begin{align*}
+\int_{0}^{1} (f \circ \boldsymbol{\sigma_1})(t) \|\boldsymbol{\sigma_1}'(t)\|\,dt  &= \int_{0}^{1} t \cdot \sqrt{2}\,dt  \\[0.2cm]
+&= \sqrt{2} \left[ \frac{t^2}{2} \right]_{0}^{1} \\[0.2cm]
+&= \sqrt{2} \left( \frac{1}{2} - 0 \right) = \frac{\sqrt{2}}{2}.
+\end{align*}
+Por lo tanto, la integral de línea $\int_C f\;ds =\dfrac{\sqrt{2}}{2}$.  \hfill $\blacksquare$
+
+
+\begin{obs}   Por otro lado, también es sencillo ver que $\boldsymbol{\sigma}_2(t)=(t^2,t^2)$ con $t\in[0,1]$ es una parametrización suave y regular de $C$. Siguiendo el mismo razonamiento del Ejemplo \ref{ej:indep_param} tenemos que: 
+\[ 
+\int_C f\,ds=\int_0^1 (f\circ\boldsymbol{\sigma}_2)(t)\|\boldsymbol{\sigma}_2'(t)\|\,dt. 
+\] 
+Como 
+\[ 
+(f\circ\boldsymbol{\sigma}_2)(t)= f(t^{2},t^{2}) = t^2 
+\] 
+y 
+\[ 
+\boldsymbol{\sigma}_2'(t)=(2t,2t)\implies\|\boldsymbol{\sigma}_2'(t)\|=\sqrt{(2t)^2+(2t)^2}=2t\sqrt{2}, 
+\] 
+se llega a 
+\[ 
+\int_C f\,ds=\int_0^1 t^2 \:  2t\sqrt{2} \, dt =2\sqrt{2}\int_0^1 t^3 \,dt = \frac{\sqrt{2}}{2}. 
+\] 
+Queda ilustrado lo dicho en la Observación~\ref{obs:param}, es decir, bajo las hipótesis enunciadas, se cumple que:
+\[ 
+\int_C f\,ds = \int_{\boldsymbol{\sigma}_1}f\,ds =\int_{\boldsymbol{\sigma}_2}f\,ds. \tag*{$\blacksquare$}
+\]
+
+\end{obs}
+
+  
+
+\begin{obs}\label{obs:valla}
+Sea $f:A\subseteq\mathbb{R}^2 \to\mathbb{R}$ tal que $f(x,y) > 0$ para todo $(x,y) \in A$ y sea $C \subseteq A$ una curva simple en $\mathbb{R}^2$. La integral de línea de $f$ sobre $C$ se puede interpretar geométricamente como el ``área de la valla de base $C$ y altura $f$''. 
+\end{obs}
+
+\begin{example}
+Se desea construir una valla publicitaria cuya base está apoyada sobre el plano $xy$ siguiendo la trayectoria de la semicircunferencia $x^2 + y^2 = 4$ con $y \ge 0$. Si la altura de la valla en cada punto $(x,y)$ viene dada por la función $f(x,y) = 3 + x$, calcular el área total de una de las caras de la valla.
+\end{example}
+
+\noindent\textbf{Solución:} Con base en la observación \ref{obs:valla}, sabemos que el área de una valla vertical levantada sobre una curva plana $C$ con una altura dada por un campo escalar positivo $f(x,y)$ se calcula exactamente mediante la integral de línea:
+\[
+\text{Área} = \int_{C} f(x,y) \, ds.
+\]
+Para resolver el problema, procedemos a parametrizar la base de la valla (la curva $C$) y a evaluar la función de altura sobre dicha trayectoria.
+
+\noindent\textbf{Paso 1: Parametrizar la curva.} 
+La base es una semicircunferencia de radio $r = 2$ centrada en el origen y situada en el semiplano superior ($y \ge 0$). Una parametrización natural en coordenadas polares es:
+\[
+\boldsymbol{\sigma}(t) = (2\cos t,\, 2\sin t), \quad \text{con } t \in [0, \pi].
+\]
+Esta trayectoria es regular y de clase $\mathcal{C}^1$. Calculamos su vector tangente y su norma (velocidad):
+\[
+\boldsymbol{\sigma}'(t) = (-2\sin t,\, 2\cos t) \implies \|\boldsymbol{\sigma}'(t)\| = \sqrt{(-2\sin t)^2 + (2\cos t)^2} = \sqrt{4(\sin^2 t + \cos^2 t)} = 2.
+\]
+
+\noindent\textbf{Paso 2: Evaluar la altura sobre la curva.}
+Sustituimos las componentes de la parametrización $x = 2\cos t$ e $y = 2\sin t$ en nuestro campo escalar de altura $f(x,y) = 3 + x$:
+\[
+(f \circ \boldsymbol{\sigma})(t) = 3 + 2\cos t.
+\]
+Notemos que para todo $t \in [0, \pi]$, se cumple que $3 + 2\cos t > 0$, lo que valida geométricamente la existencia de la altura de la valla.
+
+\noindent\textbf{Paso 3: Plantear y resolver la integral.}
+Aplicando la definición de integral de línea, el área buscada es:
+\begin{align*}
+\text{Área} &= \int_{0}^{\pi} (f \circ \boldsymbol{\sigma})(t) \|\boldsymbol{\sigma}'(t)\| \, dt \\[0.2cm]
+&= \int_{0}^{\pi} (3 + 2\cos t) \cdot 2 \, dt \\[0.2cm]
+&= 2 \int_{0}^{\pi} (3 + 2\cos t) \, dt \\[0.2cm]
+&= 2 \left[ 3t + 2\sin t \right]_{0}^{\pi} \\[0.2cm]
+&= 2 \Big( (3\pi + 2\sin\pi) - (0 + 2\sin 0) \Big) = 6\pi
+\end{align*}
+Por lo tanto, el área de una de las caras de la valla publicitaria es de $6\pi$ unidades de área. \hfill $\blacksquare$
+
+
+
+
+
+
+
+
+
 
 

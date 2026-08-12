@@ -1,37 +1,35 @@
 
 \label{sec:coordenadas_esfericas}
-\vspace{0.2cm}
-
-Para el cálculo de integrales en regiones con simetría esférica, se utiliza el sistema de coordenadas esféricas. Un punto $(x, y, z)$ se relaciona con $(\rho, \phi, \theta)$ mediante:
-
-\begin{equation}
-    \begin{cases}
-        x = \rho \sin \phi \cos \theta \\
-        y = \rho \sin \phi \sin \theta \\
-        z = \rho \cos \phi
-    \end{cases}
-\end{equation}
-
-Donde las variables se restringen a $\rho \ge 0$, $0 \le \phi \le \pi$ y $0 \le \theta \le 2\pi$ para recorrer toda la esfera.
 
 
-\vspace{0.4cm}
-\textbf{El Determinante Jacobiano}
+\textbf{Cambio de coordenadas Lineales} \textcolor{red}{Agregar}
 
-De acuerdo con el Teorema~\ref{teo:cambio_variable},  el cambio de coordenadas  requiere introducir el valor absoluto del determinante de la matriz Jacobiana $J_{\mathbf{T}}$ como factor de escala en el diferencial de volumen. Por lo calculado en el Ejemplo~\ref{ej:jacobiano_esferico}  y considerando que $0 \le \phi \le \pi$,  el  mismo queda:
-\begin{equation}
+Para el cálculo de integrales en regiones con simetría esf\'ericas, se utiliza el sistema de coordenadas esf\'ericas. Un punto $(x, y, z)$ se relaciona con $(\rho, \theta ,  \phi)$ mediante:
+\begin{equation}\label{def:coord_esfericas}
+\mathbf{T}:W^*=[0,R]\times[0, 2\pi]\times[0,\pi]  \subseteq\Rn{3} \to W\: : \: \mathbf{T}(r, \theta,z ) =( \rho \sin \phi \cos \theta  ,  \rho \sin \phi \sin \theta ,  \rho \cos \phi ).
+\end{equation} 
+
+\begin{tarea} Probar que la transformaci\'on $T$ definida en (\ref{def:coord_esfericas}) est\'a bajo las las hi\'otesis del Teorema  ~\ref{teo:cambio_variable}
+\end{tarea}
+
+
+Para el c\'alculo del \emph{Determinante Jacobiano} de $T$  primero  calculamos su  matriz diferencial $D_\mathbf{T}$, quedando
+ 
+\[
+    \boldsymbol{D}_{\mathbf{F}}(\rho, \theta, \phi) 
+    =
+    \begin{pmatrix}
+    \sin\phi \cos\theta & -\rho \sin\phi \sin\theta & \rho \cos\phi \cos\theta \\
+    \sin\phi \sin\theta & \rho \sin\phi \cos\theta & \rho \cos\phi \sin\theta \\
+    \cos\phi & 0 & -\rho \sin\phi
+    \end{pmatrix}
+    \]
+ 
+ por \'ultimo,  en nuestro caso,  como $  0 \leq \phi \leq \pi$, tenemos
+\begin{equation}   \label{ej:jacobiano_esferico}
     \left| J_{\mathbf{T}} \right| = \rho^2 \sin \phi
 \end{equation}
-
-\vspace{0.4cm}
-\textbf{Diferencial de Volumen}
-
-Dado que en el dominio de integración $\sin \phi \ge 0$ ya que $0 \le \phi \le \pi$, el factor de escala es simplemente $\rho^2 \sin \phi$. Por lo tanto, siguiendo el Teorema~\ref{teo:cambio_variable}, el diferencial de volumen resulta:
-
-\begin{equation}
-    dV = \rho^2 \sin \phi \, d\rho \, d\phi \, d\theta
-\end{equation}
-
+  
 \textbf{Visualización del sistema de coordenadas esféricas}
 
 \begin{figure}[htbp]

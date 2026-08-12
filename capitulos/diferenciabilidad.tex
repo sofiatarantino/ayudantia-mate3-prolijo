@@ -1,14 +1,15 @@
 \label{sec:diferenciabilidad}
 
-Empecemos repasando la derivada de una funci\'on de una variable.  Recordemos la idea de "recta que
-mejor aproxima" a la gr\'afica de la funci\'on en un punto $(x_0, f(x_0)).$ 
+Empecemos repasando la derivada de una funci\'on de una variable.  Recordemos la idea de ``recta que mejor aproxima'' a la gr\'afica de la funci\'on en un punto $(x_0, f(x_0)).$ 
 
 \begin{definition} \textbf{Caracterización de la derivabilidad en una variable.}\label{recta_tangente}
-Sea $f: A\subseteq  \mathbb{R}\to\mathbb{R}$ y $x_0 \in A^{\circ}$,   $f$ llama  derivable en $x_0$  si  existe un número real $m$ tal que
+Sea $f: A\subseteq  \mathbb{R}\to\mathbb{R}$ y $x_0 \in A^{\circ}$,   $f$ se  llama  derivable en $x_0$  si  existe un número real $m$ tal que la recta de ecuaci\'on
 $$ L(x) = f(x_0) + m(x-x_0) $$    satisface
 \begin{equation}\label{prueba}
- \lim_{x\to x_0} \frac{f(x) - L(x)}{x-x_0} = 0. 
-\end{equation} En tal caso,  el n\'umero $m$ se llama la derivada de $f$ en $x_0$ y se nota por $ f^{'}(x_0)$ y  la condici\'on (\ref{prueba})  se llama  \emph{ condición de buena aproximación de orden 1 }.  
+ \lim_{x\to x_0} \frac{f(x) - L(x)}{x-x_0} = 0, 
+\end{equation} en tal caso,  se cumple que \begin{equation}\label{pendiente}
+ m = \lim_{x\to x_0} \frac{f(x) - f(x_0)}{x-x_0}.
+\end{equation}   El n\'umero $m$ se llama la derivada de $f$ en $x_0$ y se nota por $ f^{'}(x_0)$ y  la condici\'on (\ref{prueba})  se llama   ``\emph{condición de buena aproximación de orden 1}" de $L$ sobre $f$ en un entorno de $x_0$ 
 \end{definition}
 
 \begin{definition}\textbf{Recta tangente.}   Sea $f: A\subseteq  \mathbb{R}\to\mathbb{R}$ derivable en $x_0 \in A^{\circ}$.   La recta 
@@ -16,22 +17,15 @@ $$ L(x) = f(x_0) + m(x-x_0) $$    satisface
 \end{definition}
 
 
-\begin{propertie}
-Sea $f: A \subseteq \mathbb{R} \to \mathbb{R}$ y $x_0 \in A^{\circ}$.   Si  $f$ es  derivable en $x_0$ entonces    
- $$  f^{'}(x_0) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x-x_0}$$ 
-\end{propertie}
-
-\begin{propertie}
-Sea $f: A \subseteq \mathbb{R} \to \mathbb{R}$ y $x_0 \in A^{\circ}$.      
-Si existe y es finito el l\'imite $$   m = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x-x_0}$$ entonces $f$ es  derivable en $x_0$   $m= f^{'}(x_0).$ 
-\end{propertie}
-
-
-
+\begin{theorem}
+Sea $f: A \subseteq \mathbb{R} \to \mathbb{R}$ y $x_0 \in A^{\circ}$. La función $f$ es derivable en $x_0$ si y solo si existe y es finito el límite
+$$ m = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x-x_0}. $$
+El n\'umero $m$ se llama la derivada de $f$ en $x_0$   y se lo nota por $f'(x_0)$.
+\end{theorem}
 
 \textbf{Nexo hacia varias variables.}  
 En el caso de funciones de varias variables, la idea es análoga: 
-en lugar de buscar una \emph{recta} que aproxime bien a la función en un punto, 
+en lugar de buscar una \emph{recta} que aproxime bien a la gr\'afica de la función en un punto, 
 buscaremos un \emph{plano} (o, en general, un hiperplano) que cumpla la misma 
 propiedad de aproximación de primer orden.
 
@@ -62,11 +56,11 @@ Si $A$ es un conjunto abierto, decimos que $f$ es \emph{diferenciable} si es dif
 
 \begin{obs} \label{def:dif_escalar_n2}  Reescribamos  la definici\'on  (\ref{def:dif_escalar}) para el caso particular $n=2$.   Sea $f: A  \subseteq  \mathbb{R}^{2} \to \R$ y $(x_0,y_0) \in \interior{A}$.  Decimos que $f$ es \emph{diferenciable} en $(x_0,y_0)$  si $\exists\: (a,b)  \in \mathbb{R}^{2}$ tal que
 \[
-  \lim_{ (x,y) \to   (x_0, y_0)}   \frac{ f(x,y ) - f( x_0,y_0 ) - a(x-x_0) - b(y-y_0)}{\norm{ (x,y)-(x_0,y_0) } }   = 0.
+  \lim_{ (x,y) \to   (x_0, y_0)}   \frac{ f(x,y ) - f( x_0,y_0 ) - (a,b)  \cdot (x-x_0, y-y_0)}{\norm{ (x,y)-(x_0,y_0) } }   = 0.
 \]
 \end{obs}
 
-\begin{definition} \textbf{Plano tangente.}\label{def:plano_tangente} Sea $f: A  \subseteq  \mathbb{R}^{2} \to \R$ diferenciable en $(x_0,y_0)$,  al plano $\pi$  de ecuaci\'on $z =  f( x_0,y_0 ) + a(x-x_0) + b(y-y_0)$ se lo llama \emph{plano tangente} a la gr\'afica de $f$ en el punto $(x_0, y_0, f(x_0, y_0)).$
+\begin{definition} \textbf{Plano tangente.}\label{def:plano_tangente} Sea $f: A  \subseteq  \mathbb{R}^{2} \to \R$ diferenciable en $(x_0,y_0)$,  al plano $\pi$  de ecuaci\'on $$z =  f( x_0,y_0 ) + a(x-x_0) + b(y-y_0)$$  se lo llama \emph{plano tangente} a la gr\'afica de $f$ en el punto $(x_0, y_0, f(x_0, y_0)).$
 \end{definition}
 
 
@@ -275,8 +269,7 @@ es parte de lo que debemos probar.
 
 
 
-\begin{obs} La implicaci\'on rec\'iproca de la proposici\'on \eqref{teo:difDer} es falsa.
-\begin{proof} Se deja como ejercicio para el lector probar que  la funci\'on  
+\begin{obs} La implicaci\'on rec\'iproca de la proposici\'on \eqref{teo:difDer} es falsa. Se deja como ejercicio para el lector probar que  la funci\'on  
  \[
         f(x,y) = 
         \begin{cases}
@@ -284,29 +277,31 @@ es parte de lo que debemos probar.
          1 & \text{ en otro caso }
         \end{cases}
 \]admite  derivadas parciales en el origen  pero no es diferenciable en dicho punto.
-\end{proof}
 \end{obs}
 
 
-\begin{definition}  Sean $f: A  \subseteq  \Rn{n} \to \R$  diferenciable en $\mathbf{x}_0 \in A^{\circ}$. Se define el gradiente de $f$ en $x_0$, y se nota $ \grad f (\mathbf{x}_0)$, a
-$$ \grad f (\mathbf{x}_0) =  (f_{x_1}(\mathbf{x}_0),...,f_{x_n}(\mathbf{x}_0) ). $$
-\end{definition}
+
 
 
 
 Una consecuencia directa del \autoref{teo:difDer} es el siguiente corolario.
+
+
 \begin{corollary}
- Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in A^{\circ}$. Son equivalentes:
- \begin{enumerate} %[I.]
-  \item $f$ es diferenciable en $\mathbf{x}_0$;
-  \item existen todas las derivadas parciales de $f$ en $\mathbf{x}_0$ y 
+Sea $f: A \subseteq \Rn{n} \to \R$ y $\mathbf{x}_0 \in A^{\circ}$. Las siguientes afirmaciones son equivalentes:
+\begin{enumerate}
+  \item $f$ es diferenciable en $\mathbf{x}_0$.
+  \item Existen todas las derivadas parciales de $f$ en $\mathbf{x}_0$ y se cumple que
   \[
-   \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \grad f (\mathbf{x}_0) \cdot (\mathbf{x} - \mathbf{x}_0)}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
+   \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - (f_{x_1}(\mathbf{x}_0), \dots, f_{x_n}(\mathbf{x}_0)) \cdot (\mathbf{x} - \mathbf{x}_0)}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
   \]
- \end{enumerate}
+\end{enumerate}
 \end{corollary}
 
 
+\begin{definition}  Sean $f: A  \subseteq  \Rn{n} \to \R$  diferenciable en $\mathbf{x}_0 \in A^{\circ}$. Se define el \textbf{gradiente de $f$ en  $\mathbf{x}_0$}, y se denota por $ \grad f (\mathbf{x}_0)$, a
+$$ \grad f (\mathbf{x}_0) =  (f_{x_1}(\mathbf{x}_0), \dots ,f_{x_n}(\mathbf{x}_0) ). $$
+\end{definition}
 
  
 \begin{tarea}  Analizar la diferenciabilidad de $f$  en $(0,0)$  siendo
@@ -387,8 +382,8 @@ Sea  $f$  un  campo escalar  diferenciable  en todo  $\mathbb{R}^{2}$  y sea   $
 \end{tarea}
 
 
-\begin{theorem} Sea  $f: A\subseteq \mathbb{R}^n \to \mathbb{R}$ una función definida en un entorno abierto $U$ de $x_0 \in A$. 
-Si $f \in C^1(U)$   entonces $f$ es diferenciable en $U$, en particular es diferenciable en $x_0.$
+\begin{theorem} Sea  $f: A\subseteq \mathbb{R}^n \to \mathbb{R}$ una función definida en un entorno abierto $U$ de $\mathbf{x}_0 \in A$. 
+Si $f \in C^1(U)$   entonces $f$ es diferenciable en $U$, en particular es diferenciable en $\mathbf{x}_0.$
 \end{theorem}
 
 \begin{theorem}\textbf{Valores extremos de la derivada direccional.} \label{teo:max_deriv}
@@ -462,78 +457,99 @@ y
 
 
 
-\begin{propertie}\label{prop:alg_dif} \textbf{\'algebra de funciones diferenciables}.  Sean $f,g:A  \subseteq  \Rn{n} \to \R$ campos escalares y $x_0 \in \interior(A)$. Supongamos que
-$f$ y $g$ son diferenciables en $x_o$.
+\begin{propertie}\label{prop:alg_dif} \textbf{\'algebra de funciones diferenciables}.  Sean $f,g:A  \subseteq  \Rn{n} \to \R$ campos escalares y $\mathbf{x}_0 \in  \interior{A}$. Supongamos que
+$f$ y $g$ son diferenciables en $\mathbf{x}_0$.
   Entonces:
   \begin{enumerate} 
-   \item[1.] $(f + g)$ es diferenciable en $x_o$ y, adem\'as,
+   \item[1.] $(f + g)$ es diferenciable en $\mathbf{x}_0$ y, adem\'as,
    \[
-    \grad(f + g)(xo) = \grad f(xo) + \grad g(xo);
+    \grad(f + g)(\mathbf{x}_0) = \grad f(\mathbf{x}_0) + \grad g(\mathbf{x}_0);
    \]
 
-   \item[2.] $\forall \alpha \in \R, \, (\alpha f)$  es diferenciable en $x_o$ y, adem\'as,
+   \item[2.] $\forall \alpha \in \R, \, (\alpha f)$  es diferenciable en $\mathbf{x}_0$ y, adem\'as,
    \[
-    \grad(\alpha f)(xo) = \alpha \grad f(xo);
+    \grad(\alpha f)(\mathbf{x}_0) = \alpha \grad f(\mathbf{x}_0);
    \]
 
-   \item[3.] $(f \cdot g)$ es diferenciable en $x_o$ y, adem\'as,
+   \item[3.] $(f \cdot g)$ es diferenciable en $\mathbf{x}_0$ y, adem\'as,
    \[
-    \grad(f \cdot g)(xo) = g(xo) \grad f(xo) + f(x_o) \grad g(xo);
+    \grad(f \cdot g)(\mathbf{x}_0) = g(\mathbf{x}_0) \grad f(\mathbf{x}_0) + f(\mathbf{x}_0) \grad g(\mathbf{x}_0);
    \]
 
-   \item[4.] si $g$ es no nula en alg\'un entorno de $x_o$, $\dfrac{f}{g}$ es diferenciable en $x_o$ y, adem\'as,
+   \item[4.] si $g$ es no nula en alg\'un entorno de $\mathbf{x}_0$ entonces  $\dfrac{f}{g}$ es diferenciable en $\mathbf{x}_0$ y, adem\'as,
    \[
-    \grad \left( \dfrac{f}{g} \right)  (xo) = \frac{g(xo) \grad f(xo) - f(x_o) \grad g(xo)}{g^2(x_o)}.
+    \grad \left( \dfrac{f}{g} \right)  (\mathbf{x}_0) = \frac{g(\mathbf{x}_0) \grad f(\mathbf{x}_0) - f(\mathbf{x}_0) \grad g(\mathbf{x}_0)}{g^2(\mathbf{x}_0)}.
    \]
 \end{enumerate}
 \end{propertie}
 
 \begin{definition}\textbf{Plano tangente a una superficie de nivel.}  Sea $f: A  \subseteq  \mathbb{R}^{3} \to \mathbb{R}$ un campo de clase $C^{1}(A)$ y sea $S$ la superficie de  nivel $c$ de $f$, es decir, $$S=\{(x,y,z) \in A: f(x,y,z)=c \}.$$ 
-Si el punto $(x_0,y_0,z_0) \in S$ y  $\grad f(x_0,y_0,z_0)$ es no nulo,  se define el plano tangente a $S$ en dicho punto al plano $\pi$ dado por la ecuaci\'on: $$\pi: \:\: \grad f(x_0,y_0,z_0) (x-x_0,y-y_0,z-z_0)=0. $$ 
+Para un  punto $(x_0,y_0,z_0) \in S$ tal que $\grad f(x_0,y_0,z_0)$ es no nulo,  se define el plano tangente a $S$ en dicho punto al plano $\pi$ dado por la ecuaci\'on: $$\pi: \:\: \grad f(x_0,y_0,z_0) (x-x_0,y-y_0,z-z_0)=0. $$ 
 \end{definition}
 
 \begin{tarea} Hallar el plano tangente a $S$ en el punto $(0,0,1)$ siendo,    $$S=\{(x,y,z)\in \mathbb{R}^{3} :  x^{2}+y^{2}+z^{2}=1 \}.$$ 
 \end{tarea}
-\begin{tarea} Sean $g: A  \subseteq  \mathbb{R}^{2} \to \mathbb{R}$ un campo escalar de clase $C^{1}(A)$  y $(x_0,y_0) \in A$, adem\'as sea   $$S=\{(x,y,z)\in \mathbb{R}^{3} :  z-g(x,y)=0 \}.$$  Hallar el plano tangente a $S$ en el punto $(x_0.y_0, g(x_0,y_0))$.
+\begin{tarea} Sean $g: A  \subseteq  \mathbb{R}^{2} \to \mathbb{R}$ un campo escalar de clase $C^{1}(A)$  y $(x_0,y_0) \in A$. Dada   $$S=\{(x,y,z)\in \mathbb{R}^{3} :  z-g(x,y)=0 \},$$  hallar el plano tangente a $S$ en el punto $(x_0.y_0, g(x_0,y_0))$.
 \end{tarea}
 
 
-\begin{definition}\textbf{Diferenciabilidad, caso general.} \label{def:dif_general}  Sean $F: A  \subseteq  \Rn{n} \to \Rn{m}$ y $\mathbf{x}_0 \in \interior{A}$. Decimos que $F$ es \emph{diferenciable en $\mathbf{x}_0$} si $\exists\:\boldsymbol{M} \in \Rnp{m}{n}$ tal que
+\begin{definition}\textbf{Diferenciabilidad, caso general.} \label{def:dif_general}  Sean $ \mathbf{F}: A  \subseteq  \Rn{n} \to \Rn{m}$ y $\mathbf{x}_0 \in \interior{A}$. Decimos que $\mathbf{F}$ es \emph{diferenciable en $\mathbf{x}_0$} si $\exists\:\boldsymbol{M} \in \Rnp{m}{n}$ tal que
 \[
-  \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{\norm{F(\mathbf{x}) - F(\mathbf{x}_0) - \boldsymbol{M} \cdot (\mathbf{x} - \mathbf{x}_0)}}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
+  \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{\norm{\mathbf{F}(\mathbf{x}) - \mathbf{F}(\mathbf{x}_0) - \boldsymbol{M}  (\mathbf{x} - \mathbf{x}_0)}}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
 \]
-Si $A$ es un conjunto abierto, decimos que $F$ es \emph{diferenciable} si es diferenciable en cada punto $\mathbf{x}_0 \in A$.
+Si $A$ es un conjunto abierto, decimos que $\mathbf{F}$ es \emph{diferenciable} si es diferenciable en cada punto $\mathbf{x}_0 \in A$.
 \end{definition}
 
-\begin{theorem}\textbf{Diferenciabilidad y existencia de derivadas parciales.} \label{teo:difDergeneral} Sean $\mathbf{F}: A  \subseteq  \mathbb{R}^{n} \to \mathbb{R}^{m}$ con $\mathbf{F}=(f_1, f_2, \dots, f_m)$ y $\mathbf{x}_0 \in \interior{(A)}$.  Si $F$ es diferenciable $\mathbf{x}_0$ , entonces existen las derivadas parciales de cada componente $f_{i}$  de $\mathbf{F}$ en $\mathbf{x}_0$ y, adem\'as,
-\[
- (f_{i})_{ x_j}(\mathbf{x}_0) = M_{ij}  \:\: \forall \:\: 1\leq i \leq m  \:\;  1 \leq j \leq m.
-\]
 
+\begin{theorem}\textbf{Diferenciabilidad y existencia de derivadas parciales en campos vectoriales.} 
+Sean $\mathbf{F}: A \subseteq \Rn{n} \to \Rn{m}$ con $\mathbf{F}=(f_1, f_2, \dots, f_m)$ y $\mathbf{x}_0 \in \interior{A}$. Si $\mathbf{F}$ es diferenciable en $\mathbf{x}_0$ con matriz de aproximación $\mathbf{M} \in \Rnp{m}{n}$, es decir, tal que cumple
+\[
+ \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{\norm{\mathbf{F}(\mathbf{x}) - \mathbf{F}(\mathbf{x}_0) - \mathbf{M}(\mathbf{x} - \mathbf{x}_0)}}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0,
+\]
+entonces existen todas las derivadas parciales de cada función componente $f_i$ en $\mathbf{x}_0$ y, además, se verifica que
+\[
+ ({f_i})_{x_j} (\mathbf{x}_0) = M_{ij} \quad \forall   \: 1 \leq i \leq  m, \quad \forall \:   1 \leq j \leq n.
+\]
 \end{theorem}
 
 
-\begin{definition}\label{def:mat_dif}\textbf{Matriz Diferencial.}  Sea $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{m}$, diferenciable en $\mathbf{x}_0\in\interior{U}$. Se define la \emph{matriz diferencial de $\mathbf{F}$ en $\mathbf{x}_0$}, y se nota por $\boldsymbol{D}_{\mathbf{F}}(\mathbf{x}_0)$ o $\boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0)$ , a
+
+
+
+\begin{corollary} \textbf{Diferenciabilidad y existencia de derivadas parciales.} \label{teo:difDergeneral}
+Sean $\mathbf{F}: A \subseteq \mathbb{R}^{n} \to \mathbb{R}^{m}$ con $\mathbf{F}=(f_1, f_2, \dots, f_m)$ y $\mathbf{x}_0 \in \interior{A}$. Las siguientes afirmaciones son equivalentes:
+\begin{enumerate}
+  \item $\mathbf{F}$ es diferenciable en $\mathbf{x}_0$.
+  \item Existen todas las derivadas parciales de cada función componente $f_i$ en $\mathbf{x}_0$ y se cumple que
   \[
- \boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0) =
-    \begin{bmatrix} 
-      \grad{f_1}(\mathbf{x}_0) \\
-      \grad{f_2}(\mathbf{x}_0) \\
-      \vdots     \\
-      \grad{f_m}(\mathbf{x}_0)
-    \end{bmatrix}
-    =
-    \begin{bmatrix} 
-      \dif{f_1}{x_1}(\mathbf{x}_0) & \dif{f_1}{x_2}(\mathbf{x}_0) & \cdots & \dif{f_1}{x_n}(\mathbf{x}_0) \\
-                     &                &        &                \\
-      \dif{f_2}{x_1}(\mathbf{x}_0) & \dif{f_2}{x_2}(\mathbf{x}_0) & \cdots & \dif{f_2}{x_n}(\mathbf{x}_0) \\
-                     &                &        &                \\
-       \vdots         &  \vdots        & \ddots & \vdots         \\
-                     &                &        &                \\
-      \dif{f_m}{x_1}(\mathbf{x}_0) & \dif{f_m}{x_2}(\mathbf{x}_0) & \cdots & \dif{f_m}{x_n}(\mathbf{x}_0)
-    \end{bmatrix},
+   \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{\norm{\mathbf{F}(\mathbf{x}) - \mathbf{F}(\mathbf{x}_0) - 
+   \begin{pmatrix}
+     (f_1)_{x_1}(\mathbf{x}_0) & \dots & (f_1)_{x_n}(\mathbf{x}_0) \\
+     \vdots & \ddots & \vdots \\
+     (f_m)_{x_1}(\mathbf{x}_0) & \dots & (f_m)_{x_n}(\mathbf{x}_0)
+   \end{pmatrix} 
+   (\mathbf{x} - \mathbf{x}_0)}}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
   \]
-  donde $\mathbf{F}=(f_1, f_2, \dots, f_m)\;|\;f_i:U\subseteq\Rn{n}\to\R,\;i=1,2,\dots, m.$
+\end{enumerate}
+\end{corollary}
+
+
+
+
+
+
+\begin{definition}\label{def:mat_dif}\textbf{Matriz Diferencial.}  Sea $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{m}$,  con $\mathbf{F}=(f_1, f_2, \dots, f_m)$,  diferenciable en $\mathbf{x}_0\in\interior{U}$. Se define la \emph{matriz diferencial de $\mathbf{F}$ en $\mathbf{x}_0$}, y se denota por $\boldsymbol{D}_{\mathbf{F}}(\mathbf{x}_0)$ o $\boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0)$ , a
+ 
+
+\[
+ \boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0) =
+   \begin{bmatrix} 
+      (f_1)_{x_1}(\mathbf{x}_0) & (f_1)_{x_2}(\mathbf{x}_0) & \cdots & (f_1)_{x_n}(\mathbf{x}_0) \\
+      (f_2)_{x_1}(\mathbf{x}_0) & (f_2)_{x_2}(\mathbf{x}_0) & \cdots & (f_2)_{x_n}(\mathbf{x}_0) \\
+      \vdots                    & \vdots                    & \ddots & \vdots                    \\
+      (f_m)_{x_1}(\mathbf{x}_0) & (f_m)_{x_2}(\mathbf{x}_0) & \cdots & (f_m)_{x_n}(\mathbf{x}_0)
+    \end{bmatrix}
+\]  
 \end{definition}
 
 % \begin{definition}
@@ -549,22 +565,22 @@ Notar que $\boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0)    \in\R^{m\times n}$.
 
 
 
-\begin{propertie}\label{prop:alg_dif_gen}  \textbf{Algebra de funciones diferenciables}  Sean $\mathbf{F},\mathbf{G}:A  \subseteq  \Rn{n} \to \R^{m}$ campos vectoriales y $x_0 \in \interior{A}$. Supongamos que $\mathbf{F}$ y $\mathbf{G}$ son diferenciables en $x_o$.
+\begin{propertie}\label{prop:alg_dif_gen}  \textbf{Algebra de funciones diferenciables}  Sean $\mathbf{F},\mathbf{G}:A  \subseteq  \Rn{n} \to \R^{m}$ campos vectoriales y $\mathbf{x}_0 \in \interior{A}$. Supongamos que $\mathbf{F}$ y $\mathbf{G}$ son diferenciables en $\mathbf{x}_0$.
   Entonces:
   \begin{enumerate} 
-   \item[1.] $\mathbf{F} + \mathbf{G}$ es diferenciable en $x_o$ y, adem\'as,
+   \item[1.] $\mathbf{F} + \mathbf{G}$ es diferenciable en $\mathbf{x}_0$ y, adem\'as,
    \[
-    \boldsymbol{D} (\mathbf{F+G})(xo) = \boldsymbol{D} \mathbf{F}(xo) + \boldsymbol{D} \mathbf{G}(xo);
+    \boldsymbol{D} (\mathbf{F+G})(\mathbf{x}_0) = \boldsymbol{D} \mathbf{F}(\mathbf{x}_0) + \boldsymbol{D} \mathbf{G}(\mathbf{x}_0);
    \]
 
-   \item[2.] $\forall \alpha \in \R, \,  \alpha \mathbf{F}$  es diferenciable en $x_o$ y, adem\'as,
+   \item[2.] $\forall \alpha \in \R, \,  \alpha \mathbf{F}$  es diferenciable en $\mathbf{x}_0$ y, adem\'as,
    \[
-    \boldsymbol{D}(\alpha \mathbf{F})(xo) = \alpha \boldsymbol{D} \mathbf{F}(xo);
+    \boldsymbol{D}(\alpha \mathbf{F})(\mathbf{x}_0) = \alpha \boldsymbol{D} \mathbf{F}(\mathbf{x}_0);
    \]
 
-   \item[3.] $\mathbf{F} \cdot \mathbf{G}$ es diferenciable en $x_o$ y, adem\'as,
+   \item[3.] $\mathbf{F} \cdot \mathbf{G}$ es diferenciable en $\mathbf{x}_0$ y, adem\'as,
    \[
-    \boldsymbol{D}(\mathbf{F} \cdot \mathbf{G})(xo) = \mathbf{G}(xo) \boldsymbol{D} \mathbf{F}(xo) + \mathbf{F}(x_o) \boldsymbol{D}  \mathbf{G}(xo);
+    \boldsymbol{D}(\mathbf{F} \cdot \mathbf{G})(\mathbf{x}_0) = \mathbf{G}(\mathbf{x}_0) \boldsymbol{D} \mathbf{F}(\mathbf{x}_0) + \mathbf{F}(\mathbf{x}_0) \boldsymbol{D}  \mathbf{G}(\mathbf{x}_0);
    \]
 \end{enumerate}
 \end{propertie}

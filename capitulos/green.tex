@@ -1,6 +1,6 @@
-\begin{theorem} \textbf{Teorema de Green.} \label{green}  Sean $U\subseteq \Rn{2}$ abierto  y   $D \subsetneq  U$ un conjunto  simplemente conexo (\autoref{def:conjuntoconexo_simp}) cuyo borde, $\partial D$, es una curva simple y cerrada.  Si  $\mathbf{F}:U\to\Rn{2}$ es de clase $\mathcal{C}^1$, entonces
+\begin{theorem} \textbf{Teorema de Green.} \label{green}  Sean $U\subseteq \Rn{2}$ abierto  y   $D \subsetneq  U$ un conjunto  simplemente conexo (\autoref{def:conjuntosimpleconexo}) cuyo borde, $\partial D$, es una curva simple,  cerrada y suave a trozos.  Si  $\mathbf{F}:U\to\Rn{2}$ es de clase $\mathcal{C}^1$, entonces  
     \[
-        \oint_{\partial D^{+}} \mathbf{F}\cdot d\mathbf{s} = \iint_D \grad\times\mathbf{F}\cdot d\mathbf{A}.
+        \oint_{\partial D^{+}} \mathbf{F}\cdot d\mathbf{s} = \iint_D \grad\times\mathbf{F}  \: dA.
     \]
 \end{theorem}
 
@@ -14,29 +14,30 @@ basta con ver la notaci\'on dada en (\ref{not_int}) y recordar que
 \]
 \end{obs}
 
-\begin{example} Evaluar la integral de línea $\oint_C -y \, dx + x \, dy$, donde $C$ es la circunferencia $x^2 + y^2 = 1$ orientada en sentido antihorario.
+\begin{example} Evaluar la integral de línea $\oint_C -y \, dx + x \, dy$, donde $C$ es la curva simple y cerrada dada por la ecuaci\'on $x^2 + y^2 = 1$ orientada en sentido antihorario.
+\end{example}
+\noindent\textbf{Solución.}  Antes de aplicar el Teorema de Green, verificamos que se cumplan las hipótesis fundamentales:
 
-Antes de aplicar el Teorema de Green, verificamos que se cumplan las hipótesis fundamentales:
 \begin{itemize}
-    \item El campo vectorial $\mathbf{F}(x,y) = (-y, x)$ tiene componentes $P(x,y) = -y$ y $Q(x,y) = x$. Al ser polinomios, son funciones de clase $C^1$ (con derivadas parciales continuas) en todo $\mathbb{R}^2$.
-    \item La curva $C$ (la circunferencia) es una curva cerrada, simple, y está orientada en sentido antihorario.
+    \item El campo vectorial $\mathbf{F}(x,y) = (-y, x)$ tiene componentes $P(x,y) = -y$ y $Q(x,y) = x$. Al ser polinomios, son funciones de clase $\mathcal{C}^1 (\mathbb{R}^2)$.
+    \item La curva $C$  es una curva cerrada, simple, suave y está orientada en sentido antihorario.
     \item La región $D$ encerrada por la curva (el disco de radio 1) es simplemente conexa.
 \end{itemize}
 
-Como se cumplen las condiciones, el Teorema de Green nos permite transformar la integral de línea a lo largo de la curva $C$ en una integral de área (integral doble) sobre la región $D$ usando la siguiente relación:
+Luego, el  Teorema de Green nos permite transformar la integral de línea a lo largo de la curva $C$ en una integral de área  sobre la región $D$ usando la siguiente relación:
 \[ \oint_C P \, dx + Q \, dy = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dA \]
 
 Calculamos las derivadas parciales de nuestro campo:
-\[ \frac{\partial Q}{\partial x} = 1 \qquad \text{y} \qquad \frac{\partial P}{\partial y} = -1 \]
+\[ \frac{\partial Q}{\partial x}(x,y) = 1 \qquad \text{y} \qquad \frac{\partial P}{\partial y}(x,y) = -1 \]
 
 Sustituimos estos valores para pasar explícitamente a la integral de área:
-\[ \oint_C -y \, dx + x \, dy = \iint_D (1 - (-1)) \, dA = \iint_D 2 \, dA \]
+\[ \oint_C -y \, dx + x \, dy = \iint_D (1 - (-1)) \, dA = \iint_D 2 \, dA =  2  \iint_D  \, dA \]
 
-Por propiedades de las integrales dobles, podemos sacar la constante afuera. La integral doble de $1 \, dA$ representa exactamente el área de la región encerrada $D$:
-\[ 2 \iint_D 1 \, dA = 2 \cdot \text{Área}(D) \]
+Usando que $D$ es un disco de radio $R = 1$  (por lo que su área es $\pi \cdot 1^2 = \pi$)  y recordando que,  
+\[  \iint_D  \, dA =  \text{Área}(D) \]
 
-Sabemos que $D$ es un disco de radio $R = 1$, por lo que su área es $\pi \cdot 1^2 = \pi$. Reemplazando este valor, obtenemos el resultado final:
-\[ 2 \cdot \pi = 2\pi \]
+Obtenemos finalmente que  
+\[ \oint_C -y \, dx + x \, dy = 2\pi \]  
 
 \begin{figure}[h!]
     \centering
@@ -62,13 +63,13 @@ Sabemos que $D$ es un disco de radio $R = 1$, por lo que su área es $\pi \cdot 
     \end{tikzpicture}
     \caption{Región de integración $D$ y su frontera orientada $C$.}
 \end{figure}
-\end{example}
+
 
 \begin{tarea}
- Para  la curva simple, cerrada y orientada $C$ formada por los segmentos  de $(0, 0)$ a $(1, 1),$ de (1,1) a $(0, 1)$ y de $(0, 1)$ vuelta al $(0, 0)$, calcular  $$\int_{C} xy \; dx + \sqrt{y^{2}+1} \; dy.$$
+ Para  la curva simple, cerrada y orientada $C$ formada por los segmentos  de $(0, 0)$ a $(1, 1),$ de (1,1) a $(0, 1)$ y de $(0, 1)$ vuelta al $(0, 0)$, calcular  \[ \int_{C} xy \; dx + \sqrt{y^{2}+1} \; dy.\] 
 \end{tarea}
 
 
 \begin{tarea}
- Sea    $D=\{  (x,y) \in \mathbb{R}^{2} \: : \: 1 \leq x ^{2}+ y^{2}  \leq  4,  x\geq 0 \}$ , calcular   $$\int_{(\partial D)^{-}} x^{2}y \; dx - xy^{2} \; dy.$$
+ Sea    $D=\{  (x,y) \in \mathbb{R}^{2} \: : \: 1 \leq x ^{2}+ y^{2}  \leq  4,  x\geq 0 \}$ , calcular    \[ \int_{(\partial D)^{-}} x^{2}y \; dx - xy^{2} \; dy.\] 
 \end{tarea}
