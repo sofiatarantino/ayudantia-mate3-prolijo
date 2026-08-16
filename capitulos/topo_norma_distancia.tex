@@ -1,5 +1,5 @@
 \begin{definition}\label{def:norma-general}
-    Una \emph{norma} en $\mathbb{R}^n$ es un campo escalar en $\mathbb{R}^n$, el cual notaremos $\| \; \|$,  que  satisface las siguientes condiciones:  dados $\mathbf{x},\;\mathbf{y} \in \mathbb{R}^n$ y $\lambda \in \mathbb{R}$:
+   Una \emph{norma} en $\mathbb{R}^n$ es una función escalar, la cual denotaremos por $$\|\cdot\|: \mathbb{R}^n \to \mathbb{R},$$ que satisface las siguientes condiciones, para todo $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ y $\lambda \in \mathbb{R}$:
     \begin{enumerate}
         \item Positividad: $\|\mathbf{x}\| \geq 0\;\land\;\|\mathbf{x}\| = 0 \iff \mathbf{x} = \boldsymbol{0}$.
         \item Homogeneidad: $\|\lambda \mathbf{x}\| = |\lambda|\|\mathbf{x}\|$.
@@ -8,31 +8,29 @@
 \end{definition}
 
 \begin{obs}
-  En $\Rn{n}$ existen infinitas campos escalares que cumplen con las condiciones reci\'en mecionadas, mostraremos algunas de ellas a continuaci\'on.
+  Existen infinitas funciones escalares que cumplen con las condiciones reci\'en mencionadas, mostraremos algunas de ellas a continuaci\'on.
 \end{obs}
 
-\begin{definition}\label{def:norm1} Se define la \emph{norma 1},  la cual notaremos por $\| \; \|_1$,  a 
+\begin{definition}\label{def:norm1}   Sean $\mathbf{x}=(x_1,\ldots,x_n) \in\Rn{n}$. Se define la \emph{norma 1},  la cual denotaremos por $\| \; \|_1,$  a 
     \[
-        \|\mathbf{x}\|_1 = \sum_{i=1}^n |x_i|,
-    \]
-    donde $\mathbf{x}=(x_1,\ldots,x_n)$. 
-    \end{definition}
+        \|\mathbf{x}\|_1 = \sum_{i=1}^n |x_i|.
+    \] 
+ \end{definition}
 
 \begin{definition}\label{def:norm2}
-   Se define la \emph{norma 2} o \emph{norma euclidiana}, la cual notaremos por  $\|\;\|_2$, a
+  Sean $\mathbf{x}=(x_1,\ldots,x_n) \in\Rn{n}$.  Se define la \emph{norma 2} o \emph{norma euclidiana}, la cual notaremos por  $\|\;\|_2$, a
     \[
         \|\mathbf{x}\|_2 = \sqrt{ \sum_{i=1}^n x_i^2 }.
     \]
-    donde $\mathbf{x}=(x_1,\ldots,x_n).$
-\end{definition}
+  \end{definition}
 
 \begin{tarea} Probar que  $\| \; \|_1$ y  $\| \; \|_2$ son efectivamente normas, es decir, que cumplen con  lo pedido en (\ref{def:norma-general}). 
 \end{tarea}
 
 \begin{definition}
-    Sean $\mathbf{x},\;\mathbf{y}\in\Rn{n}$. Se define la \emph{distancia} entre $\mathbf{x}\text{ e }\mathbf{y}$ como la funci\'on d$:\Rn{n}\times\Rn{n}\to\R$ tal que
+    Sean $\mathbf{x},\;\mathbf{y}\in\Rn{n}$. Se define la  \emph{ función distancia} entre $\mathbf{x}\text{ e }\mathbf{y}$ como la funci\'on $d:\Rn{n}\times\Rn{n}\to\R$ tal que
     \[
-        \text{d}(\mathbf{x},\mathbf{y})=\|\mathbf{x}-\mathbf{y}\|,
+        d(\mathbf{x},\mathbf{y})=\|\mathbf{x}-\mathbf{y}\|,
     \]
     donde $\|\cdot\|$ es  cualquier norma de $\Rn{n}$.
 \end{definition}

@@ -1,9 +1,11 @@
-\begin{definition} \textbf{Conjunto convexo.} \label{def:conjuntoconvexo}Sea   $A \subseteq  \mathbb{R}^{n}$.  Decimos que  \( A \) es un conjunto \emph{convexo} si para cualesquiera dos puntos \( x, y \in A \), el segmento que los une está completamente contenido en \( A \), es decir
-        \[
-        \forall x_1,y_1 \in A, \quad \lambda\vect{x}+ (1 - \lambda)y \in A \quad \text{para todo } \lambda \in [0,1].
-        \]
-        
-        \begin{center}
+\begin{definition} \textbf{Conjunto convexo.} \label{def:conjuntoconvexo}
+    Sea $A \subseteq \Rn{n}$. Decimos que $A$ es un conjunto \emph{convexo} si para cualesquiera dos puntos $\vect{x}, \vect{y} \in A$, el segmento que los une está completamente contenido en $A$, es decir:
+    \[
+     \forall \vect{x}, \vect{y} \in A, \quad \lambda \vect{x} + (1 - \lambda)\vect{y} \in A \quad \forall \lambda \in \in [0,1].
+    \]
+\end{definition}
+
+ \begin{center}
             \begin{minipage}{0.45\textwidth}
                 \centering
                 \begin{tikzpicture}
@@ -79,5 +81,5 @@
                     \node at (1.5,-2) {Conjuntos \emph{arcoconexos y no convexos}};
                 \end{tikzpicture}
                 \end{center}
-    \end{definition}
+    
     

@@ -1,17 +1,17 @@
-\begin{definition} \textbf{Bola de radio $\delta$ y centro $x_o$.} \label{def:bola}
-    Sean $x_o \in \Rn{n},\;\delta > 0$ y $\text{d}$ una distancia en $\Rn{n}$. La \emph{bola de radio $\delta$ y centro $x_o$}, que denotamos con $B_{\delta}(x_o)$, es el conjunto
+\begin{definition}\label{def:bola} 
+    \textbf{Bola de radio $\delta$ y centro $\mathbf{x}_0$.} 
+    Dados $\mathbf{x}_0 \in \Rn{n}$, $\delta > 0$ y $d$ una función distancia en $\Rn{n}$.  Se define la \emph{bola abierta de radio $\delta$ y centro $\mathbf{x}_0$}, que denotamos con $B_{\delta}(\mathbf{x}_0)$, como el conjunto
     \[
-     B_{\delta}(x_o) = \left\lbrace x \in \Rn{n} : \text{d}(x,x_o) < \delta \right\rbrace.
+     B_{\delta}(\mathbf{x}_0) = \left\lbrace \mathbf{x} \in \Rn{n} : d(\mathbf{x},\mathbf{x}_0) < \delta \right\rbrace.
     \]
     El conjunto
     \[
-     B^*_{\delta}(x_o) = B_{\delta}(x_o) \smallsetminus \{ x_o \}
+     B^*_{\delta}(\mathbf{x}_0) = B_{\delta}(\mathbf{x}_0) \smallsetminus \{ \mathbf{x}_0 \}
     \]
- se llama \emph{bola reducida de radio $\delta$ y centro $x_o$}.
-   
-   \end{definition}
+    se llama \emph{bola reducida de radio $\delta$ y centro $\mathbf{x}_0$}.
+\end{definition}
 
-   \begin{example}
+\begin{example}
     Para ilustrar lo mencionado, podemos tomar el caso de dos bolas en $\Rn{2}$ centradas en el origen, de ``radio'' $\delta$ y con distintas nociones de distancia. La primera con distancia inducida por la norma 2 y la segunda con distancia inducida por la norma 1. Se deja al lector deducir anal\'iticamente los gr\'aficos mostrados a continuaci\'on. 
 \input{figs/bola.tex}
 \end{example}
@@ -21,7 +21,7 @@
   \begin{definition} \textbf{Entorno de un punto.} \label{def:entorno}
     Sean $N  \subseteq   \Rn{n}$ y $\vect{x}_0 \in \Rn{n}$. Decimos que $N$ es \emph{entorno} de $\vect{x}_0$ si
     \[
-     \exists \delta > 0 \;|\; B_{\delta}(\vect{x}_0)  \subseteq  N.
+     \exists \delta > 0 \; \colon \; B_{\delta}(\vect{x}_0)  \subseteq  N.
     \]
    \end{definition}
 
