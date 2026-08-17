@@ -14,11 +14,8 @@ Sea $W$ el sólido limitado por el cilindro parabólico $y = x^2$ y los planos $
         ticks=none,
         clip=false
     ]
-        % Superficie lateral y=x^2. Nota: (x, y, z) -> (x, x^2, z)
+        % Superficie lateral y=x^2
         \addplot3[surf, opacity=0.3, blue, domain=-1:1, y domain=0:4, samples=25, samples y=2] (x, {x^2}, y);
-        
-        % Tapa superior en z=4
-        \addplot3[surf, opacity=0.2, orange, domain=-1:1, samples=25] (x, {x^2 + (1-x^2)*y}, 4);
         
         % Líneas de contorno para dar definición
         \addplot3[thick, blue, domain=-1:1, samples=50] (x, {x^2}, 0);
