@@ -1,6 +1,6 @@
 Para el cálculo de integrales en regiones con simetría circular, se utiliza el sistema de coordenadas polares. Un punto $(x, y)$ se relaciona con $(r, \theta)$ a trav\'ez de  la transformaci\'on:
 
-\begin{equation}\label{def:coord_polares}
+\begin{equation} \label{def:coord_polares}
 \mathbf{T}:D^*=[0,R]\times[0, 2\pi] \subseteq\Rn{2} \to D\: : \: \mathbf{T}(r, \theta ) =( r \cos \theta , r \sin \theta ).
 \end{equation} 
 
@@ -29,11 +29,126 @@ por \'ultimo,  en nuestro caso,  como $r \geq 0$, tenemos
 |J_{\mathbf{T}}| = r
 \end{equation}
 
+\clearpage
 
-\textbf{Visualización del sistema de coordenadas polares como en esféricas y cilindricas} \textcolor{red}{Agregar}
+\textbf{Visualización del sistema de coordenadas polares como en esféricas y cilindricas}
+\tikzexternaldisable % Desactiva la externalización para esta figura
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
 
+    %%% IZQUIERDA: caja D* en espacio (r, θ)
+    \begin{axis}[
+        name=izq,
+        view={110}{25},
+        width=7cm,
+        height=7cm,
+        xmin=-0.2, xmax=3.5,
+        ymin=-0.2, ymax=7.5,
+        zmin=-0.2, zmax=0.5,
+        xlabel={$r$},
+        ylabel={$\theta$},
+        axis lines=center,
+        ticks=none,
+        every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
+    ]
 
-\textbf{Cambio de coordenadas Lineales} \textcolor{red}{Agregar}
+    % Cara D* (θ ∈ [0, 2π], r ∈ [0, R])
+    \addplot3[fill=magenta!30, opacity=0.8, draw=magenta!70, thick]
+        coordinates {(0,0,0) (3,0,0) (3,6.28,0) (0,6.28,0) (0,0,0)};
+
+    % Etiqueta D*
+    \node[color=magenta!80!black, font=\Large]
+        at (axis cs: 1.5, 3.14, 0) {$D^*$};
+
+    % Cotas
+    \node[below, color=black!60, font=\small]
+        at (axis cs: 3, 0, 0) {$R$};
+    \node[above right, color=black!60, font=\small]
+        at (axis cs: 0, 6.28, 0) {$2\pi$};
+    \node[left, color=black!60, font=\small]
+        at (axis cs: 0, 0, 0) {$0$};
+
+    \end{axis}
+
+    % Label inferior izquierdo
+    \node[anchor=north, font=\small] at (izq.south)
+        {Espacio $(r,\theta)$};
+
+    %%% FLECHA T
+    \draw[-{Stealth[length=9pt, width=6pt]}, thick]
+        ($(izq.east)+(0.4,0)$)
+        -- node[above, font=\large]{$T$}
+        ++(1.5,0);
+
+    %%% DERECHA: disco D en espacio (x, y)
+    \begin{axis}[
+        name=der,
+        at={($(izq.east)+(2.4cm,0)$)},
+        anchor=west,
+        view={110}{25},
+        width=7cm,
+        height=7cm,
+        xmin=-2.8, xmax=2.8,
+        ymin=-2.8, ymax=2.8,
+        zmin=-0.2, zmax=0.5,
+        xlabel={$x$},
+        ylabel={$y$},
+        axis lines=center,
+        ticks=none,
+        every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
+    ]
+
+    % Disco D
+    \addplot3[
+        surf,
+        domain=0:360,
+        domain y=0:2,
+        samples=30,
+        samples y=5,
+        fill=green!30,
+        draw=green!55,
+        fill opacity=0.75,
+        draw opacity=0.9,
+        variable=\t,
+        variable y=\u
+    ]
+    ({\u*cos(\t)}, {\u*sin(\t)}, {0});
+
+    % Borde del disco (r = R)
+    \addplot3[
+        draw=green!70,
+        thick,
+        domain=0:360,
+        samples=60,
+        variable=\t
+    ]
+    ({2*cos(\t)}, {2*sin(\t)}, {0});
+
+    % Etiqueta D
+    \node[color=green!50!black, font=\Large]
+        at (axis cs: 0.4, 0.4, 0) {$D$};
+
+    \end{axis}
+
+    % Label inferior derecho
+    \node[anchor=north, font=\small] at (der.south)
+        {Espacio $(x,y)$};
+
+    \end{tikzpicture}
+
+    \caption{Visualización del sistema de coordenadas polares. 
+    El bloque $D^*$ a la izquierda representa la región en el espacio 
+    $(r,\theta)$ con sus límites típicos, mientras que el disco 
+    $D$ a la derecha muestra cómo se transforma esa región en el 
+    espacio $(x,y)$ mediante la transformación $T$.}
+    \label{fig:polares_cambio_figura}
+\end{figure}
+\tikzexternalenable % Vuelve a activar la externalización para las demás figuras
 
 
 \begin{example}
@@ -43,33 +158,69 @@ D = \{(x,y) \in \mathbb{R}^2 : 1 \leq x^2 + y^2 \leq 4\}.
 \]
 \end{example}
 
-Primero, dibujemos el \'area pedida   \textcolor{red}{Agregar la misma visualizacion pero con el cambio de dominio correspondiente}
+\textbf{Soluci\'on:} Primero, dibujemos el \'area pedida 
 
 
+\tikzexternaldisable
 \begin{center}
-\begin{tikzpicture}[scale=1.1]
-  % Relleno de la corona
-  \begin{scope}
-    \clip (-2.6,-2.6) rectangle (2.6,2.6);
-    \fill[blue!20] (0,0) circle (2);
-    \fill[white]   (0,0) circle (1);
+\begin{tikzpicture}[scale=0.9, >=stealth]
+
+  %%% IZQUIERDA: Dominio D* en espacio (r, theta)
+  % Relleno del rectángulo D*
+  \fill[blue!20] (1, 0) rectangle (2, 6.28);
+  % Borde del rectángulo D*
+  \draw[blue!70!black, thick] (1, 0) rectangle (2, 6.28);
+  
+  % Ejes r y theta
+  \draw[->] (-0.5, 0) -- (3.0, 0) node[right] {$r$};
+  \draw[->] (0, -0.5) -- (0, 7.0) node[above] {$\theta$};
+  
+  % Marcas y etiquetas en eje r
+  \draw (1, 0.08) -- (1, -0.08) node[below] {\small $1$};
+  \draw (2, 0.08) -- (2, -0.08) node[below] {\small $2$};
+  
+  % Marcas y etiquetas en eje theta
+  \draw (0.08, 0) -- (-0.08, 0) node[left] {\small $0$};
+  \draw (0.08, 6.28) -- (-0.08, 6.28) node[left] {\small $2\pi$};
+  
+  % Etiqueta D*
+  \node[color=blue!80!black, font=\large] at (1.5, 3.14) {$D^*$};
+  \node[below=0.6cm, font=\small] at (1.25, 0) {Espacio $(r,\theta)$};
+
+  %%% FLECHA DE TRANSFORMACIÓN T
+  \draw[->, ultra thick] (3.6, 3.14) -- node[above, font=\large] {$T$} (5.1, 3.14);
+
+  %%% DERECHA: Imagen D (Corona Circular) en espacio (x, y)
+  \begin{scope}[shift={(8.3, 3.14)}]
+    % Relleno de la corona D
+    \begin{scope}
+      \clip (-2.6, -2.6) rectangle (2.6, 2.6);
+      \fill[blue!20] (0, 0) circle (2);
+      \fill[white]   (0, 0) circle (1);
+    \end{scope}
+    
+    % Círculos bordes
+    \draw[blue!70!black, thick] (0, 0) circle (2);
+    \draw[blue!70!black, thick] (0, 0) circle (1);
+    
+    % Ejes cartesiano x e y
+    \draw[->] (-2.6, 0) -- (2.7, 0) node[right] {$x$};
+    \draw[->] (0, -2.6) -- (0, 2.7) node[above] {$y$};
+    
+    % Marcas en los ejes
+    \foreach \x in {-2,-1,1,2}
+      \draw (\x, 0.06) -- (\x, -0.06) node[below] {\small $\x$};
+    \foreach \y in {-2,-1,1,2}
+      \draw (0.06, \y) -- (-0.06, \y) node[left] {\small $\y$};
+      
+    % Etiqueta D
+    \node[color=blue!80!black, font=\large] at (1.55, -0.4) {$D$};
+    \node[below=0.6cm, font=\small] at (0, -2.1) {Espacio $(x,y)$};
   \end{scope}
-  % Círculo exterior r=2
-  \draw[blue!70!black, thick] (0,0) circle (2);
-  % Círculo interior r=1
-  \draw[blue!70!black, thick] (0,0) circle (1);
-  % Ejes
-  \draw[->] (-2.6,0) -- (2.7,0) node[right] {$x$};
-  \draw[->] (0,-2.6) -- (0,2.7) node[above] {$y$};
-  % Marcas en los ejes
-  \foreach \x in {-2,-1,1,2}
-    \draw (\x,0.06) -- (\x,-0.06) node[below] {\small $\x$};
-  \foreach \y in {-2,-1,1,2}
-    \draw (0.06,\y) -- (-0.06,\y) node[left] {\small $\y$};
-  % Etiqueta D
-  \node at (1.55, -0.4) {$D$};
+
 \end{tikzpicture}
 \end{center}
+\tikzexternalenable
 
 La región $D$ es una corona circular de radio interior $1$ y radio exterior $2$, luego podemos usar el cambio de coordenadas polares definidos en (\ref{def:coord_polares}) con la restricci\'on de dominio correspondiente, es decir, 
  \begin{equation*}
@@ -89,4 +240,6 @@ $$ \iint_D 1\, dA = \iint_{D^*} r\, dr\, d\theta= \int_0^{2\pi} \int_1^2 r\, dr\
 \begin{equation*}
 \int_0^{2\pi} \int_1^2 r\, dr\, d\theta = \int_0^{2\pi} \Big(  \int_1^2 r\, dr\,  \Big) d\theta  =  \int_0^{2\pi}  \Big( \frac{r^2}{2}\Big|_1^2 \Big)  d\theta  = \int_0^{2\pi}  \frac{3}{2}  d\theta =3\pi.
 \end{equation*}
+
+\textbf{Cambio de coordenadas Lineales} \textcolor{red}{Agregar}
 
