@@ -1,0 +1,26 @@
+\begin{figure}[H]
+        \begin{center}
+            \begin{tikzpicture}[scale=2, >=stealth]
+
+                % Puntos A y B
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (3,0);
+
+                % Primer camino: curva hacia arriba (gamma_1)
+                \draw[thick, blue, ->, decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+                    postaction={decorate}] 
+                    (A) .. controls (1,1.5) and (2,1.5) .. (B) node[midway, above] {$C_1$};
+
+                % Segundo camino: curva hacia abajo (gamma_2)
+                \draw[thick, red, ->, decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+                    postaction={decorate}] 
+                    (B) .. controls (1,-1.5) and (2,-1.5) .. (A) node[midway, below] {$C_2$};
+
+                % Nombres de los puntos
+                \filldraw (A) circle(0.03) node[below left] {$A$};
+                \filldraw (B) circle(0.03) node[below right] {$B$};
+
+            \end{tikzpicture}
+            \caption{Curvas $C_1$ y $C_2$.}
+        \end{center}
+    \end{figure}

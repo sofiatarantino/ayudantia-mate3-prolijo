@@ -5,29 +5,12 @@ Sea $W$ el sólido limitado por el cilindro parabólico $y = x^2$ y los planos $
 
 
 \textbf{Soluci\'on:}
-\begin{center}
-\begin{tikzpicture}
-    \begin{axis}[
-        view={120}{30},
-        axis lines=center,
-        xlabel=$x$, ylabel=$y$, zlabel=$z$,
-        xmin=-1.5, xmax=1.5, ymin=0, ymax=1.5, zmin=0, zmax=4.5,
-        ticks=none,
-        clip=false
-    ]
-        % Superficie lateral y=x^2
-        \addplot3[surf, opacity=0.3, blue, domain=-1:1, y domain=0:4, samples=25, samples y=2] (x, {x^2}, y);
-        
-        % Líneas de contorno para dar definición
-        \addplot3[thick, blue, domain=-1:1, samples=50] (x, {x^2}, 0);
-        \addplot3[thick, blue, domain=-1:1, samples=50] (x, {x^2}, 4);
-        \draw[thick, blue] (axis cs:-1,1,0) -- (axis cs:1,1,0);
-        \draw[thick, blue] (axis cs:-1,1,4) -- (axis cs:1,1,4);
-        
-        \node at (axis cs:0,0.5,2) {$W$};
-    \end{axis}
-\end{tikzpicture}
-\end{center}
+\begin{figure}[htbp]
+    \centering
+    % Llamamos al archivo con el código TikZ extraído
+    \input{tikz/Ejemplos/Ejemplo_822.tex} 
+    \label{fig:ejemplo 8.2.2}
+\end{figure}
 
 La región $W$ puede describirse como:
 \[
@@ -47,61 +30,11 @@ Aplicando el Teorema de Fubini:
 \(z \geq \sqrt{x^2+y^2}\).
 \end{example}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \tikzsetnextfilename{ejercicio30_figura} 
-
-    \begin{tikzpicture}[line cap=round, line join=round]
-        \begin{axis}[
-            view={135}{25}, % Cámara clásica
-            width=10cm,
-            height=10cm,
-            axis lines=center,
-            % 1. Ajustamos los ejes al nuevo tamaño de la esfera (aprox 5.65)
-            xmin=-8, xmax=8, 
-            ymin=-8, ymax=8,
-            zmin=-8, zmax=8,
-            xlabel={$x$},
-            ylabel={$y$},
-            zlabel={$z$},
-            every axis x label/.style={at={(ticklabel* cs:1.05)},anchor=north east},
-            every axis y label/.style={at={(ticklabel* cs:1.05)},anchor=north west},
-            every axis z label/.style={at={(ticklabel* cs:1.05)},anchor=south},
-            ticklabel style={font=\small},
-        ]
-
-        % Esfera de radio \sqrt{32} (Roja transparente)
-        \addplot3[
-            surf,
-            opacity=0.4,
-            color=red!50,
-            faceted color=red!70!black,
-            samples=25, 
-            domain=0:360,
-            y domain=0:180,
-            z buffer=sort
-        ]
-        ({sqrt(32)*cos(x)*sin(y)}, {sqrt(32)*sin(x)*sin(y)}, {sqrt(32)*cos(y)});
-
-        % Cono Superior z = \sqrt{x^2+y^2} (Celeste transparente)
-        \addplot3[
-            surf,
-            opacity=0.5,
-            color=cyan!40,
-            faceted color=cyan!70!black,
-            samples=25,
-            samples y=2, 
-            domain=0:360,
-            % 2. El cono se interseca en z=4. Le damos hasta 4.5 para que lo atraviese bien
-            y domain=0:4.5, 
-            z buffer=sort
-        ]
-        ({y*cos(x)}, {y*sin(x)}, {y});
-
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Representación de la región pedida. \href{https://www.geogebra.org/m/pvzc3wke}{Ver en GeoGebra}}
-    \label{fig:ejercicio30_figura}
+    % Llamamos al archivo con el código TikZ extraído
+    \input{tikz/Ejemplos/Ejemplo_823.tex} 
+    \label{fig:Ejemplo 8.2.3}
 \end{figure}
 
 

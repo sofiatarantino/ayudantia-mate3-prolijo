@@ -1,0 +1,66 @@
+\tikzexternaldisable
+    \centering
+    \tikzsetnextfilename{conj_elemental2_R3}
+    \begin{tikzpicture}
+    \begin{axis}[
+        view={125}{25}, % Rotado para que el sólido "venga" hacia adelante
+        width=12cm, height=12cm,
+        grid=none,
+        axis lines=center,
+        xmin=0, xmax=5,
+        ymin=0, ymax=6, % Eje de profundidad y proyectado
+        zmin=0, zmax=5,
+        xtick={1,4}, xticklabels={$a$,$b$},
+        ytick=\empty, ztick=\empty,
+        xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+        every axis x label/.style={at={(ticklabel* cs:1)},anchor=north east},
+        every axis y label/.style={at={(ticklabel* cs:1)},anchor=north west},
+        every axis z label/.style={at={(ticklabel* cs:1)},anchor=south},
+        clip=false
+    ]
+
+    % --- 0. Plano de fondo Lila (xz en y=0) ---
+    \addplot3 [surf, domain=0:5, domain y=0:5, samples=2, opacity=0.1, colormap={lila}{color=(purple!30) color=(purple!30)}, shader=interp, draw=none] (x,0,y);
+
+    % --- 1. Dominio D_2 en R2 (Plano xz) ---
+    % Relleno de D2
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=2, opacity=0.15, colormap={gray}{color=(gray!20) color=(gray!20)}, shader=interp, draw=none] 
+        (x, 0, y);
+    % Bordes punteados negros rectangulares
+    \draw[dashed, black, thick] (1, 0, 1.2) -- (4, 0, 1.2) -- (4, 0, 3.5) -- (1, 0, 3.5) -- cycle;
+
+    % --- 2. Paredes del volumen (proyectadas en y) ---
+    % Pared en z = 3.5 (Toma en cuenta z=3.5 para cerrar perfecto con el techo)
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        (x, { (1-y)*(1.2 + 0.2*sin(x*50) + 0.1*3.5) + y*(4.5 + 0.3*cos(x*40) - 0.2*3.5) }, 3.5);
+    % Pared en z = 1.2 (Toma en cuenta z=1.2 para cerrar perfecto con el techo)
+    \addplot3 [surf, domain=1:4, domain y=0:1, samples=20, opacity=0.3, colormap={teal}{color=(teal!40) color=(teal!40)}, shader=interp, draw=none] 
+        (x, { (1-y)*(1.2 + 0.2*sin(x*50) + 0.1*1.2) + y*(4.5 + 0.3*cos(x*40) - 0.2*1.2) }, 1.2);
+
+    % --- 3. Superficie Trasera y = eta12 ---
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=25, opacity=0.6, colormap={cyan}{color=(cyan!30) color=(cyan!30)}, shader=interp, draw=none] 
+        (x, { 1.2 + 0.2*sin(x*50) + 0.1*y }, y);
+
+    % --- 4. Superficie Delantera y = eta22 (Mirando al frente) ---
+    \addplot3 [surf, domain=1:4, domain y=1.2:3.5, samples=25, opacity=0.7, colormap={blue}{color=(blue!50) color=(blue!50)}, shader=interp, draw=none] 
+        (x, { 4.5 + 0.3*cos(x*40) - 0.2*y }, y);
+
+    % --- 5. Proyecciones punteadas al plano ---
+    \draw[dashed, thin] (1,0,1.2) -- (1, {1.2 + 0.2*sin(50) + 0.1*1.2}, 1.2);
+    \draw[dashed, thin] (4,0,3.5) -- (4, {1.2 + 0.2*sin(200) + 0.1*3.5}, 3.5);
+
+    % --- 6. Etiquetas y flechas (ajustadas para que no tapen la figura) ---
+    \node at (2.5, 0, 2.35) {$D_2$};
+    
+    % Flecha para la cara delantera (techo)
+    \node[anchor=south west] at (3.5, 5.5, 4.5) {$y = \eta_{22}(x,z)$};
+    \draw[->, thin] (3.5, 5.4, 4.4) to[out=200, in=60] (2.8, 4.1, 2.8);
+    
+    % Flecha para la cara trasera (piso curvo)
+    \node[anchor=north west] at (3.8, 0.5, 0.5) {$y = \eta_{12}(x,z)$};
+    \draw[->, thin] (3.8, 0.7, 0.6) to[out=135, in=300] (2.2, 1.7, 1.8);
+
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Conjunto elemental de Tipo 2.}
+
