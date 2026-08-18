@@ -35,9 +35,42 @@
 
 
 \begin{example} Si $C$ es la curva simple frontera de la región delimitada por la recta $y = x$ y la parábola $y = 6x - x^2$, calcular, indicando la orientaci\'on elegida,   la integral de línea $$\displaystyle\oint_{C} xy\,dx + y^2\,dy.$$ 
+
+
+\textbf{Solución:} Las curvas que delimitan la región se cortan cuando $x = 6x - x^2$, es decir $x(x-5) = 0$, lo que da los puntos $A(0,0)$ y $B(5,5)$. Para $0 \le x \le 5$ se verifica $x \le 6x - x^2$, de modo que la parábola queda por encima de la recta y la región encerrada por $C$ es
+\[
+D = \{(x,y)\in\mathbb{R}^2 : 0 \le x \le 5,\ x \le y \le 6x - x^2\}.
+\]
+
+\begin{center}
+\input{tikz/Integrales de Trayectoria y de Linea/Ejemplo_723.tex}
+\end{center}
+
+Elegimos la \emph{orientación positiva} (antihoraria), en la que $D$ queda a la izquierda al recorrer $C$. Con esta convención, la curva se descompone en dos tramos independientes: el segmento $C_1$ que va de $A(0,0)$ hasta $B(5,5)$ sobre la recta $y=x$, y el arco $C_2$ que vuelve de $B(5,5)$ hasta $A(0,0)$ sobre la parábola. Entonces,el trabajo del campo $\mathbf{F}(x,y) = (xy,\, y^2)$ sobre la curva $C$, resulta
+\[
+\oint_C xy\, dx + y^2\, dy \;=\; \int_{C_1} \mathbf{F}\cdot d\mathbf{s} \;+\; \int_{C_2} \mathbf{F}\cdot d\mathbf{s}.
+\]
+
+\textbf{1. Tramo $C_1$:} Desde $(0,0)$ hasta $(5,5)$.
+Parametrizamos el segmento lineal mediante la trayectoria $\boldsymbol{\sigma}_1(t) = (t, t)$ con $t \in [0,5]$, cuyo vector tangente es $\boldsymbol{\sigma}_1'(t) = (1, 1)$. Planteando la integral de trayectoria obtenemos:
+\[
+\int_{C_1} \mathbf{F}\cdot d\mathbf{s} \;=\; \int_0^5 (t^2,\, t^2)\cdot(1,\,1)\, dt \;=\; \int_0^5 2t^2\, dt \;=\; \frac{250}{3}.
+\]
+
+\textbf{2. Tramo $C_2$:} Desde $(5,5)$ hasta $(0,0)$.
+Parametrizamos el arco de parábola mediante $\boldsymbol{\sigma}_2(t) = (t,\, 6t - t^2)$ recorrido en sentido decreciente, con $t$ variando de $5$ a $0$. Su vector tangente es $\boldsymbol{\sigma}_2'(t) = (1,\, 6 - 2t)$, por lo que
+\begin{align*}
+\int_{C_2} \mathbf{F}\cdot d\mathbf{s} &= \int_5^0 \big(t(6t - t^2),\, (6t-t^2)^2\big)\cdot(1,\, 6-2t)\, dt \\
+&= -\int_0^5 \Big[(6t^2 - t^3) + (6t - t^2)^2(6 - 2t)\Big]\, dt \\
+&= -\int_0^5 \big(222\,t^2 - 145\,t^3 + 30\,t^4 - 2\,t^5\big)\, dt \;=\; -\frac{1625}{12}.
+\end{align*}
+
+Sumando ambas contribuciones se obtiene finalmente
+\[
+\oint_C xy\, dx + y^2\, dy \;=\; \frac{250}{3} - \frac{1625}{12} \;=\; \frac{1000 - 1625}{12} \;=\; -\frac{625}{12}.
+\]
 \end{example}
 
-\textcolor{red}{poner una ilustracion y resolver respentando la notacion con la cual venimos escribiendo}
 
 \begin{example}\label{ej:trabajo_poligonal}
 Hallar el trabajo realizado por el campo vectorial $\mathbf{F}(x,y) = (x^2y,\, x-y)$ al mover una partícula a lo largo de la trayectoria poligonal cerrada $C$ que une los puntos $A(0,0) \to B(2,3) \to C(4,2) \to A(0,0)$.
