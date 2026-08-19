@@ -1,0 +1,58 @@
+\tikzexternaldisable
+\begin{center}
+\begin{tikzpicture}[scale=0.9, >=stealth]
+
+  %%% IZQUIERDA: Dominio D* en espacio (u, v)
+  % Relleno del cuadrado D*
+  \fill[blue!20] (0, 0) rectangle (1, 1);
+  % Borde del cuadrado D*
+  \draw[blue!70!black, thick] (0, 0) rectangle (1, 1);
+
+  % Ejes u y v
+  \draw[->] (-0.6, 0) -- (2.0, 0) node[right] {$u$};
+  \draw[->] (0, -0.6) -- (0, 2.0) node[above] {$v$};
+
+  % Marcas y etiquetas en los ejes
+  \draw (1, 0.06) -- (1, -0.06) node[below] {\small $1$};
+  \draw (0.06, 1) -- (-0.06, 1) node[left] {\small $1$};
+  \node[below left] at (0,0) {\small $0$};
+
+  % Etiqueta D*
+  \node[color=blue!80!black, font=\large] at (0.5, 0.5) {$D^*$};
+  \node[below=0.6cm, font=\small] at (0.5, 0) {Espacio $(u,v)$};
+
+  %%% FLECHA DE TRANSFORMACIÓN T
+  \draw[->, ultra thick] (2.6, 1) -- node[above, font=\large] {$T$} (4.1, 1);
+  \node[below, font=\small] at (3.35, 1) {$T(u,v)=u\mathbf{a}+v\mathbf{b}$};
+
+  %%% DERECHA: Imagen D (Paralelogramo) en espacio (x, y)
+  \begin{scope}[shift={(5.4, 0)}]
+
+    % Relleno del paralelogramo D
+    \fill[blue!20] (0,0) -- (1.6,0.5) -- (2.1,2.0) -- (0.5,1.5) -- cycle;
+    % Borde del paralelogramo D
+    \draw[blue!70!black, thick] (0,0) -- (1.6,0.5) -- (2.1,2.0) -- (0.5,1.5) -- cycle;
+
+    % Ejes cartesianos x e y
+    \draw[->] (-0.6, 0) -- (2.9, 0) node[right] {$x$};
+    \draw[->] (0, -0.6) -- (0, 2.6) node[above] {$y$};
+
+    % Vectores generadores a y b desde el origen
+    \draw[-{Stealth}, ultra thick, red!70!black] (0,0) -- (1.6,0.5);
+    \draw[-{Stealth}, ultra thick, red!70!black] (0,0) -- (0.5,1.5);
+    \node[below right, color=red!70!black] at (1.6,0.5) {$\mathbf{a}$};
+    \node[above left, color=red!70!black] at (0.5,1.5) {$\mathbf{b}$};
+
+    % Vértices O y a+b
+    \node[below left] at (0,0) {\small $O$};
+    \node[above right] at (2.1,2.0) {\small $\mathbf{a}+\mathbf{b}$};
+
+    % Etiqueta D
+    \node[color=blue!80!black, font=\large] at (1.3, 0.85) {$D$};
+    \node[below=0.6cm, font=\small] at (1.05, 0) {Espacio $(x,y)$};
+
+  \end{scope}
+
+\end{tikzpicture}
+\end{center}
+\tikzexternalenable

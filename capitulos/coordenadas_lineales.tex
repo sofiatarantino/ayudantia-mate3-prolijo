@@ -1,0 +1,57 @@
+Para el c\'alculo de integrales en regiones que son la imagen de un rect\'angulo bajo una transformaci\'on lineal, como paralelogramos se utiliza un cambio de coordenadas lineal. Dados dos vectores $\mathbf{a}=(a_1,a_2), \mathbf{b}=(b_1,b_2) \in \Rn{2}$ linealmente independientes, un punto $(x,y)$ se relaciona con $(u,v)$ a trav\'ez de la transformaci\'on:
+
+\begin{equation} \label{def:coord_lineales}
+\mathbf{T}:D^*\subseteq\Rn{2} \to D\: : \: \mathbf{T}(u, v ) = u\,\mathbf{a} + v\,\mathbf{b} = (a_1 u + b_1 v,\, a_2 u + b_2 v).
+\end{equation}
+
+\vspace{0.2cm}
+
+Para el c\'alculo del \emph{Determinante Jacobiano} de $T$ primero calculamos su matriz diferencial $D_\mathbf{T}$, siendo, en este caso, $T$ una transformaci\'on lineal, su matriz diferencial coincide con la matriz de la transformaci\'on,
+       \begin{equation*}
+       \boldsymbol{D}_{\mathbf{T}}(u, v)
+       =
+       \begin{pmatrix}
+       a_1 & b_1 \\
+       a_2 & b_2
+       \end{pmatrix}
+      \end{equation*}
+   luego, el jacobiano es
+       \begin{equation}\label{ejemplo_jacobiano_lineales}
+       J_{\mathbf{T}}(u, v) = \det(\boldsymbol{D}_{\mathbf{T}})(u, v) = a_1 b_2 - a_2 b_1,
+      \end{equation}
+
+es decir, el jacobiano de una transformaci\'on lineal es constante, no depende del punto $(u,v)$ donde se lo eval\'ue, y coincide con el determinante de la matriz que define a $T$.
+
+\vspace{0.2cm}
+
+\textbf{Visualizaci\'on del sistema de coordenadas lineales:}
+\begin{figure}[htbp]
+    \centering
+    % Llamamos al archivo con el código TikZ extraído
+    \input{tikz/Integrales dobles y triples/Lineales.tex} 
+    \label{fig:Visualizacion lineales}
+\end{figure}
+
+
+\begin{example}
+Hallar el \'area del paralelogramo $D$ de v\'ertices $(0,0)$, $\mathbf{a}=(3,1)$, $\mathbf{b}=(1,2)$ y $\mathbf{a}+\mathbf{b}=(4,3)$.
+\end{example}
+
+\textbf{Soluci\'on:} El paralelogramo $D$ es la imagen del cuadrado unitario $D^*=[0,1]\times[0,1]$ bajo la transformaci\'on lineal definida en (\ref{def:coord_lineales}) con $\mathbf{a}=(3,1)$ y $\mathbf{b}=(1,2)$, es decir,
+\begin{equation*}
+\mathbf{T}:D^*=[0,1]\times[0,1] \subseteq\Rn{2} \to D\: : \: \mathbf{T}(u, v ) = u(3,1) + v(1,2) = (3u+v,\, u+2v).
+\end{equation*}
+
+Siguiendo la Definici\'on \ref{def:area}, el \'area se calcula como:
+\begin{equation*}
+A(D) = \iint_D 1\, dA
+\end{equation*}
+
+luego, por el Teorema de cambio de variable (\ref{ teo:cambio_variables_r2}) y recordando (\ref{ejemplo_jacobiano_lineales})
+$$ \iint_D 1\, dA = \iint_{D^*} |J_\mathbf{T}|\, du\, dv= \int_0^{1} \int_0^1 |3\cdot 2 - 1 \cdot 1|\, du\, dv $$
+
+por \'ultimo, usando el Teorema de Fubbinni (\ref{col:fubini})
+
+\begin{equation*}
+\int_0^{1} \int_0^1 5\, du\, dv = \int_0^{1} \Big(  \int_0^1 5\, du\,  \Big) dv  =  \int_0^{1}  5 \, dv = 5.
+\end{equation*}
