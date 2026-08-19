@@ -1,116 +1,51 @@
-\tikzexternaldisable % Desactiva la externalización para esta figura
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
+\tikzexternaldisable
+\begin{center}
+\begin{tikzpicture}[scale=0.9, >=stealth]
 
-    %%% IZQUIERDA: caja D* en espacio (r, θ)
-    \begin{axis}[
-        name=izq,
-        view={110}{25},
-        width=7cm,
-        height=7cm,
-        xmin=-0.2, xmax=3.5,
-        ymin=-0.2, ymax=7.5,
-        zmin=-0.2, zmax=0.5,
-        xlabel={$r$},
-        ylabel={$\theta$},
-        axis lines=center,
-        ticks=none,
-        every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
-        every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
-        every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
-    ]
+  %%% IZQUIERDA: Dominio D* en espacio (r, theta)
+  % Relleno del rectángulo D*
+  \fill[blue!20] (0, 0) rectangle (2, 6.28);
+  % Borde del rectángulo D*
+  \draw[blue!70!black, thick] (0, 0) rectangle (2, 6.28);
 
-    % Cara D* (θ ∈ [0, 2π], r ∈ [0, R])
-    \addplot3[fill=magenta!30, opacity=0.8, draw=magenta!70, thick]
-        coordinates {(0,0,0) (3,0,0) (3,6.28,0) (0,6.28,0) (0,0,0)};
+  % Ejes r y theta
+  \draw[->] (-0.6, 0) -- (3.0, 0) node[right] {$r$};
+  \draw[->] (0, -0.6) -- (0, 7.2) node[above] {$\theta$};
 
-    % Etiqueta D*
-    \node[color=magenta!80!black, font=\Large]
-        at (axis cs: 1.5, 3.14, 0) {$D^*$};
+  % Marcas y etiquetas en los ejes
+  \draw (2, 0.06) -- (2, -0.06) node[below] {\small $R$};
+  \draw (0.06, 6.28) -- (-0.06, 6.28) node[left] {\small $2\pi$};
+  \node[below left] at (0,0) {\small $0$};
 
-    % Cotas
-    \node[below, color=black!60, font=\small]
-        at (axis cs: 3, 0, 0) {$R$};
-    \node[above right, color=black!60, font=\small]
-        at (axis cs: 0, 6.28, 0) {$2\pi$};
-    \node[left, color=black!60, font=\small]
-        at (axis cs: 0, 0, 0) {$0$};
+  % Etiqueta D*
+  \node[color=blue!80!black, font=\large] at (1, 3.14) {$D^*$};
+  \node[below=0.6cm, font=\small] at (1, 0) {Espacio $(r,\theta)$};
 
-    \end{axis}
+  %%% FLECHA DE TRANSFORMACIÓN T
+  \draw[->, ultra thick] (3.6, 3.14) -- node[above, font=\large] {$T$} (5.1, 3.14);
 
-    % Label inferior izquierdo
-    \node[anchor=north, font=\small] at (izq.south)
-        {Espacio $(r,\theta)$};
+  %%% DERECHA: Imagen D (Disco) en espacio (x, y)
+  \begin{scope}[shift={(8.3, 3.14)}]
 
-    %%% FLECHA T
-    \draw[-{Stealth[length=9pt, width=6pt]}, thick]
-        ($(izq.east)+(0.4,0)$)
-        -- node[above, font=\large]{$T$}
-        ++(1.5,0);
+    % Relleno del disco D
+    \fill[blue!20] (0,0) circle (2);
+    % Borde del disco D
+    \draw[blue!70!black, thick] (0,0) circle (2);
 
-    %%% DERECHA: disco D en espacio (x, y)
-    \begin{axis}[
-        name=der,
-        at={($(izq.east)+(2.4cm,0)$)},
-        anchor=west,
-        view={110}{25},
-        width=7cm,
-        height=7cm,
-        xmin=-2.8, xmax=2.8,
-        ymin=-2.8, ymax=2.8,
-        zmin=-0.2, zmax=0.5,
-        xlabel={$x$},
-        ylabel={$y$},
-        axis lines=center,
-        ticks=none,
-        every axis x label/.style={at={(ticklabel* cs:1.05)}, anchor=north east},
-        every axis y label/.style={at={(ticklabel* cs:1.05)}, anchor=north west},
-        every axis z label/.style={at={(ticklabel* cs:1.05)}, anchor=south},
-    ]
+    % Ejes cartesianos x e y
+    \draw[->] (-2.6, 0) -- (2.7, 0) node[right] {$x$};
+    \draw[->] (0, -2.6) -- (0, 2.7) node[above] {$y$};
 
-    % Disco D
-    \addplot3[
-        surf,
-        domain=0:360,
-        domain y=0:2,
-        samples=30,
-        samples y=5,
-        fill=green!30,
-        draw=green!55,
-        fill opacity=0.75,
-        draw opacity=0.9,
-        variable=\t,
-        variable y=\u
-    ]
-    ({\u*cos(\t)}, {\u*sin(\t)}, {0});
-
-    % Borde del disco (r = R)
-    \addplot3[
-        draw=green!70,
-        thick,
-        domain=0:360,
-        samples=60,
-        variable=\t
-    ]
-    ({2*cos(\t)}, {2*sin(\t)}, {0});
+    % Radio de referencia con etiqueta R
+    \draw[red!70!black, thick] (0,0) -- (2*0.7071, 2*0.7071);
+    \node[above right, color=red!70!black] at (2*0.7071, 2*0.7071) {\small $R$};
 
     % Etiqueta D
-    \node[color=green!50!black, font=\Large]
-        at (axis cs: 0.4, 0.4, 0) {$D$};
+    \node[color=blue!80!black, font=\large] at (0.6, -0.6) {$D$};
+    \node[below=0.6cm, font=\small] at (0, -2.6) {Espacio $(x,y)$};
 
-    \end{axis}
+  \end{scope}
 
-    % Label inferior derecho
-    \node[anchor=north, font=\small] at (der.south)
-        {Espacio $(x,y)$};
-
-    \end{tikzpicture}
-    \caption{Visualización del sistema de coordenadas polares. 
-    El bloque $D^*$ a la izquierda representa la región en el espacio 
-    $(r,\theta)$ con sus límites típicos, mientras que el disco 
-    $D$ a la derecha muestra cómo se transforma esa región en el 
-    espacio $(x,y)$ mediante la transformación $T$.}
-    \label{fig:polares_cambio_figura}
-\end{figure}
-\tikzexternalenable % Vuelve a activar la externalización para las demás figuras
+\end{tikzpicture}
+\end{center}
+\tikzexternalenable
