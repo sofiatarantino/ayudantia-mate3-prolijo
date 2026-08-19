@@ -74,11 +74,12 @@
         at={($(izq.east)+(2.4cm,0)$)},
         anchor=west,
         view={110}{25},
-        width=7cm,
-        height=7cm,
-        xmin=-2.8, xmax=2.8,
-        ymin=-2.8, ymax=2.8,
-        zmin=-0.2, zmax=3,
+        unit vector ratio=1 1 1,
+        width=8cm,
+        height=8cm,
+        xmin=-3, xmax=3,
+        ymin=-3, ymax=3,
+        zmin=-0.6, zmax=3.3,
         xlabel={$x$},
         ylabel={$y$},
         zlabel={$z$},
@@ -91,21 +92,21 @@
 
     % Disco inferior (z = 0)
     \addplot3[surf, fill=green!25, draw=green!55,
-              fill opacity=0.8, draw opacity=0.9,
+              fill opacity=0.35, draw opacity=0.85,
               domain=0:360, y domain=0:2,
               samples=36, samples y=3, shader=flat]
         ({y*cos(x)}, {y*sin(x)}, {0});
 
     % Superficie lateral
     \addplot3[surf, fill=green!20, draw=green!45,
-              fill opacity=0.65, draw opacity=0.8,
+              fill opacity=0.3, draw opacity=0.75,
               domain=0:360, y domain=0:2.5,
               samples=36, samples y=10, shader=flat]
         ({2*cos(x)}, {2*sin(x)}, {y});
 
     % Disco superior (z = 2.5)
     \addplot3[surf, fill=green!35, draw=green!60,
-              fill opacity=0.9, draw opacity=1,
+              fill opacity=0.4, draw opacity=0.95,
               domain=0:360, y domain=0:2,
               samples=36, samples y=3, shader=flat]
         ({y*cos(x)}, {y*sin(x)}, {2.5});

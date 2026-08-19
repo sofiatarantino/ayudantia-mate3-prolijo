@@ -74,11 +74,12 @@
         at={($(izq.east)+(2.4cm,0)$)},
         anchor=west,
         view={110}{25},
+        unit vector ratio=1 1 1,
         width=7cm,
         height=7cm,
-        xmin=-2.8, xmax=2.8,
-        ymin=-2.8, ymax=2.8,
-        zmin=-2.8, zmax=3.2,
+        xmin=-3, xmax=3,
+        ymin=-3, ymax=3,
+        zmin=-3, zmax=3,
         xlabel={$x$},
         ylabel={$y$},
         zlabel={$z$},
@@ -90,17 +91,19 @@
     ]
 
     % Hemisferio inferior
-    \addplot3[surf, fill=green!20, draw=green!45,
-              fill opacity=0.65, draw opacity=0.8,
+    \addplot3[surf, draw=green!45,
+              point meta=0, colormap={verdeinf}{color=(green!20) color=(green!20)},
+              fill opacity=0.32, draw opacity=0.75,
               domain=0:360, y domain=90:180,
-              samples=36, samples y=10, shader=flat]
+              samples=48, samples y=22, shader=interp]
         ({2*cos(x)*sin(y)}, {2*sin(x)*sin(y)}, {2*cos(y)});
 
     % Hemisferio superior
-    \addplot3[surf, fill=green!30, draw=green!55,
-              fill opacity=0.75, draw opacity=0.9,
+    \addplot3[surf, draw=green!55,
+              point meta=0, colormap={verdesup}{color=(green!30) color=(green!30)},
+              fill opacity=0.38, draw opacity=0.85,
               domain=0:360, y domain=0:90,
-              samples=36, samples y=10, shader=flat]
+              samples=48, samples y=22, shader=interp]
         ({2*cos(x)*sin(y)}, {2*sin(x)*sin(y)}, {2*cos(y)});
 
     % Circulo ecuatorial (z = 0)

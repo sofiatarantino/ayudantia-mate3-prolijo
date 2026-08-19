@@ -1,8 +1,8 @@
 
     \centering
- 
-    \tikzsetnextfilename{ej_esfera_elemental} 
-    
+
+    \tikzsetnextfilename{ej_esfera_elemental}
+
     \begin{tikzpicture}[line cap=round, line join=round]
         \begin{axis}[
             view={135}{25}, % Cámara clásica
@@ -10,9 +10,10 @@
             height=10cm,
             axis lines=center,
             % Ajustamos los ejes a la esfera de radio 1
-            xmin=-1.5, xmax=1.5, 
+            xmin=-1.5, xmax=1.5,
             ymin=-1.5, ymax=1.5,
             zmin=-1.5, zmax=1.5,
+            xtick=\empty, ytick=\empty, ztick=\empty,
             xlabel={$x$},
             ylabel={$y$},
             zlabel={$z$},
@@ -23,13 +24,14 @@
             ticklabel style={font=\small},
         ]
 
-        % Esfera unitaria x^2 + y^2 + z^2 = 1 (Roja transparente)
+        % Esfera unitaria x^2 + y^2 + z^2 = 1 (malla liviana para no saturar la superficie)
         \addplot3[
             surf,
-            opacity=0.4,
+            opacity=0.45,
             color=purple!30,
-            faceted color=purple!30!black,
-            samples=25, % Reducido para no saturar la memoria
+            faceted color=purple!35,
+            line width=0.15pt,
+            samples=16, % Reducido para que la malla no sature la superficie
             domain=0:360,
             y domain=0:180,
             z buffer=sort
