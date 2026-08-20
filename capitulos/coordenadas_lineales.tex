@@ -4,6 +4,12 @@ Para el c\'alculo de integrales en regiones que son la imagen de un rect\'angulo
 \mathbf{T}:D^*\subseteq\Rn{2} \to D\: : \: \mathbf{T}(u, v ) = u\,\mathbf{a} + v\,\mathbf{b} = (a_1 u + b_1 v,\, a_2 u + b_2 v).
 \end{equation}
 
+Observemos que $\mathbf{T}$ es precisamente una \emph{transformaci\'on lineal} en el sentido de la Definici\'on \ref{def:TL}: dados $(u_1,v_1),(u_2,v_2)\in\Rn{2}$ y $\alpha,\beta\in\R$, se cumple
+\begin{equation*}
+\mathbf{T}\big(\alpha(u_1,v_1)+\beta(u_2,v_2)\big)=\alpha\,\mathbf{T}(u_1,v_1)+\beta\,\mathbf{T}(u_2,v_2),
+\end{equation*}
+es decir, $\mathbf{T}$ satisface la condici\'on de linealidad (\ref{tl}).
+
 \vspace{0.2cm}
 
 Para el c\'alculo del \emph{Determinante Jacobiano} de $T$ primero calculamos su matriz diferencial $D_\mathbf{T}$, siendo, en este caso, $T$ una transformaci\'on lineal, su matriz diferencial coincide con la matriz de la transformaci\'on,
@@ -20,7 +26,9 @@ Para el c\'alculo del \emph{Determinante Jacobiano} de $T$ primero calculamos su
        J_{\mathbf{T}}(u, v) = \det(\boldsymbol{D}_{\mathbf{T}})(u, v) = a_1 b_2 - a_2 b_1,
       \end{equation}
 
-es decir, el jacobiano de una transformaci\'on lineal es constante, no depende del punto $(u,v)$ donde se lo eval\'ue, y coincide con el determinante de la matriz que define a $T$.
+es decir, el jacobiano de una transformaci\'on lineal es constante, no depende del punto $(u,v)$ donde se lo eval\'ue, y coincide con el determinante de la matriz que define a $T$. Esto es consecuencia directa de que $T$ es lineal: sus derivadas parciales son constantes, por lo que tambi\'en lo es $\boldsymbol{D}_\mathbf{T}$ y, en consecuencia, $J_\mathbf{T}$.
+
+Otra propiedad importante de este cambio de coordenadas es que, al ser $T$ lineal, las rectas de la regi\'on $D^*$ se transforman en rectas de la regi\'on $D$: las figuras no se curvan, s\'olo se rotan, trasladan o estiran. En particular, $T$ manda paralelogramos en paralelogramos.
 
 \vspace{0.2cm}
 
