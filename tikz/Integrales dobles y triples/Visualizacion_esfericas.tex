@@ -75,11 +75,11 @@
         anchor=west,
         view={110}{25},
         unit vector ratio=1 1 1,
-        width=7cm,
-        height=7cm,
-        xmin=-3, xmax=3,
-        ymin=-3, ymax=3,
-        zmin=-3, zmax=3,
+        width=9cm,
+        height=9cm,
+        xmin=-4.5, xmax=4.5,
+        ymin=-4.5, ymax=4.5,
+        zmin=-4.5, zmax=4.5,
         xlabel={$x$},
         ylabel={$y$},
         zlabel={$z$},
@@ -93,7 +93,7 @@
     % Hemisferio inferior
     \addplot3[surf, draw=green!45,
               point meta=0, colormap={verdeinf}{color=(green!20) color=(green!20)},
-              fill opacity=0.32, draw opacity=0.75,
+              fill opacity=0.45, draw opacity=0.75,
               domain=0:360, y domain=90:180,
               samples=48, samples y=22, shader=interp]
         ({2*cos(x)*sin(y)}, {2*sin(x)*sin(y)}, {2*cos(y)});
@@ -101,14 +101,10 @@
     % Hemisferio superior
     \addplot3[surf, draw=green!55,
               point meta=0, colormap={verdesup}{color=(green!30) color=(green!30)},
-              fill opacity=0.38, draw opacity=0.85,
+              fill opacity=0.52, draw opacity=0.85,
               domain=0:360, y domain=0:90,
               samples=48, samples y=22, shader=interp]
         ({2*cos(x)*sin(y)}, {2*sin(x)*sin(y)}, {2*cos(y)});
-
-    % Circulo ecuatorial (z = 0)
-    \addplot3[draw=green!70, thick, domain=0:360, samples=60]
-        ({2*cos(x)}, {2*sin(x)}, {0});
 
     % Etiqueta W
     \node[color=green!50!black, font=\Large]

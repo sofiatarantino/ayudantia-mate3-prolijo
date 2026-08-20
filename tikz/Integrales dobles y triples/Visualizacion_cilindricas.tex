@@ -75,11 +75,11 @@
         anchor=west,
         view={110}{25},
         unit vector ratio=1 1 1,
-        width=8cm,
-        height=8cm,
-        xmin=-3, xmax=3,
-        ymin=-3, ymax=3,
-        zmin=-0.6, zmax=3.3,
+        width=9cm,
+        height=9cm,
+        xmin=-4.5, xmax=4.5,
+        ymin=-4.5, ymax=4.5,
+        zmin=-1.7, zmax=4.4,
         xlabel={$x$},
         ylabel={$y$},
         zlabel={$z$},
@@ -91,24 +91,27 @@
     ]
 
     % Disco inferior (z = 0)
-    \addplot3[surf, fill=green!25, draw=green!55,
-              fill opacity=0.35, draw opacity=0.85,
+    \addplot3[surf, draw=none,
+              point meta=0, colormap={verdedisco1}{color=(green!25) color=(green!25)},
+              fill opacity=0.5,
               domain=0:360, y domain=0:2,
-              samples=36, samples y=3, shader=flat]
+              samples=36, samples y=3, shader=interp]
         ({y*cos(x)}, {y*sin(x)}, {0});
 
     % Superficie lateral
-    \addplot3[surf, fill=green!20, draw=green!45,
-              fill opacity=0.3, draw opacity=0.75,
+    \addplot3[surf, draw=none,
+              point meta=0, colormap={verdelateral}{color=(green!20) color=(green!20)},
+              fill opacity=0.42,
               domain=0:360, y domain=0:2.5,
-              samples=36, samples y=10, shader=flat]
+              samples=36, samples y=10, shader=interp]
         ({2*cos(x)}, {2*sin(x)}, {y});
 
     % Disco superior (z = 2.5)
-    \addplot3[surf, fill=green!35, draw=green!60,
-              fill opacity=0.4, draw opacity=0.95,
+    \addplot3[surf, draw=none,
+              point meta=0, colormap={verdedisco2}{color=(green!35) color=(green!35)},
+              fill opacity=0.56,
               domain=0:360, y domain=0:2,
-              samples=36, samples y=3, shader=flat]
+              samples=36, samples y=3, shader=interp]
         ({y*cos(x)}, {y*sin(x)}, {2.5});
 
     % Etiqueta W
